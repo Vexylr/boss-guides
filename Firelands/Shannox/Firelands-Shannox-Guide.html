@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -90,9 +90,11 @@
       a { color: #ff9a3c; }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="firelands">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
@@ -132,7 +134,7 @@
       <h2>Overview</h2>
     </div>
     <p style="margin-bottom:16px;">
-      Shannox is fought with his two hounds <strong>Riplimb</strong> and <strong>Rageface</strong>. He throws <span class="mech-badge">Hurl Spear</span>; <strong>Riplimb</strong> fetches it (while Shannox has no spear he does less damage). <span class="mech-badge">Crystal Prison Traps</span> appear at random, <strong>arm after 2 seconds</strong>, and can imprison Rageface or Riplimb. <span class="mech-badge">Immolation Trap</span> (fire patches) exists on <strong>Normal and Heroic</strong>. <span class="pill-n">[N]</span> Both dogs must die <strong>before Shannox reaches ~30% HP</strong> or they <strong>enrage</strong> and one-shot the raid. <span class="pill-h">[H]</span> Dogs <strong>do not</strong> need to die â€” <strong>trap</strong> them to reset stacks, land a <strong>40k+ crit</strong> on Rageface during <strong>Face Rage</strong> to break it, and mostly DPS the boss (often easier than Normal dog juggling). <strong>Jagged Tear</strong> still applies to tanks.
+      Shannox is fought with his two hounds <strong>Riplimb</strong> and <strong>Rageface</strong>. He throws <span class="mech-badge">Hurl Spear</span>; <strong>Riplimb</strong> fetches it (while Shannox has no spear he does less damage). <span class="mech-badge">Crystal Prison Traps</span> appear at random, <strong>arm after 2 seconds</strong>, and can imprison Rageface or Riplimb. <span class="mech-badge">Immolation Trap</span> (fire patches) exists on <strong>Normal and Heroic</strong>. <span class="pill-n">[N]</span> Both dogs must die <strong>before Shannox reaches ~30% HP</strong> or they <strong>enrage</strong> and one-shot the raid. <span class="pill-h">[H]</span> Dogs <strong>do not</strong> need to die — <strong>trap</strong> them to reset stacks, land a <strong>40k+ crit</strong> on Rageface during <strong>Face Rage</strong> to break it, and mostly DPS the boss (often easier than Normal dog juggling). <strong>Jagged Tear</strong> still applies to tanks.
     </p>
     <table class="guide-table">
       <thead><tr><th>Phase</th><th>Goal</th></tr></thead>
@@ -152,6 +154,7 @@
       <div class="section-icon">&#128293;</div>
       <h2>Health &amp; Timers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px 0;">Numeric values are <strong>approximate</strong> and vary by patch, difficulty, and server tuning. Use them for relative scale only.</p>
     <table class="guide-table">
       <thead>
         <tr>
@@ -169,7 +172,7 @@
       </tbody>
     </table>
     <ul class="guide-list" style="margin-top:16px;">
-      <li><strong>Hurl Spear</strong> <span class="pill-b">[N/H]</span>: Shannox throws spear; Riplimb fetches and returns it. While Riplimb is <strong>trapped</strong>, he can't fetch â€” Shannox stays without spear (reduced damage).</li>
+      <li><strong>Hurl Spear</strong> <span class="pill-b">[N/H]</span>: Shannox throws spear; Riplimb fetches and returns it. While Riplimb is <strong>trapped</strong>, he can't fetch — Shannox stays without spear (reduced damage).</li>
       <li><strong>Crystal Prison Trap</strong> <span class="pill-b">[N/H]</span>: Placed at random; <strong>arms after 2 seconds</strong>. Immobilizes first unit that steps in. Use to trap Rageface (stop Face Rage) or Riplimb (stop spear fetch).</li>
       <li><strong>Frenzy</strong> <span class="pill-b">[N/H]</span>: When a dog dies, Shannox gains +<strong>30% Physical damage and attack speed</strong>; stacks <strong>twice</strong> (60%) if both die. <span class="pill-h">[H]</span> you usually avoid killing dogs; still know the Frenzy timer if one dies accidentally.</li>
     </ul>
@@ -187,7 +190,7 @@
     <h3>Shannox <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
       <li><strong>Hurl Spear:</strong> Throws spear at a location; Riplimb fetches it. When Riplimb returns the spear, Shannox hits harder. <strong>Trap Riplimb</strong> in Crystal Prisons when the spear is down.</li>
-      <li><strong>Arcing Slash:</strong> Cleave that applies <strong>Jagged Tear</strong> (stacking Physical DoT, ~3 s ticks, ~24â€“30 s). Tanks use defensives when stacks are high.</li>
+      <li><strong>Arcing Slash:</strong> Cleave that applies <strong>Jagged Tear</strong> (stacking Physical DoT, ~3 s ticks, ~24–30 s). Tanks use defensives when stacks are high.</li>
       <li>Tank Shannox away from raid; position so Rageface and Riplimb can be kited over traps.</li>
     </ul>
     <h3>Riplimb <span class="pill-b">[N/H]</span></h3>
@@ -276,10 +279,10 @@
         <tr><td>Tank Shannox + Rageface (or trap Rageface)</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         <tr><td>Crystal Prison: arm 2 s; trap Riplimb or Rageface</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         <tr><td>Rageface: 5 Rage stacks = devour; trap or kill first</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
-        <tr><td>Jagged Tear on tanks â€” defensives when high</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+        <tr><td>Jagged Tear on tanks — defensives when high</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         <tr><td>Frenzy when dog dies (+30%, stacks twice)</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         <tr><td>Kill order: Rageface/Riplimb then Shannox (or simultaneous)</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
-        <tr><td>Immolation Trap</td><td class="dash">â€”</td><td><span class="check">&#10003;</span> Avoid</td></tr>
+        <tr><td>Immolation Trap</td><td class="dash">—</td><td><span class="check">&#10003;</span> Avoid</td></tr>
       </tbody>
     </table>
   </div>

@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hagara the Stormbinder â€” Dragon Soul Boss Guide</title>
+  <title>Hagara the Stormbinder — Dragon Soul Boss Guide</title>
   <meta name="description" content="Complete Normal & Heroic guide for Hagara the Stormbinder in Dragon Soul. Ice tombs, Lightning phase chain, Crystal phase, Focused Assault, Ice Lance. Health, timers, strategy." />
   <meta name="theme-color" content="#0c1222" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
@@ -127,9 +127,11 @@
       a { color: #e8c547; }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="dragon-soul">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
@@ -171,7 +173,7 @@
       <h2>Overview</h2>
     </div>
     <p style="color:var(--muted); margin-bottom:22px;">
-      <strong style="color:#fff;">Hagara the Stormbinder</strong> is the <strong style="color:#fff;">fourth boss</strong> of Dragon Soul. The fight alternates between a <strong style="color:#fff;">main phase</strong> (<span class="mech-badge">Ice Tombs</span>, <span class="mech-badge">Focused Assault</span>) and two <strong>intermission phases</strong>: <strong>Lightning</strong> (conductors / chain lightning) and <strong>Ice / Crystal</strong> (shield + crystals). <span class="mech-badge">Ice Lance</span> exists on <strong>both difficulties</strong>; on <strong>Heroic</strong> the bolts hit much harder, so ranged players <strong>soak lines together</strong> (e.g. Shadow Priest takes six bolts, Warlock soaks the rest) instead of relying on interrupts alone. Heroic Ice intermission adds <span class="mech-badge">Frostflake</span> (slow â†’ root â†’ dispel leaves a frost pool) and requires <strong>stacking on one crystal</strong> for damage. Lightning Heroic uses either <strong>two pairs running the ring</strong> with everyone mid, or a <strong>star pattern</strong> with fixed spots per player to instantly charge conductors.
+      <strong style="color:#fff;">Hagara the Stormbinder</strong> is the <strong style="color:#fff;">fourth boss</strong> of Dragon Soul. The fight alternates between a <strong style="color:#fff;">main phase</strong> (<span class="mech-badge">Ice Tombs</span>, <span class="mech-badge">Focused Assault</span>) and two <strong>intermission phases</strong>: <strong>Lightning</strong> (conductors / chain lightning) and <strong>Ice / Crystal</strong> (shield + crystals). <span class="mech-badge">Ice Lance</span> exists on <strong>both difficulties</strong>; on <strong>Heroic</strong> the bolts hit much harder, so ranged players <strong>soak lines together</strong> (e.g. Shadow Priest takes six bolts, Warlock soaks the rest) instead of relying on interrupts alone. Heroic Ice intermission adds <span class="mech-badge">Frostflake</span> (slow → root → dispel leaves a frost pool) and requires <strong>stacking on one crystal</strong> for damage. Lightning Heroic uses either <strong>two pairs running the ring</strong> with everyone mid, or a <strong>star pattern</strong> with fixed spots per player to instantly charge conductors.
     </p>
     <div class="callout danger">
       <span class="callout-icon">&#9888;</span>
@@ -189,12 +191,12 @@
       <div class="phase-card">
         <div class="phase-label">Lightning phase</div>
         <div class="phase-range">Intermission</div>
-        <div class="phase-desc">Chain lightning / conductors. NM: spread basics. HC: two duos kite the ring or star-soak every pillar â€” pick one strat and drill it.</div>
+        <div class="phase-desc">Chain lightning / conductors. NM: spread basics. HC: two duos kite the ring or star-soak every pillar — pick one strat and drill it.</div>
       </div>
       <div class="phase-card">
         <div class="phase-label">Crystal phase</div>
         <div class="phase-range">Intermission</div>
-        <div class="phase-desc">Shield + crystals. [H] Frostflake debuff â€” dispel inside Alexstraszaâ€™s bubble so pools donâ€™t cover the lane; stack raid on one pillar for damage.</div>
+        <div class="phase-desc">Shield + crystals. [H] Frostflake debuff — dispel inside Alexstrasza’s bubble so pools don’t cover the lane; stack raid on one pillar for damage.</div>
       </div>
     </div>
   </div>
@@ -209,6 +211,7 @@
       <div class="section-icon">&#9812;</div>
       <h2>Health &amp; Timers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px 0;">Numeric values are <strong>approximate</strong> and vary by patch, difficulty, and server tuning. Use them for relative scale only.</p>
     <table class="guide-table">
       <thead>
         <tr>
@@ -236,10 +239,10 @@
         </tr>
         <tr>
           <td><strong>Shield crystals</strong></td>
-          <td class="hp-num">â€”</td>
-          <td class="hp-num">â€”</td>
-          <td class="hp-num">â€”</td>
-          <td class="hp-num">â€”</td>
+          <td class="hp-num">—</td>
+          <td class="hp-num">—</td>
+          <td class="hp-num">—</td>
+          <td class="hp-num">—</td>
         </tr>
       </tbody>
     </table>
@@ -247,7 +250,7 @@
       <div class="enrage-box-title">&#9888; Enrage</div>
       <ul class="guide-list">
         <li><strong>6-minute enrage.</strong> Hagara gains <span class="mech-badge">Fury</span>. Kill before enrage.</li>
-        <li><strong>Main phase</strong> lasts ~50 seconds, then Hagara enters an intermission: either <strong>Lightning</strong> (chain lightning â€” spread) or <strong>Ice / Crystal</strong> (shield, destroy crystals). After each intermission she takes <strong>increased damage for 15 seconds</strong> â€” good burn window.</li>
+        <li><strong>Main phase</strong> lasts ~50 seconds, then Hagara enters an intermission: either <strong>Lightning</strong> (chain lightning — spread) or <strong>Ice / Crystal</strong> (shield, destroy crystals). After each intermission she takes <strong>increased damage for 15 seconds</strong> — good burn window.</li>
         <li>Focused Assault: tank swap or mitigate; Ice Tombs must be broken quickly every time.</li>
       </ul>
     </div>
@@ -264,33 +267,33 @@
       <h2>Phases &amp; Mechanics</h2>
     </div>
 
-    <h3>Main phase â€” Ice Tombs, Ice Lance &amp; Focused Assault <span class="pill-b">[N/H]</span></h3>
+    <h3>Main phase — Ice Tombs, Ice Lance &amp; Focused Assault <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li><span class="mech-badge">Ice Tomb</span>: Hagara freezes one or more players in an ice block. The trapped player takes damage over time and cannot act. The <strong>tomb is a destructible object</strong> â€” the raid must switch to it and break it to free the player before they die.</li>
-      <li><span class="mech-badge">Ice Lance</span> <span class="pill-b">[N/H]</span>: Hagara fires lances down cardinal lines. <span class="pill-n">[N]</span> Damage is lower but still lethal if ignored â€” ranged should <strong>soak with a partner</strong> when possible. <span class="pill-h">[H]</span> Bolts hit much harder: assign <strong>soakers per line</strong> (e.g. SP soaks six bolts, Warlock covers the rest). The <strong>second Ice Lance intermission</strong> of the fight can spawn <strong>only two lines instead of three</strong> â€” adjust positions when the raid leader calls it.</li>
-      <li>Assign 1â€“2 DPS (or all if needed) to swap to tombs as soon as they appear. Healers keep the trapped player alive while the tomb is being broken.</li>
+      <li><span class="mech-badge">Ice Tomb</span>: Hagara freezes one or more players in an ice block. The trapped player takes damage over time and cannot act. The <strong>tomb is a destructible object</strong> — the raid must switch to it and break it to free the player before they die.</li>
+      <li><span class="mech-badge">Ice Lance</span> <span class="pill-b">[N/H]</span>: Hagara fires lances down cardinal lines. <span class="pill-n">[N]</span> Damage is lower but still lethal if ignored — ranged should <strong>soak with a partner</strong> when possible. <span class="pill-h">[H]</span> Bolts hit much harder: assign <strong>soakers per line</strong> (e.g. SP soaks six bolts, Warlock covers the rest). The <strong>second Ice Lance intermission</strong> of the fight can spawn <strong>only two lines instead of three</strong> — adjust positions when the raid leader calls it.</li>
+      <li>Assign 1–2 DPS (or all if needed) to swap to tombs as soon as they appear. Healers keep the trapped player alive while the tomb is being broken.</li>
       <li><span class="mech-badge">Focused Assault</span>: Hagara focuses on the tank or a target with a heavy attack (frontal cleave or single-target). Tank swap if it stacks, or use cooldowns. Face her away from the raid.</li>
     </ul>
 
     <h3>Lightning phase (intermission) <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
       <li>Hagara becomes immune and channels lightning mechanics (conductors, chained bolts). <span class="pill-n">[N]</span> Basic approach: <strong>spread</strong> so chains break or bounce safely; heal chip damage.</li>
-      <li><span class="pill-h">[H]</span> Two common setups: <strong>(1) Two groups of two</strong> players run opposite directions on the ring while everyone else stays mid â€” pairs touch each conductor in sequence. <strong>(2) Star pattern</strong> â€” every player has a fixed clock spot so the raid instantly closes every lightning pillar without improvising mid-cast.</li>
+      <li><span class="pill-h">[H]</span> Two common setups: <strong>(1) Two groups of two</strong> players run opposite directions on the ring while everyone else stays mid — pairs touch each conductor in sequence. <strong>(2) Star pattern</strong> — every player has a fixed clock spot so the raid instantly closes every lightning pillar without improvising mid-cast.</li>
       <li>When the channel ends, Hagara returns to the main phase and takes <strong>increased damage for 15 seconds</strong>.</li>
     </ul>
     <div class="callout tip">
       <span class="callout-icon">&#9888;</span>
       <div class="callout-text">
-        <strong>Lightning:</strong> <span class="pill-n">[N]</span> Spread assignments still help. <span class="pill-h">[H]</span> Pick star <em>or</em> duo-runner strat before pull â€” mixing them mid-fight wipes the raid.
+        <strong>Lightning:</strong> <span class="pill-n">[N]</span> Spread assignments still help. <span class="pill-h">[H]</span> Pick star <em>or</em> duo-runner strat before pull — mixing them mid-fight wipes the raid.
       </div>
     </div>
 
     <h3>Ice / Crystal phase (intermission) <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
       <li>Hagara gains a <strong>shield</strong> and is immune. Crystals spawn around the room. The raid must <strong>destroy the crystals</strong> to break her shield; until then she cannot be damaged.</li>
-      <li><span class="pill-h">[H]</span> <span class="mech-badge">Frostflake</span> (Snowflake): random players are slowed until rooted; when <strong>dispelled</strong> they drop a large frost pool that slows everyone. <strong>Dispel only inside Alexstraszaâ€™s bubble</strong> at the center so the bad ground stays off the run path. Druids (shapeshift), Paladins (Freedom), Rogues (Cloak) can self-clear â€” <strong>still do it in the bubble</strong> because the pool remains either way.</li>
-      <li><span class="pill-h">[H]</span> <strong>Stack the entire raid on one shield crystal</strong> while breaking the Frost pillars â€” HC tuning expects stacked cleave/AoE to beat the shield timer.</li>
-      <li>All DPS switch to crystals. Once the shield is down, resume DPS on Hagara. <strong>For 15 seconds after the intermission</strong> she takes increased damage â€” use this window to burn.</li>
+      <li><span class="pill-h">[H]</span> <span class="mech-badge">Frostflake</span> (Snowflake): random players are slowed until rooted; when <strong>dispelled</strong> they drop a large frost pool that slows everyone. <strong>Dispel only inside Alexstrasza’s bubble</strong> at the center so the bad ground stays off the run path. Druids (shapeshift), Paladins (Freedom), Rogues (Cloak) can self-clear — <strong>still do it in the bubble</strong> because the pool remains either way.</li>
+      <li><span class="pill-h">[H]</span> <strong>Stack the entire raid on one shield crystal</strong> while breaking the Frost pillars — HC tuning expects stacked cleave/AoE to beat the shield timer.</li>
+      <li>All DPS switch to crystals. Once the shield is down, resume DPS on Hagara. <strong>For 15 seconds after the intermission</strong> she takes increased damage — use this window to burn.</li>
     </ul>
     <div class="callout tip">
       <span class="callout-icon">&#9888;</span>
@@ -313,8 +316,8 @@
     <div style="background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.3); border-radius:14px; padding:22px; margin-bottom:20px;">
       <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:12px;">&#128301; Heroic emphasis (Ice Lance + Frostflake + pillars)</div>
       <ul class="guide-list">
-        <li><strong>Ice Lance</strong> is not a Heroic-only mechanic â€” it is simply <strong>mandatory to soak/share</strong> on Heroic because each bolt deals far more damage. Plan ranged pairs or trios per line before the pull.</li>
-        <li><strong>Frostflake</strong> dispels must happen <strong>inside the center bubble</strong>; never dispel on the lane. Self-dispels still drop the pool â€” still use the bubble.</li>
+        <li><strong>Ice Lance</strong> is not a Heroic-only mechanic — it is simply <strong>mandatory to soak/share</strong> on Heroic because each bolt deals far more damage. Plan ranged pairs or trios per line before the pull.</li>
+        <li><strong>Frostflake</strong> dispels must happen <strong>inside the center bubble</strong>; never dispel on the lane. Self-dispels still drop the pool — still use the bubble.</li>
         <li><strong>Lightning + Ice intermissions</strong> both gain tighter positioning checks; use the 15s burn windows after each intermission to make up for lost uptime.</li>
       </ul>
     </div>
@@ -390,8 +393,8 @@
       </thead>
       <tbody>
         <tr><td><strong>Ice Tomb</strong></td><td>DPS break tomb to free player; heal tomb target.</td></tr>
-        <tr><td><strong>Focused Assault</strong></td><td>Tank frontal/cleave â€” face boss away; swap or CD.</td></tr>
-        <tr><td><strong>Lightning phase</strong></td><td>Spread out; chain lightning â€” heal through.</td></tr>
+        <tr><td><strong>Focused Assault</strong></td><td>Tank frontal/cleave — face boss away; swap or CD.</td></tr>
+        <tr><td><strong>Lightning phase</strong></td><td>Spread out; chain lightning — heal through.</td></tr>
         <tr><td><strong>Crystal phase</strong></td><td>Kill crystals to break Hagara's shield; then DPS boss.</td></tr>
         <tr><td><strong>Ice Lance</strong> <span class="pill-h">[H]</span></td><td>Interrupt or immune; heal target.</td></tr>
         <tr><td><strong>Enrage</strong></td><td>6 minutes. Kill before then.</td></tr>
@@ -403,7 +406,7 @@
 
 <footer class="guide-footer">
   <div class="container">
-    <p>&#9812; <strong>Dragon Soul â€” Hagara the Stormbinder</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p>&#9812; <strong>Dragon Soul — Hagara the Stormbinder</strong> · Boss Guide · Normal &amp; Heroic · 10 &amp; 25 Player</p>
     <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Yorsaj the Unsleeping/DS-Yorsaj-Guide.html">Yor'sahj &#8592;</a> &nbsp;|&nbsp; <a href="../Ultraxion/DS-Ultraxion-Guide.html">Ultraxion &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
     <div class="copyright-block" role="contentinfo">
       <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />

@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Al'Akir â€” Throne of the Four Winds Boss Guide</title>
+  <title>Al'Akir — Throne of the Four Winds Boss Guide</title>
   <meta name="description" content="Normal & Heroic guide for Al'Akir. Phase 1 spread, Squall Line, Wind Burst. Phase 2 Acid Rain, Stormlings, Feedback. Phase 3 fly, Lightning Cloud." />
   <meta name="theme-color" content="#0c4a6e" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,16 +65,18 @@
     @media (max-width:768px){.phase-cards{grid-template-columns:1fr;}.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
     @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#0c4a6e!important;}body{background:#0c4a6e!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#38bdf8;}}
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="four-winds">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">&#9729; Throne of the Four Winds &#183; Tier 11</div>
     <h1>Al'Akir</h1>
-    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide · 10 &amp; 25 Player</div>
     <div class="tag-legend">
       <span class="tag tag-n">[N] Normal Only</span>
       <span class="tag tag-h">[H] Heroic Only</span>
@@ -106,22 +108,22 @@
       <h2>Overview</h2>
     </div>
     <p style="color:var(--muted); margin-bottom:20px;">
-      <strong style="color:white;">Al'Akir</strong> has three phases. <strong>Phase 1 (100â€“80%):</strong> Spread in small groups so <span class="mech-badge">Lightning Strike</span> doesn't chain (bounces for full damage). Dodge <span class="mech-badge">Squall Line</span> (wall of cyclones â€” move through gaps). Avoid <span class="mech-badge">Ice Storm</span> and ice patches. <span class="mech-badge">Wind Burst</span> (4s cast) â€” stack close to boss so you're not knocked off. <span class="mech-badge">Static Shock</span> interrupts casters in melee (red zone); casters stay at range (green). <strong>Phase 2 (80â€“25%):</strong> Stack; <span class="mech-badge">Acid Rain</span> ramps. <span class="mech-badge">Stormlings</span> â€” tank away; killing one gives Al'Akir <span class="mech-badge">Feedback</span> (+10% damage taken). Keep Stormlings low, kill to refresh/stack Feedback; burn boss. <strong>Phase 3 (25â€“0%):</strong> Platform breaks; raid flies. Stack high; <span class="mech-badge">Lightning Cloud</span> spawns on random player â€” move down together; <span class="mech-badge">Lightning Rod</span> move out horizontally. Wind Burst still â€” stay close to boss.
+      <strong style="color:white;">Al'Akir</strong> has three phases. <strong>Phase 1 (100–80%):</strong> Spread in small groups so <span class="mech-badge">Lightning Strike</span> doesn't chain (bounces for full damage). Dodge <span class="mech-badge">Squall Line</span> (wall of cyclones — move through gaps). Avoid <span class="mech-badge">Ice Storm</span> and ice patches. <span class="mech-badge">Wind Burst</span> (4s cast) — stack close to boss so you're not knocked off. <span class="mech-badge">Static Shock</span> interrupts casters in melee (red zone); casters stay at range (green). <strong>Phase 2 (80–25%):</strong> Stack; <span class="mech-badge">Acid Rain</span> ramps. <span class="mech-badge">Stormlings</span> — tank away; killing one gives Al'Akir <span class="mech-badge">Feedback</span> (+10% damage taken). Keep Stormlings low, kill to refresh/stack Feedback; burn boss. <strong>Phase 3 (25–0%):</strong> Platform breaks; raid flies. Stack high; <span class="mech-badge">Lightning Cloud</span> spawns on random player — move down together; <span class="mech-badge">Lightning Rod</span> move out horizontally. Wind Burst still — stay close to boss.
     </p>
     <div class="phase-cards">
       <div class="phase-card">
         <div class="phase-label">Phase 1</div>
-        <div class="phase-range">100% â†’ 80%</div>
+        <div class="phase-range">100% → 80%</div>
         <div class="phase-desc">Spread (8 groups of 3). Dodge Squall Line gaps, Ice Storm. Wind Burst: stack close. Static Shock: casters at range.</div>
       </div>
       <div class="phase-card">
         <div class="phase-label">Phase 2</div>
-        <div class="phase-range">80% â†’ 25%</div>
+        <div class="phase-range">80% → 25%</div>
         <div class="phase-desc">Stack. Acid Rain ramps. Stormlings: tank away; kill to apply/refresh Feedback. Burn with Feedback stacks.</div>
       </div>
       <div class="phase-card">
         <div class="phase-label">Phase 3</div>
-        <div class="phase-range">25% â†’ 0%</div>
+        <div class="phase-range">25% → 0%</div>
         <div class="phase-desc">Fly; stack high. Lightning Cloud: move down together. Lightning Rod: move out horizontally. Stay close for Wind Burst.</div>
       </div>
     </div>
@@ -134,14 +136,14 @@
   <div class="container">
     <div class="section-header">
       <div class="section-icon">&#9729;</div>
-      <h2>Phase 1 (100% â†’ 80%)</h2>
+      <h2>Phase 1 (100% → 80%)</h2>
     </div>
     <ul class="guide-list">
-      <li><span class="mech-badge">Lightning Strike</span> â€” targets random player, bounces to others for full damage. Split into 8 groups of ~3 so only 1â€“2 get hit. <span class="pill-h">[H]</span> Strike stays in area â€” briefly move to another group then return.</li>
-      <li><span class="mech-badge">Squall Line</span> â€” wall of cyclones moves around platform (clockwise or counter). Find gaps and move through. Hit = 5s loss of control + Nature DoT.</li>
-      <li><span class="mech-badge">Ice Storm</span> â€” moves along path, leaves ice patches (slow). Avoid.</li>
-      <li><span class="mech-badge">Wind Burst</span> â€” 4s cast; knocks back + Nature damage. Move close to boss before it finishes to avoid being knocked off. (Falling = wind carries you back but you take damage.)</li>
-      <li><span class="mech-badge">Static Shock</span> â€” interrupts casters in melee range. Ranged/casters stay in "green" zone; tank in "red."</li>
+      <li><span class="mech-badge">Lightning Strike</span> — targets random player, bounces to others for full damage. Split into 8 groups of ~3 so only 1–2 get hit. <span class="pill-h">[H]</span> Strike stays in area — briefly move to another group then return.</li>
+      <li><span class="mech-badge">Squall Line</span> — wall of cyclones moves around platform (clockwise or counter). Find gaps and move through. Hit = 5s loss of control + Nature DoT.</li>
+      <li><span class="mech-badge">Ice Storm</span> — moves along path, leaves ice patches (slow). Avoid.</li>
+      <li><span class="mech-badge">Wind Burst</span> — 4s cast; knocks back + Nature damage. Move close to boss before it finishes to avoid being knocked off. (Falling = wind carries you back but you take damage.)</li>
+      <li><span class="mech-badge">Static Shock</span> — interrupts casters in melee range. Ranged/casters stay in "green" zone; tank in "red."</li>
       <li>Tank: stay in melee or Al'Akir uses <span class="mech-badge">Electrocute</span> (ramping damage).</li>
     </ul>
   </div>
@@ -153,12 +155,12 @@
   <div class="container">
     <div class="section-header">
       <div class="section-icon">&#9729;</div>
-      <h2>Phase 2 (80% â†’ 25%)</h2>
+      <h2>Phase 2 (80% → 25%)</h2>
     </div>
     <ul class="guide-list">
-      <li>No Ice Storm or Lightning Strike â€” raid can stack. Static Shock and Squall Line continue.</li>
-      <li><span class="mech-badge">Acid Rain</span> â€” raid-wide damage that increases over time. DPS race to reach 25% before it overwhelms healers.</li>
-      <li><span class="mech-badge">Stormling</span> â€” spawns every 20s. Off-tank pick up, tank away (AoE to nearby). When a Stormling dies, Al'Akir gets <span class="mech-badge">Feedback</span> (+10% damage taken, duration). Get first 2 Stormlings low; when 3rd spawns kill first to apply Feedback. Refresh by killing next Stormling when Feedback has ~5s left; repeat to build stacks. With several Feedback stacks, pop DPS cooldowns and burn.</li>
+      <li>No Ice Storm or Lightning Strike — raid can stack. Static Shock and Squall Line continue.</li>
+      <li><span class="mech-badge">Acid Rain</span> — raid-wide damage that increases over time. DPS race to reach 25% before it overwhelms healers.</li>
+      <li><span class="mech-badge">Stormling</span> — spawns every 20s. Off-tank pick up, tank away (AoE to nearby). When a Stormling dies, Al'Akir gets <span class="mech-badge">Feedback</span> (+10% damage taken, duration). Get first 2 Stormlings low; when 3rd spawns kill first to apply Feedback. Refresh by killing next Stormling when Feedback has ~5s left; repeat to build stacks. With several Feedback stacks, pop DPS cooldowns and burn.</li>
     </ul>
   </div>
 </section>
@@ -169,13 +171,13 @@
   <div class="container">
     <div class="section-header">
       <div class="section-icon">&#9729;</div>
-      <h2>Phase 3 (25% â†’ 0%)</h2>
+      <h2>Phase 3 (25% → 0%)</h2>
     </div>
     <ul class="guide-list">
-      <li>Platform breaks; <span class="mech-badge">Eye of the Storm</span> â€” raid flies with increased speed. Lightning around outskirts â€” stay in center, stack high.</li>
-      <li><span class="mech-badge">Lightning Cloud</span> â€” spawns at random player's location. Entire raid move <strong>down</strong> together out of cloud, then stay as high as possible without being in it. Repeat every ~30s. Low DPS: do 2 clouds at top, fly to bottom; 3rd cloud at bottom, move up for 4th, then fly back up and repeat.</li>
-      <li><span class="mech-badge">Lightning Rod</span> â€” random player; after 5s deals Lightning damage to nearby. Move <strong>horizontally</strong> out of group (not up/down).</li>
-      <li><span class="mech-badge">Wind Burst</span> â€” still used; stay close to Al'Akir to avoid knockback into Lightning.</li>
+      <li>Platform breaks; <span class="mech-badge">Eye of the Storm</span> — raid flies with increased speed. Lightning around outskirts — stay in center, stack high.</li>
+      <li><span class="mech-badge">Lightning Cloud</span> — spawns at random player's location. Entire raid move <strong>down</strong> together out of cloud, then stay as high as possible without being in it. Repeat every ~30s. Low DPS: do 2 clouds at top, fly to bottom; 3rd cloud at bottom, move up for 4th, then fly back up and repeat.</li>
+      <li><span class="mech-badge">Lightning Rod</span> — random player; after 5s deals Lightning damage to nearby. Move <strong>horizontally</strong> out of group (not up/down).</li>
+      <li><span class="mech-badge">Wind Burst</span> — still used; stay close to Al'Akir to avoid knockback into Lightning.</li>
     </ul>
   </div>
 </section>
@@ -196,8 +198,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>P1</strong></td><td>Spread (8Ã—3). Squall Line gaps. Ice Storm avoid. Wind Burst stack close. Static Shock: casters at range.</td></tr>
-        <tr><td><strong>P2</strong></td><td>Stack. Acid Rain ramps. Stormlings â†’ Feedback; kill to refresh/stack, then burn.</td></tr>
+        <tr><td><strong>P1</strong></td><td>Spread (8×3). Squall Line gaps. Ice Storm avoid. Wind Burst stack close. Static Shock: casters at range.</td></tr>
+        <tr><td><strong>P2</strong></td><td>Stack. Acid Rain ramps. Stormlings → Feedback; kill to refresh/stack, then burn.</td></tr>
         <tr><td><strong>P3</strong></td><td>Fly, stack high. Lightning Cloud: move down together. Lightning Rod: move out horizontally. Stay close for Wind Burst.</td></tr>
       </tbody>
     </table>
@@ -207,7 +209,7 @@
 
 <footer class="guide-footer">
   <div class="container">
-    <p>&#9729; <strong>Throne of the Four Winds â€” Al'Akir</strong> Â· Boss Guide Â· Normal &amp; Heroic</p>
+    <p>&#9729; <strong>Throne of the Four Winds — Al'Akir</strong> · Boss Guide · Normal &amp; Heroic</p>
     <p style="margin-top:8px;"><a href="../index.html" style="color:var(--wind);">&#8592; Back to Throne of the Four Winds index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--wind);">All raids</a></p>
     <div class="copyright-block" role="contentinfo">
       <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -90,9 +90,11 @@
       a { color: #ff9a3c; }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="firelands">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
@@ -132,7 +134,7 @@
       <h2>Overview</h2>
     </div>
     <p style="margin-bottom:16px;">
-      Baleroc is a <strong>single-phase</strong> encounter that tests <strong>healer throughput</strong> and <strong>crystal soaks</strong>. <strong>Meta:</strong> <strong>solo tank</strong> â€” the tank&#8217;s HP balloons from <span class="mech-badge">Blaze of Glory</span> while <strong>Decimation Blade</strong> always hits for <strong>90% of that tank&#8217;s max HP</strong> (min 250k). Swapping tanks usually wipes the new tank because blades scale to the wrong HP profile. <span class="mech-badge">Shards of Torment</span> force DPS to rotate <strong>Torment</strong>; healers cycle <strong>Vital Spark</strong> &#8594; <strong>Vital Flame</strong> on the solo tank. <strong>6-minute hard enrage.</strong> <span class="pill-h">[H]</span> <strong>Countdown</strong> (two players within 4 yd) and spreading <strong>Tormented</strong>.
+      Baleroc is a <strong>single-phase</strong> encounter that tests <strong>healer throughput</strong> and <strong>crystal soaks</strong>. <strong>Meta:</strong> <strong>solo tank</strong> — the tank&#8217;s HP balloons from <span class="mech-badge">Blaze of Glory</span> while <strong>Decimation Blade</strong> always hits for <strong>90% of that tank&#8217;s max HP</strong> (min 250k). Swapping tanks usually wipes the new tank because blades scale to the wrong HP profile. <span class="mech-badge">Shards of Torment</span> force DPS to rotate <strong>Torment</strong>; healers cycle <strong>Vital Spark</strong> &#8594; <strong>Vital Flame</strong> on the solo tank. <strong>6-minute hard enrage.</strong> <span class="pill-h">[H]</span> <strong>Countdown</strong> (two players within 4 yd) and spreading <strong>Tormented</strong>.
     </p>
     <table class="guide-table">
       <thead><tr><th>Phase</th><th>Goal</th></tr></thead>
@@ -151,6 +153,7 @@
       <div class="section-icon">&#128293;</div>
       <h2>Health &amp; Timers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px 0;">Numeric values are <strong>approximate</strong> and vary by patch, difficulty, and server tuning. Use them for relative scale only.</p>
     <table class="guide-table">
       <thead>
         <tr>
@@ -185,15 +188,15 @@
     <h3>Shards &amp; Torment <span class="pill-b">[N/H]</span></h3>
     <p style="margin-bottom:10px;">Shards spawn on the <strong>closest non-tank</strong>. Stack melee in a predictable spot so the crystal appears where you want. <strong>Only DPS</strong> should take Torment; tanks and healers must never stand in the beam.</p>
     <ul class="guide-list">
-      <li>The shard <strong>channels</strong> on the nearest player, applying <strong>Torment</strong> (stacking Shadow damage). Each shard applies ~<strong>24â€“25 stacks</strong> total.</li>
-      <li>When you <strong>leave</strong> the shard, you gain <strong>Tormented</strong> for <strong>40 seconds</strong>: +Shadow damage taken, <strong>healing done âˆ’50%</strong>. Do not take Torment again until it expires; rotate so the next soaker steps in.</li>
-      <li>Soak strategies: e.g. 2 DPS take ~12 stacks each; or 3 DPS take ~8 each; or one DPS with a strong defensive takes 15â€“18 stacks. Higher stacks = more <strong>Vital Spark</strong> for healers.</li>
+      <li>The shard <strong>channels</strong> on the nearest player, applying <strong>Torment</strong> (stacking Shadow damage). Each shard applies ~<strong>24–25 stacks</strong> total.</li>
+      <li>When you <strong>leave</strong> the shard, you gain <strong>Tormented</strong> for <strong>40 seconds</strong>: +Shadow damage taken, <strong>healing done −50%</strong>. Do not take Torment again until it expires; rotate so the next soaker steps in.</li>
+      <li>Soak strategies: e.g. 2 DPS take ~12 stacks each; or 3 DPS take ~8 each; or one DPS with a strong defensive takes 15–18 stacks. Higher stacks = more <strong>Vital Spark</strong> for healers.</li>
       <li><span class="pill-h">[H]</span> <strong>Tormented spreads to nearby players.</strong> Keep Tormented players away from tanks and healers.</li>
     </ul>
 
     <h3>Blades &amp; solo tanking <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li><strong>Blaze of Glory:</strong> Applied to the solo tank: +20% max HP, +20% physical damage taken (stacks). Each stack gives Baleroc <strong>Incendiary Soul</strong> (+20% Fire damage). HP climbs into the millions â€” required for <strong>Inferno Blade</strong>.</li>
+      <li><strong>Blaze of Glory:</strong> Applied to the solo tank: +20% max HP, +20% physical damage taken (stacks). Each stack gives Baleroc <strong>Incendiary Soul</strong> (+20% Fire damage). HP climbs into the millions — required for <strong>Inferno Blade</strong>.</li>
       <li><strong>Inferno Blade:</strong> For 15 s, melee = <strong>100,000 Fire</strong>. Solo tank eats swings with stacked HP + CDs.</li>
       <li><strong>Decimation Blade:</strong> For 15 s, melee = <strong>90% of the tank&#8217;s max HP</strong> (min <strong>250,000</strong>) Shadow; cannot be mitigated (can be dodged/parried). Attack speed 100% slower. Be <strong>100% topped</strong> between swings. Never pick up the boss mid-fight without Blaze stacks or you die instantly.</li>
     </ul>
@@ -201,8 +204,8 @@
     <h3>Healing: Vital Spark &amp; Vital Flame <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
       <li><strong>Vital Spark:</strong> Direct heals on a player with <strong>Torment</strong> stacks give the healer Vital Spark (1 per 3 Torment stacks on target). Stack by healing shard soakers.</li>
-      <li><strong>Vital Flame:</strong> Heal on a target with <strong>Blaze of Glory</strong> consumes Spark â†’ <strong>Vital Flame</strong>: +5% healing per stack consumed, 15 s. When Flame expires, Spark stacks are restored.</li>
-      <li>One healer team builds Spark on soakers; the other uses Vital Flame on the tank. Swap every 15â€“30 s; time with shard phases (~28 s).</li>
+      <li><strong>Vital Flame:</strong> Heal on a target with <strong>Blaze of Glory</strong> consumes Spark → <strong>Vital Flame</strong>: +5% healing per stack consumed, 15 s. When Flame expires, Spark stacks are restored.</li>
+      <li>One healer team builds Spark on soakers; the other uses Vital Flame on the tank. Swap every 15–30 s; time with shard phases (~28 s).</li>
     </ul>
   </div>
 </section>
@@ -252,7 +255,7 @@
         <div class="role-card-title">Healers</div>
         <ul>
           <li>One team builds Vital Spark on soakers; other uses Vital Flame on tank</li>
-          <li>Swap every 15â€“30 s; never stand in Shard beam</li>
+          <li>Swap every 15–30 s; never stand in Shard beam</li>
           <li><span class="pill-h">[H]</span> Countdown: still close to 4 yd; have backup heals</li>
         </ul>
       </div>
@@ -282,11 +285,11 @@
       <tbody>
         <tr><td>6 min enrage</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         <tr><td>1 Shard (10) / 2 Shards (25); DPS only soak</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
-        <tr><td>Tormented 40s â€” don't re-soak until it drops</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+        <tr><td>Tormented 40s — don't re-soak until it drops</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         <tr><td>Solo tank (no blade swap)</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
-        <tr><td>Vital Spark on soakers â†’ Vital Flame on tank</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
-        <tr><td>Countdown: stand within 4 yd of linked player</td><td class="dash">â€”</td><td><span class="check">&#10003;</span></td></tr>
-        <tr><td>Tormented spreads to nearby</td><td class="dash">â€”</td><td><span class="check">&#10003;</span></td></tr>
+        <tr><td>Vital Spark on soakers → Vital Flame on tank</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+        <tr><td>Countdown: stand within 4 yd of linked player</td><td class="dash">—</td><td><span class="check">&#10003;</span></td></tr>
+        <tr><td>Tormented spreads to nearby</td><td class="dash">—</td><td><span class="check">&#10003;</span></td></tr>
       </tbody>
     </table>
   </div>

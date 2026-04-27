@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Madness of Deathwing â€” Dragon Soul Boss Guide</title>
+  <title>Madness of Deathwing — Dragon Soul Boss Guide</title>
   <meta name="description" content="Complete Normal & Heroic guide for Madness of Deathwing in Dragon Soul. Four platforms, limb phases, Blistering Tentacles, Elementium Bolt, Aspect buffs. Health, timers, strategy." />
   <meta name="theme-color" content="#0c1222" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
@@ -127,9 +127,11 @@
       a { color: #e8c547; }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="dragon-soul">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
@@ -171,25 +173,25 @@
       <h2>Overview</h2>
     </div>
     <p style="color:var(--muted); margin-bottom:22px;">
-      <strong style="color:#fff;">Madness of Deathwing</strong> is the <strong style="color:#fff;">final boss</strong> of Dragon Soul. The fight takes place on <strong style="color:#fff;">four platforms</strong>. On each platform, damage Deathwing's <strong>limb</strong> (mutated corruption); at <strong>70% and 40%</strong> of the limb's HP, <span class="mech-badge">Blistering Tentacles</span> spawn and must be killed. On the <strong>Alexstrasza (red / left)</strong> platform after her buff is active, Blisterings must be killed with <strong>direct single-target damage</strong> â€” spreading DoTs and passive multidot/cleave no longer works on them. Survive <span class="mech-badge">Elementium Bolt</span> with cooldowns. After four limbs are dealt with, the <strong>final phase</strong> targets Deathwing's <strong>head</strong>: Aspects grant <strong>Aspect buffs</strong> for the burn. <span class="pill-h">[H]</span> adds <span class="mech-badge">Corrupting Parasite</span> and other changes (see Heroic section).
+      <strong style="color:#fff;">Madness of Deathwing</strong> is the <strong style="color:#fff;">final boss</strong> of Dragon Soul. The fight takes place on <strong style="color:#fff;">four platforms</strong>. On each platform, damage Deathwing's <strong>limb</strong> (mutated corruption); at <strong>70% and 40%</strong> of the limb's HP, <span class="mech-badge">Blistering Tentacles</span> spawn and must be killed. On the <strong>Alexstrasza (red / left)</strong> platform after her buff is active, Blisterings must be killed with <strong>direct single-target damage</strong> — spreading DoTs and passive multidot/cleave no longer works on them. Survive <span class="mech-badge">Elementium Bolt</span> with cooldowns. After four limbs are dealt with, the <strong>final phase</strong> targets Deathwing's <strong>head</strong>: Aspects grant <strong>Aspect buffs</strong> for the burn. <span class="pill-h">[H]</span> adds <span class="mech-badge">Corrupting Parasite</span> and other changes (see Heroic section).
     </p>
     <div class="callout danger">
       <span class="callout-icon">&#9888;</span>
       <div class="callout-text">
         <strong>Blistering Tentacles &amp; Elementium Bolt</strong> <span class="pill-b">[N/H]</span><br/>
-        <strong>Blisterings</strong> spawn at <strong>70% and 40%</strong> limb HP â€” kill them immediately. <strong>Elementium Bolt</strong> is massive damage; use cooldowns and coordinated raid defensives. (There is <strong>no</strong> â€œhide behind spikes from Earth's Vengeanceâ€ mechanic on this encounter â€” focus on limb adds, bolts, and platform buffs.)
+        <strong>Blisterings</strong> spawn at <strong>70% and 40%</strong> limb HP — kill them immediately. <strong>Elementium Bolt</strong> is massive damage; use cooldowns and coordinated raid defensives. (There is <strong>no</strong> “hide behind spikes from Earth's Vengeance” mechanic on this encounter — focus on limb adds, bolts, and platform buffs.)
       </div>
     </div>
     <div class="phase-cards">
       <div class="phase-card">
-        <div class="phase-label">Platform 1â€“4 (limb phases)</div>
+        <div class="phase-label">Platform 1–4 (limb phases)</div>
         <div class="phase-range">Per platform</div>
         <div class="phase-desc">Kill Blistering Tentacles at 70%/40%; damage the limb; survive Elementium Bolt and adds. Red platform: single-target Blisterings. Move to next platform when done.</div>
       </div>
       <div class="phase-card">
         <div class="phase-label">Final phase</div>
-        <div class="phase-range">Aspect buffs â†’ kill</div>
-        <div class="phase-desc">Burn Deathwing's head with Aspect buffs. <span class="pill-h">[H]</span> Head HP thresholds spawn bloods â€” cleave them down before they reach the head.</div>
+        <div class="phase-range">Aspect buffs → kill</div>
+        <div class="phase-desc">Burn Deathwing's head with Aspect buffs. <span class="pill-h">[H]</span> Head HP thresholds spawn bloods — cleave them down before they reach the head.</div>
       </div>
     </div>
   </div>
@@ -204,6 +206,7 @@
       <div class="section-icon">&#9812;</div>
       <h2>Health &amp; Timers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px 0;">Numeric values are <strong>approximate</strong> and vary by patch, difficulty, and server tuning. Use them for relative scale only.</p>
     <table class="guide-table">
       <thead>
         <tr>
@@ -224,10 +227,10 @@
         </tr>
         <tr>
           <td><strong>Limb (per platform)</strong></td>
-          <td class="hp-num">~10â€“15M</td>
-          <td class="hp-num">~30â€“45M</td>
-          <td class="hp-num">~15â€“22M</td>
-          <td class="hp-num">~45â€“65M</td>
+          <td class="hp-num">~10–15M</td>
+          <td class="hp-num">~30–45M</td>
+          <td class="hp-num">~15–22M</td>
+          <td class="hp-num">~45–65M</td>
         </tr>
         <tr>
           <td><strong>Blistering Tentacle</strong></td>
@@ -241,7 +244,7 @@
     <div class="enrage-box">
       <div class="enrage-box-title">&#9888; Enrage</div>
       <ul class="guide-list">
-        <li>Typically an <strong>8â€“10 minute</strong> enrage or a cataclysm event that wipes the raid if Deathwing is not killed in time.</li>
+        <li>Typically an <strong>8–10 minute</strong> enrage or a cataclysm event that wipes the raid if Deathwing is not killed in time.</li>
         <li>Four platforms must be completed (limb damage or destruction per platform), then the final burn phase with Aspect buffs. Manage Elementium Bolt and add damage on each platform so the raid survives to the end.</li>
       </ul>
     </div>
@@ -260,9 +263,9 @@
 
     <h3>Four platforms &amp; limb phases <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li>The raid is on one of <strong>four platforms</strong>. Each platform has a <strong>mutated corruption (limb)</strong> that must be damaged. At <strong>70% and 40%</strong> of the limb's HP, <span class="mech-badge">Blistering Tentacles</span> spawn â€” kill them or they overwhelm the raid with AoE.</li>
-      <li><strong>Alexstrasza's platform (red / full left):</strong> once her buff is active, Blistering Tentacles only take meaningful damage from <strong>direct single-target</strong> attacks â€” DoT spreading, cleave, and multidot tricks <strong>do not work</strong>. Assign focused ST on each tentacle.</li>
-      <li>Alexstrasza's <strong>Cauterize</strong> and other Aspect buffs per platform â€” use them as intended for healing or damage on that wing. When the limb is destroyed, move to the next platform. Repeat for all four; then the final phase.</li>
+      <li>The raid is on one of <strong>four platforms</strong>. Each platform has a <strong>mutated corruption (limb)</strong> that must be damaged. At <strong>70% and 40%</strong> of the limb's HP, <span class="mech-badge">Blistering Tentacles</span> spawn — kill them or they overwhelm the raid with AoE.</li>
+      <li><strong>Alexstrasza's platform (red / full left):</strong> once her buff is active, Blistering Tentacles only take meaningful damage from <strong>direct single-target</strong> attacks — DoT spreading, cleave, and multidot tricks <strong>do not work</strong>. Assign focused ST on each tentacle.</li>
+      <li>Alexstrasza's <strong>Cauterize</strong> and other Aspect buffs per platform — use them as intended for healing or damage on that wing. When the limb is destroyed, move to the next platform. Repeat for all four; then the final phase.</li>
     </ul>
 
     <h3>Elementium Bolt <span class="pill-b">[N/H]</span></h3>
@@ -273,15 +276,15 @@
     <div class="callout tip">
       <span class="callout-icon">&#9888;</span>
       <div class="callout-text">
-        <strong>Bolt timing:</strong> Assign a caller to announce "Elementium Bolt â€” CDs" so tanks and healers use cooldowns together. One missed CD rotation can cause multiple deaths.
+        <strong>Bolt timing:</strong> Assign a caller to announce "Elementium Bolt — CDs" so tanks and healers use cooldowns together. One missed CD rotation can cause multiple deaths.
       </div>
     </div>
 
     <h3>Final phase &amp; Aspect buffs <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
       <li>After the four limb phases, Deathwing's <strong>head</strong> becomes the target. The <strong>Dragon Aspects</strong> grant <strong>Aspect buffs</strong>: increased damage, healing, or damage reduction.</li>
-      <li><span class="pill-n">[N]</span> The head phase begins around <strong>20%</strong> of Deathwing's remaining health. <span class="pill-h">[H]</span> The head phase begins at <strong>25%</strong> instead of 20% â€” slightly longer burn.</li>
-      <li>The raid burns Deathwing with these buffs active. Use Lust/Heroism and all cooldowns here. <span class="pill-h">[H]</span> Every <strong>5%</strong> of the head's health, <strong>Elementium Fragments</strong> (bloods) spawn at random spots on the platform â€” they must be killed with <strong>AoE/cleave</strong> before they reach the head or they empower Deathwing.</li>
+      <li><span class="pill-n">[N]</span> The head phase begins around <strong>20%</strong> of Deathwing's remaining health. <span class="pill-h">[H]</span> The head phase begins at <strong>25%</strong> instead of 20% — slightly longer burn.</li>
+      <li>The raid burns Deathwing with these buffs active. Use Lust/Heroism and all cooldowns here. <span class="pill-h">[H]</span> Every <strong>5%</strong> of the head's health, <strong>Elementium Fragments</strong> (bloods) spawn at random spots on the platform — they must be killed with <strong>AoE/cleave</strong> before they reach the head or they empower Deathwing.</li>
     </ul>
   </div>
 </section>
@@ -298,9 +301,9 @@
     <div style="background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.3); border-radius:14px; padding:22px; margin-bottom:20px;">
       <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:12px;">Corrupting Parasite <span class="pill-h">[H]</span></div>
       <ul class="guide-list">
-        <li>Twice per platform, a player gets <span class="mech-badge">Corrupting Parasite</span> (debuff with a countdown). When it expires, it <strong>explodes</strong> â€” players must <strong>move away</strong> from that player. A <strong>Parasite</strong> add then spawns on the ground; it begins casting again â€” <strong>kill it</strong> before that cast finishes or it wipes the raid.</li>
-        <li><strong>Until Nozdormu's platform is cleared:</strong> the parasitized player should enter <strong>Nozdormu's yellow bubble</strong> (Time Zone) so the parasite add spawns inside â€” the bubble <strong>slows its cast</strong>, buying time to kill it.</li>
-        <li><strong>On the last platform (before the head):</strong> the whole raid <strong>stacks on the parasite</strong> when it spawns, uses <strong>defensive cooldowns</strong>, and <strong>bursts</strong> it down ASAP. Parasite is the main heroic wipe mechanic â€” prioritize it over padding boss DPS.</li>
+        <li>Twice per platform, a player gets <span class="mech-badge">Corrupting Parasite</span> (debuff with a countdown). When it expires, it <strong>explodes</strong> — players must <strong>move away</strong> from that player. A <strong>Parasite</strong> add then spawns on the ground; it begins casting again — <strong>kill it</strong> before that cast finishes or it wipes the raid.</li>
+        <li><strong>Until Nozdormu's platform is cleared:</strong> the parasitized player should enter <strong>Nozdormu's yellow bubble</strong> (Time Zone) so the parasite add spawns inside — the bubble <strong>slows its cast</strong>, buying time to kill it.</li>
+        <li><strong>On the last platform (before the head):</strong> the whole raid <strong>stacks on the parasite</strong> when it spawns, uses <strong>defensive cooldowns</strong>, and <strong>bursts</strong> it down ASAP. Parasite is the main heroic wipe mechanic — prioritize it over padding boss DPS.</li>
       </ul>
     </div>
     <p style="color:var(--muted); margin-bottom:18px;">Heroic increases limb, tentacle, and boss HP; Elementium Bolt and add damage are higher. <strong>Head phase at 25%</strong> with <strong>bloods every 5%</strong>. Execution on each platform must be clean so the raid reaches the head with cooldowns and lives.</p>
@@ -377,12 +380,12 @@
       <tbody>
         <tr><td><strong>Four platforms</strong></td><td>Each wing: Blisterings at 70%/40% limb HP, bolt CDs, limb damage. No spike-hiding mechanic.</td></tr>
         <tr><td><strong>Blistering Tentacles</strong></td><td>Kill immediately. Red platform: <strong>single-target only</strong> after Alexstrasza's buff.</td></tr>
-        <tr><td><strong>Elementium Bolt</strong></td><td>Heavy damage â€” raid/personal CDs; top raid before cast.</td></tr>
+        <tr><td><strong>Elementium Bolt</strong></td><td>Heavy damage — raid/personal CDs; top raid before cast.</td></tr>
         <tr><td><strong>Limb</strong></td><td>DPS mutated corruption; transition when wing objective is met.</td></tr>
-        <tr><td><strong>Corrupting Parasite</strong> <span class="pill-h">[H]</span></td><td>Spread from debuff â†’ kill add; bubble until Noz done; stack+CDs+burst on last platform.</td></tr>
-        <tr><td><strong>Head / bloods</strong> <span class="pill-h">[H]</span></td><td>Head at 25%; every 5% spawns bloods â€” AoE before they reach head.</td></tr>
+        <tr><td><strong>Corrupting Parasite</strong> <span class="pill-h">[H]</span></td><td>Spread from debuff → kill add; bubble until Noz done; stack+CDs+burst on last platform.</td></tr>
+        <tr><td><strong>Head / bloods</strong> <span class="pill-h">[H]</span></td><td>Head at 25%; every 5% spawns bloods — AoE before they reach head.</td></tr>
         <tr><td><strong>Aspect buffs</strong></td><td>Final phase: burn head with Lust and CDs.</td></tr>
-        <tr><td><strong>Enrage</strong></td><td>8â€“10 min (approx). Kill before cataclysm.</td></tr>
+        <tr><td><strong>Enrage</strong></td><td>8–10 min (approx). Kill before cataclysm.</td></tr>
       </tbody>
     </table>
   </div>
@@ -391,7 +394,7 @@
 
 <footer class="guide-footer">
   <div class="container">
-    <p>&#9812; <strong>Dragon Soul â€” Madness of Deathwing</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p>&#9812; <strong>Dragon Soul — Madness of Deathwing</strong> · Boss Guide · Normal &amp; Heroic · 10 &amp; 25 Player</p>
     <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Spine of Deathwing/DS-Spine-Guide.html">Spine of Deathwing &#8592;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
     <div class="copyright-block" role="contentinfo">
       <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />

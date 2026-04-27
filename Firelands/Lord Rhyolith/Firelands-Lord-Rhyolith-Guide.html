@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -509,9 +509,11 @@
       a { color: #ff9a3c; }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="firelands">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ===== HERO ===== -->
@@ -519,7 +521,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">&#128293; Firelands Raid &#183; Tier 12</div>
     <h1>Lord Rhyolith</h1>
-    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide · 10 &amp; 25 Player</div>
     <div class="tag-legend">
       <span class="tag tag-n">[N] Normal Only</span>
       <span class="tag tag-h">[H] Heroic Only</span>
@@ -559,7 +561,7 @@
       <div>
         <p style="color:var(--muted); margin-bottom:20px;">
           Lord Rhyolith is a <strong style="color:white;">two-phase</strong> encounter set atop a volcanic plateau in the Firelands. 
-          In Phase 1, <strong style="color:white;">no tank targets Rhyolith directly</strong> â€” instead the raid <em>steers</em> the boss 
+          In Phase 1, <strong style="color:white;">no tank targets Rhyolith directly</strong> — instead the raid <em>steers</em> the boss 
           by dealing unequal damage to his feet, guiding him over active volcanoes to break his armor. 
           If he reaches the lava edge, it's a wipe.
         </p>
@@ -568,7 +570,7 @@
           <span class="callout-icon">&#9888;</span>
           <div class="callout-text">
             <strong>Drink Magma</strong> <span class="pill-b">[N/H]</span><br/>
-            If Rhyolith reaches the lava at the plateau edge, he gains Drink Magma â€” 
+            If Rhyolith reaches the lava at the plateau edge, he gains Drink Magma — 
             <strong>35,000 Fire damage per second for 4 seconds</strong>. Instant raid wipe.
           </div>
         </div>
@@ -576,12 +578,12 @@
         <div class="phase-cards">
           <div class="phase-card p1">
             <div class="phase-label">Phase 1</div>
-            <div class="phase-range">100% â†’ 25%</div>
+            <div class="phase-range">100% → 25%</div>
             <div class="phase-desc">No tank on Rhyolith. Control movement, kill adds, break armor over active volcanoes.</div>
           </div>
           <div class="phase-card p2">
             <div class="phase-label">Phase 2</div>
-            <div class="phase-range">25% â†’ 0%</div>
+            <div class="phase-range">25% → 0%</div>
             <div class="phase-desc">Tank him, burn fast before Immolation + Superheated overwhelm healers.</div>
           </div>
         </div>
@@ -599,6 +601,7 @@
       <div class="section-icon">&#128293;</div>
       <h2>Health &amp; Timers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px 0;">Numeric values are <strong>approximate</strong> and vary by patch, difficulty, and server tuning. Use them for relative scale only.</p>
 
     <table class="guide-table">
       <thead>
@@ -634,7 +637,7 @@
         </tr>
         <tr>
           <td><strong>Liquid Obsidian</strong> <span class="pill-h">[H]</span></td>
-          <td class="hp-num" colspan="2" style="color:var(--muted);">â€”</td>
+          <td class="hp-num" colspan="2" style="color:var(--muted);">—</td>
           <td class="hp-num">210k</td>
           <td class="hp-num">458k</td>
         </tr>
@@ -642,12 +645,12 @@
     </table>
 
     <div class="enrage-box">
-      <div class="enrage-box-title">&#9888; Soft Enrage â€” Superheated</div>
+      <div class="enrage-box-title">&#9888; Soft Enrage — Superheated</div>
       <ul class="guide-list">
         <li><strong>No hard enrage.</strong> Phase 2 acts as a soft enrage via <span class="mech-badge">Immolation</span> + <span class="mech-badge">Superheated</span>.</li>
         <li><strong>Superheated</strong> stacks every <strong>10 seconds</strong>, dealing <strong>+10% more damage per stack</strong>.</li>
         <li><span class="pill-n">[N]</span> Superheated begins <strong>6 minutes</strong> into the fight.</li>
-        <li><span class="pill-h">[H]</span> Superheated begins at <strong>5 minutes</strong> â€” tighter DPS &amp; healing check.</li>
+        <li><span class="pill-h">[H]</span> Superheated begins at <strong>5 minutes</strong> — tighter DPS &amp; healing check.</li>
       </ul>
     </div>
   </div>
@@ -660,7 +663,7 @@
   <div class="container">
     <div class="section-header">
       <div class="section-icon">&#128293;</div>
-      <h2>Phase 1 â€” Armor Phase (100% â†’ 25%)</h2>
+      <h2>Phase 1 — Armor Phase (100% → 25%)</h2>
     </div>
 
     <!-- Steering -->
@@ -669,7 +672,7 @@
       <div>
         <ul class="guide-list">
           <li>Rhyolith has a <strong>left</strong> and <strong>right</strong> foot with separate health bars. Damage is equalized between feet over time.</li>
-          <li><strong>More damage on left foot</strong> â†’ he turns <strong>left</strong>. <strong>More on right foot</strong> â†’ turns <strong>right</strong>. Equal damage â†’ walks straight.</li>
+          <li><strong>More damage on left foot</strong> → he turns <strong>left</strong>. <strong>More on right foot</strong> → turns <strong>right</strong>. Equal damage → walks straight.</li>
           <li><strong>Direction gauge</strong>: 0% = hard left, 50% = straight, 100% = hard right. Allow ~1 second for his turn to register.</li>
           <li>Assign a dedicated <strong>Pilot</strong> (often melee DPS; ranged usually on adds) to call "left foot" or "right foot" and choose which active volcano to route toward next.</li>
         </ul>
@@ -681,7 +684,7 @@
           <span class="callout-icon">&#9888;</span>
           <div class="callout-text">
             <strong>Pilot tip:</strong> Don't over-correct. Small, consistent foot assignments 
-            keep movement predictable. Avoid snaking â€” aim toward active volcanoes early.
+            keep movement predictable. Avoid snaking — aim toward active volcanoes early.
           </div>
         </div>
       </div>
@@ -692,7 +695,7 @@
     <div>
       <ul class="guide-list">
         <li><span class="mech-badge">Obsidian Armor</span> starts at <strong>80% damage reduction</strong>. Each active volcano he steps on reduces it by <strong>10%</strong>.</li>
-        <li><span class="mech-badge">Concussive Stomp</span> (every 20â€”25s): Creates <strong>2â€”3 new volcanoes</strong> and deals Fire damage to the raid.</li>
+        <li><span class="mech-badge">Concussive Stomp</span> (every 20—25s): Creates <strong>2—3 new volcanoes</strong> and deals Fire damage to the raid.</li>
         <li>Volcanoes are either <strong>Active</strong> (erupting, orange glow) or <strong>Dormant</strong> (grey). Only active ones remove armor.</li>
         <li><strong>Walking on a dormant</strong> volcano applies <span class="mech-badge">Molten Armor</span>: <span class="pill-n">+2% dmg/stack [N]</span> / <span class="pill-h">+5% dmg/stack [H]</span>. Avoid!</li>
         <li>When he steps on any volcano it is destroyed, leaving a <strong>crater 10 seconds later</strong>.</li>
@@ -701,7 +704,7 @@
         <span class="callout-icon">&#9888;</span>
         <div class="callout-text">
           <strong>Heroic:</strong> Stepping on dormant volcanoes applies +5% damage per stack of Molten Armor. 
-          This compounds quickly â€” pilot must be precise and only route over clearly active volcanoes.
+          This compounds quickly — pilot must be precise and only route over clearly active volcanoes.
         </div>
       </div>
     </div>
@@ -709,9 +712,9 @@
     <!-- Craters & Magma Flow -->
     <h3>Craters &amp; Magma Flow <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li>Each crater triggers <span class="mech-badge">Magma Flow</span>: <strong>4â€”6 lava streams</strong> shoot outward from the crater location.</li>
+      <li>Each crater triggers <span class="mech-badge">Magma Flow</span>: <strong>4—6 lava streams</strong> shoot outward from the crater location.</li>
       <li>Streams deal <strong>65,000 Fire</strong> to anyone in their path. After <strong>10 seconds</strong> they <span style="color:var(--heroic);">explode for 130,000 Fire</span>.</li>
-      <li>After streams end, the crater leaves a <strong>persistent lava pool</strong> â€” avoid standing in it.</li>
+      <li>After streams end, the crater leaves a <strong>persistent lava pool</strong> — avoid standing in it.</li>
     </ul>
     <div class="callout tip">
       <span class="callout-icon">&#9888;</span>
@@ -722,11 +725,11 @@
     </div>
 
     <!-- Adds -->
-    <h3>Adds â€” Thermal Ignition <span class="pill-b">[N/H]</span></h3>
+    <h3>Adds — Thermal Ignition <span class="pill-b">[N/H]</span></h3>
     <div>
       <div>
         <p style="color:var(--muted); margin-bottom:14px; font-size:0.93rem;">
-          Every 20â€”25s, Rhyolith deals <strong style="color:white;">15,000 Fire</strong> to players within 
+          Every 20—25s, Rhyolith deals <strong style="color:white;">15,000 Fire</strong> to players within 
           7 yards (<span class="mech-badge">Thermal Ignition</span>), then spawns one of two add types:
         </p>
 
@@ -734,8 +737,8 @@
           <div style="font-weight:700; color:var(--ember); margin-bottom:8px;">&#128376; Fragments of Rhyolith</div>
           <ul class="guide-list">
             <li>Low HP; light melee damage.</li>
-            <li><span class="pill-n">[N]</span> 5 Fragments Â· <span class="pill-h">[H]</span> 10 Fragments per wave.</li>
-            <li><strong style="color:var(--heroic);">Kill within 30s!</strong> If not, they <span class="mech-badge">Meltdown</span> â€” deal 100% of remaining HP to a random player, then die.</li>
+            <li><span class="pill-n">[N]</span> 5 Fragments · <span class="pill-h">[H]</span> 10 Fragments per wave.</li>
+            <li><strong style="color:var(--heroic);">Kill within 30s!</strong> If not, they <span class="mech-badge">Meltdown</span> — deal 100% of remaining HP to a random player, then die.</li>
           </ul>
         </div>
 
@@ -745,7 +748,7 @@
             <li>1 Spark per wave. High HP, melees the tank hard.</li>
             <li><span class="mech-badge">Immolation</span>: ~8,500 Fire/sec to everyone within <strong>12 yards</strong>.</li>
             <li><span class="mech-badge">Infernal Rage</span>: Every 5s adds +10% damage dealt <em>and</em> taken, stacks to 20.</li>
-            <li><strong style="color:var(--warn);">Tank Spark â‰¥12 yards from the raid.</strong> Ranged DPS prioritize killing it.</li>
+            <li><strong style="color:var(--warn);">Tank Spark ≥12 yards from the raid.</strong> Ranged DPS prioritize killing it.</li>
           </ul>
         </div>
       </div>
@@ -773,18 +776,18 @@
   <div class="container">
     <div class="section-header">
       <div class="section-icon">&#128293;</div>
-      <h2>Phase 2 â€” Burn Phase (25% â†’ 0%)</h2>
+      <h2>Phase 2 — Burn Phase (25% → 0%)</h2>
     </div>
 
     <div>
       <div>
         <ul class="guide-list">
-          <li>At <strong>25% HP</strong>, his armor <strong>shatters</strong>. He becomes fully tankable and melees your tank for ~<strong>25â€”30k per hit</strong>.</li>
-          <li><strong>All adds despawn</strong> â€” Fragments, Sparks, and (Heroic) Liquid Obsidian all disappear.</li>
+          <li>At <strong>25% HP</strong>, his armor <strong>shatters</strong>. He becomes fully tankable and melees your tank for ~<strong>25—30k per hit</strong>.</li>
+          <li><strong>All adds despawn</strong> — Fragments, Sparks, and (Heroic) Liquid Obsidian all disappear.</li>
           <li><span class="mech-badge">Immolation</span>: ~<strong>8,000 Fire/sec</strong> to the <strong>entire raid</strong>, constantly. Heal through it fast.</li>
-          <li><span class="mech-badge">Concussive Stomp</span> still occurs every ~20â€”25s â€” still creates volcanoes, craters, and Magma Flow. <strong>Keep moving.</strong></li>
+          <li><span class="mech-badge">Concussive Stomp</span> still occurs every ~20—25s — still creates volcanoes, craters, and Magma Flow. <strong>Keep moving.</strong></li>
           <li><strong>Eruption debuff resets</strong> when Phase 2 begins. (Mage Ice Block, Pally Divine Shield, Rogue Cloak can also clear Fire debuff stacks.)</li>
-          <li><span class="mech-badge">Superheated</span> stacks +10% damage every 10s once it starts â€” damage ramps <em>very</em> quickly.</li>
+          <li><span class="mech-badge">Superheated</span> stacks +10% damage every 10s once it starts — damage ramps <em>very</em> quickly.</li>
         </ul>
 
         <div class="callout tip" style="margin-top:20px;">
@@ -816,10 +819,10 @@
           <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:10px;">&#128301; Liquid Obsidian</div>
           <ul class="guide-list">
             <li><strong>10 spawn</strong> each time Rhyolith steps on an active volcano.</li>
-            <li>Move slowly toward Rhyolith with no aggro â€” they cannot be taunted.</li>
-            <li>Each one that reaches him: <span class="mech-badge">Fuse</span> â€” restores <strong>1% damage reduction</strong> (armor regen).</li>
+            <li>Move slowly toward Rhyolith with no aggro — they cannot be taunted.</li>
+            <li>Each one that reaches him: <span class="mech-badge">Fuse</span> — restores <strong>1% damage reduction</strong> (armor regen).</li>
             <li><strong>Slow, root, stun, and knockback</strong> them. They die to cleave AoE.</li>
-            <li>A few reaching him is acceptable â€” many is dangerous and can push your DPS past enrage.</li>
+            <li>A few reaching him is acceptable — many is dangerous and can push your DPS past enrage.</li>
           </ul>
         </div>
 
@@ -829,16 +832,16 @@
             <li>Rhyolith periodically unleashes <strong>beams of fire</strong> that pursue random players.</li>
             <li>On impact: <strong>10,000 Fire</strong> to everyone within <strong>5 yards</strong> of the beam impact point.</li>
             <li><strong>Stay spread</strong> and keep running. Never let beams catch you or group with others.</li>
-            <li>Still dodge Magma Flow lava while avoiding beams â€” requires high positional awareness.</li>
+            <li>Still dodge Magma Flow lava while avoiding beams — requires high positional awareness.</li>
           </ul>
         </div>
 
         <div style="background:rgba(255,77,109,0.07); border:1px solid rgba(255,77,109,0.25); border-radius:14px; padding:22px;">
           <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:10px;">&#128203; Heroic Composition Notes</div>
           <ul class="guide-list">
-            <li>Prefer <strong>1 tank, 2â€”3 (10) / 5â€”6 (25) healers</strong>, rest DPS.</li>
-            <li>More <strong>ranged DPS</strong> preferred â€” helps on Sparks, Fragments, feet, and avoids ground hazards more naturally.</li>
-            <li>Superheated at <strong>5 min</strong> (not 6) â€” Phase 2 must be very short.</li>
+            <li>Prefer <strong>1 tank, 2—3 (10) / 5—6 (25) healers</strong>, rest DPS.</li>
+            <li>More <strong>ranged DPS</strong> preferred — helps on Sparks, Fragments, feet, and avoids ground hazards more naturally.</li>
+            <li>Superheated at <strong>5 min</strong> (not 6) — Phase 2 must be very short.</li>
             <li>Molten Armor: <strong>+5% per stack</strong> (vs +2% Normal). Pilot mistakes are severely punished.</li>
           </ul>
         </div>
@@ -857,7 +860,7 @@
       <h2>Strategy Summary</h2>
     </div>
 
-    <h3>Phase 1 <span class="pill-b">[N/H]</span> â€” Role Assignments</h3>
+    <h3>Phase 1 <span class="pill-b">[N/H]</span> — Role Assignments</h3>
     <div class="role-grid">
       <div class="role-card">
         <div class="role-card-title">&#129517; Pilot</div>
@@ -865,14 +868,14 @@
           <li>Call <strong>"left foot" / "right foot"</strong> to steer</li>
           <li>Plan route to <strong>active volcanoes only</strong></li>
           <li>Keep away from lava edges at all costs</li>
-          <li><span class="pill-h">[H]</span> Be extra vocal â€” faster reactions needed</li>
+          <li><span class="pill-h">[H]</span> Be extra vocal — faster reactions needed</li>
         </ul>
       </div>
       <div class="role-card">
         <div class="role-card-title">&#128737; Tank</div>
         <ul>
           <li>Pick up <strong>Sparks and Fragments</strong></li>
-          <li>Hold Spark <strong>â‰¥12 yards from raid</strong></li>
+          <li>Hold Spark <strong>≥12 yards from raid</strong></li>
           <li><span class="pill-h">[H]</span> Optionally tank Fragments on top of Liquid Obsidian for cleave</li>
         </ul>
       </div>
@@ -887,7 +890,7 @@
       <div class="role-card">
         <div class="role-card-title">&#127919; Ranged DPS</div>
         <ul>
-          <li>Priority: <strong>Spark â†’ Fragments â†’ Rhyolith feet</strong></li>
+          <li>Priority: <strong>Spark → Fragments → Rhyolith feet</strong></li>
           <li>Kill Fragments before <strong>30 second Meltdown</strong></li>
           <li>Don't stand near Spark (Immolation range)</li>
           <li>Avoid Magma Flow streams</li>
@@ -904,7 +907,7 @@
       </div>
     </div>
 
-    <h3 style="margin-top:36px;">Phase 2 <span class="pill-b">[N/H]</span> â€” Burn Checklist</h3>
+    <h3 style="margin-top:36px;">Phase 2 <span class="pill-b">[N/H]</span> — Burn Checklist</h3>
     <div class="role-grid">
       <div class="role-card">
         <div class="role-card-title">&#128737; Tank</div>
@@ -918,7 +921,7 @@
         <div class="role-card-title">&#9876;&#127919; DPS</div>
         <ul>
           <li>Pop <strong>Bloodlust immediately</strong></li>
-          <li>Burn â€” every second counts</li>
+          <li>Burn — every second counts</li>
           <li>Avoid lava streams &amp; <span class="pill-h">[H]</span> Unleashed Flame</li>
         </ul>
       </div>
@@ -937,7 +940,7 @@
       <div class="callout-text">
         <strong>Kill before Superheated overwhelms healers.</strong> On Heroic, you have roughly 
         <strong>~40 seconds</strong> after Superheated starts before damage becomes unrecoverable. 
-        If Superheated starts at 5 minutes and you're not in Phase 2 yet â€” it's likely a wipe.
+        If Superheated starts at 5 minutes and you're not in Phase 2 yet — it's likely a wipe.
       </div>
     </div>
   </div>
@@ -978,7 +981,7 @@
           <td><span class="warn-text">10 per wave</span></td>
         </tr>
         <tr>
-          <td><strong>Tank Spark away (â‰¥12 yd)</strong></td>
+          <td><strong>Tank Spark away (≥12 yd)</strong></td>
           <td><span class="check">&#10003;</span></td>
           <td><span class="check">&#10003;</span></td>
         </tr>
@@ -1004,8 +1007,8 @@
         </tr>
         <tr>
           <td><strong>Drink Magma (lava edge wipe)</strong></td>
-          <td>35,000 Fire/sec Ã— 4s</td>
-          <td>35,000 Fire/sec Ã— 4s</td>
+          <td>35,000 Fire/sec × 4s</td>
+          <td>35,000 Fire/sec × 4s</td>
         </tr>
         <tr>
           <td><strong>Phase 2 transition</strong></td>
@@ -1028,7 +1031,7 @@
 <!-- ===== FOOTER ===== -->
 <footer class="guide-footer">
   <div class="container">
-    <p>&#128293; <strong>Firelands â€” Lord Rhyolith</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p>&#128293; <strong>Firelands — Lord Rhyolith</strong> · Boss Guide · Normal &amp; Heroic · 10 &amp; 25 Player</p>
     <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Firelands index</a> &nbsp;|&nbsp; <a href="../Beth'tilac/Firelands-Bethtilac-Guide.html">&#8592; Beth'tilac</a> &nbsp; <a href="../Alysrazor/Firelands-Alysrazor-Guide.html">Alysrazor &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
     <div class="copyright-block" role="contentinfo">
       <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />

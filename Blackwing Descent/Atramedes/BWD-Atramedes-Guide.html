@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atramedes â€” Blackwing Descent Boss Guide</title>
+  <title>Atramedes — Blackwing Descent Boss Guide</title>
   <meta name="description" content="Normal & Heroic guide for Atramedes. Sound bar, Ancient Dwarven Shields, Sonar Pulse, Searing Flame, Roaring Flame Breath, air phase." />
   <meta name="theme-color" content="#1a0a0a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,16 +71,18 @@
     @media (max-width:768px){.phase-cards{grid-template-columns:1fr;}.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
     @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#1a0a0a!important;}body{background:#1a0a0a!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#ea580c;}}
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="blackwing">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">&#9889; Blackwing Descent &#183; Tier 11</div>
     <h1>Atramedes</h1>
-    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide · 10 &amp; 25 Player</div>
     <div class="tag-legend">
       <span class="tag tag-n">[N] Normal Only</span>
       <span class="tag tag-h">[H] Heroic Only</span>
@@ -111,17 +113,17 @@
       <h2>Overview</h2>
     </div>
     <p style="color:var(--muted); margin-bottom:20px;">
-      <strong style="color:white;">Atramedes</strong> is blind and uses <strong style="color:white;">sound</strong> to detect players. Everyone has a <strong>Sound Bar</strong>; taking damage fills it. At <strong>100 sound</strong> he casts <span class="mech-badge">Devastation</span> and kills you. Around the room are <strong>Ancient Dwarven Shields</strong> (gongs): clicking one resets all Sound Bars to 0 and gives Atramedes <span class="mech-badge">Vertigo</span> (stun 5s, +50% damage taken). Use gongs sparingly â€” mainly for <span class="mech-badge">Searing Flame</span> or to stop <span class="mech-badge">Roaring Flame Breath</span> in air phase. Fight alternates: <strong>90s ground</strong> then <strong>30s air</strong>. Limited gongs (10 Normal, 7 Heroic).
+      <strong style="color:white;">Atramedes</strong> is blind and uses <strong style="color:white;">sound</strong> to detect players. Everyone has a <strong>Sound Bar</strong>; taking damage fills it. At <strong>100 sound</strong> he casts <span class="mech-badge">Devastation</span> and kills you. Around the room are <strong>Ancient Dwarven Shields</strong> (gongs): clicking one resets all Sound Bars to 0 and gives Atramedes <span class="mech-badge">Vertigo</span> (stun 5s, +50% damage taken). Use gongs sparingly — mainly for <span class="mech-badge">Searing Flame</span> or to stop <span class="mech-badge">Roaring Flame Breath</span> in air phase. Fight alternates: <strong>90s ground</strong> then <strong>30s air</strong>. Limited gongs (10 Normal, 7 Heroic).
     </p>
     <div class="phase-cards">
       <div class="phase-card">
         <div class="phase-label">Ground (90s)</div>
-        <div class="phase-range">Dodge Â· Modulation Â· Sonic Breath Â· Searing Flame</div>
-        <div class="phase-desc">Dodge Sonar Pulse waves. Modulation every 15s (~50k Shadow +10 sound). Sonic Breath: target run away, raid move other way. Searing Flame once per ground â€” hit gong immediately or wipe.</div>
+        <div class="phase-range">Dodge · Modulation · Sonic Breath · Searing Flame</div>
+        <div class="phase-desc">Dodge Sonar Pulse waves. Modulation every 15s (~50k Shadow +10 sound). Sonic Breath: target run away, raid move other way. Searing Flame once per ground — hit gong immediately or wipe.</div>
       </div>
       <div class="phase-card">
         <div class="phase-label">Air (30s)</div>
-        <div class="phase-range">Sonar Bombs Â· Roaring Flame Breath</div>
+        <div class="phase-range">Sonar Bombs · Roaring Flame Breath</div>
         <div class="phase-desc">Dodge Sonar Bombs (move back and forth preemptively). Roaring Flame Breath chases one player; kite around outside, then someone hit gong to stun and retarget. Don't kite through center (fire patches).</div>
       </div>
     </div>
@@ -137,11 +139,11 @@
       <h2>Ground Phase</h2>
     </div>
     <ul class="guide-list">
-      <li><span class="mech-badge">Sonar Pulse</span> â€” sound waves travel around room; move out. Constant dodging.</li>
-      <li><span class="mech-badge">Modulation</span> â€” every 15s, ~50k Shadow raid-wide, +10 sound. Raid CD if needed.</li>
-      <li><span class="mech-badge">Sonic Breath</span> â€” every 40s, targets random player; Atramedes turns and breathes fire. Target run away from raid; raid move other direction. Breath follows faster with higher Sound Bar. +30 sound if hit.</li>
-      <li><span class="mech-badge">Searing Flame</span> â€” once per ground phase. Massive Fire every 2s + stacking +50% Fire damage taken. Assign someone near a gong; click as soon as cast starts or wipe. Leaves Roaring Flame patches â€” avoid.</li>
-      <li><span class="pill-h">[H]</span> <span class="mech-badge">Obnoxious Fiends</span> â€” imps attach to player, cast Obnoxious (+10 sound). Interrupt and kill.</li>
+      <li><span class="mech-badge">Sonar Pulse</span> — sound waves travel around room; move out. Constant dodging.</li>
+      <li><span class="mech-badge">Modulation</span> — every 15s, ~50k Shadow raid-wide, +10 sound. Raid CD if needed.</li>
+      <li><span class="mech-badge">Sonic Breath</span> — every 40s, targets random player; Atramedes turns and breathes fire. Target run away from raid; raid move other direction. Breath follows faster with higher Sound Bar. +30 sound if hit.</li>
+      <li><span class="mech-badge">Searing Flame</span> — once per ground phase. Massive Fire every 2s + stacking +50% Fire damage taken. Assign someone near a gong; click as soon as cast starts or wipe. Leaves Roaring Flame patches — avoid.</li>
+      <li><span class="pill-h">[H]</span> <span class="mech-badge">Obnoxious Fiends</span> — imps attach to player, cast Obnoxious (+10 sound). Interrupt and kill.</li>
     </ul>
   </div>
 </section>
@@ -155,8 +157,8 @@
       <h2>Air Phase</h2>
     </div>
     <ul class="guide-list">
-      <li><span class="mech-badge">Sonar Bombs</span> â€” drop in random spots; Arcane damage + sound. Move back and forth between two spots (1â€“2 casts then move) to avoid. If hit, Atramedes throws <span class="mech-badge">Sonic Fireball</span> at that area.</li>
-      <li><span class="mech-badge">Roaring Flame Breath</span> â€” beam chases one player; speed increases with their Sound Bar and over time. Kite around outside; use speed boosts, leaps; Paladin/Mage can immune if caught. When needed, someone hit gong â€” Atramedes stuns and retargets the gong-hitter (they kite next). Fire patches left along path â€” don't kite through middle.</li>
+      <li><span class="mech-badge">Sonar Bombs</span> — drop in random spots; Arcane damage + sound. Move back and forth between two spots (1–2 casts then move) to avoid. If hit, Atramedes throws <span class="mech-badge">Sonic Fireball</span> at that area.</li>
+      <li><span class="mech-badge">Roaring Flame Breath</span> — beam chases one player; speed increases with their Sound Bar and over time. Kite around outside; use speed boosts, leaps; Paladin/Mage can immune if caught. When needed, someone hit gong — Atramedes stuns and retargets the gong-hitter (they kite next). Fire patches left along path — don't kite through middle.</li>
     </ul>
     <div class="callout tip">
       <span class="callout-icon">&#9888;</span>
@@ -181,7 +183,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>Sound 100</strong></td><td>Devastation â€” death. Use gong to reset all to 0.</td></tr>
+        <tr><td><strong>Sound 100</strong></td><td>Devastation — death. Use gong to reset all to 0.</td></tr>
         <tr><td><strong>Gongs</strong></td><td>10 [N] / 7 [H]. Use for Searing Flame and Roaring Flame Breath.</td></tr>
         <tr><td><strong>Searing Flame</strong></td><td>Hit gong immediately when cast starts.</td></tr>
         <tr><td><strong>Sonic Breath (ground)</strong></td><td>Target run away; raid move other way.</td></tr>
@@ -195,7 +197,7 @@
 
 <footer class="guide-footer">
   <div class="container">
-    <p>&#9889; <strong>Blackwing Descent â€” Atramedes</strong> Â· Boss Guide Â· Normal &amp; Heroic</p>
+    <p>&#9889; <strong>Blackwing Descent — Atramedes</strong> · Boss Guide · Normal &amp; Heroic</p>
     <p style="margin-top:8px;"><a href="../index.html" style="color:var(--ember);">&#8592; Back to Blackwing Descent index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--ember);">All raids</a></p>
     <div class="copyright-block" role="contentinfo">
       <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />

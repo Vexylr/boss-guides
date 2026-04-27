@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="guide-site" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ultraxion â€” Dragon Soul Boss Guide</title>
+  <title>Ultraxion — Dragon Soul Boss Guide</title>
   <meta name="description" content="Complete Normal & Heroic guide for Ultraxion in Dragon Soul. Fading Light, Hour of Twilight portal, Heroic Will, tank swap, burn. Health, timers, strategy." />
   <meta name="theme-color" content="#0c1222" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
@@ -127,9 +127,11 @@
       a { color: #e8c547; }
     }
   </style>
+  <link rel="stylesheet" href="../../assets/cataclysm-guides.css" />
+
   <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
 </head>
-<body>
+<body class="guide-page" data-raid="dragon-soul">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div class="hero">
@@ -171,20 +173,20 @@
       <h2>Overview</h2>
     </div>
     <p style="color:var(--muted); margin-bottom:22px;">
-      <strong style="color:#fff;">Ultraxion</strong> is the <strong style="color:#fff;">fifth boss</strong> of Dragon Soul. Roughly <strong>every 45 seconds</strong> he casts <span class="mech-badge">Hour of Twilight</span> â€” a raid-wide hit (~300k) that kills anyone who doesn't avoid it. Everyone receives <span class="mech-badge">Heroic Will</span> (extra action button): use it <strong>before Hour of Twilight</strong> to phase into safety (you cannot move or attack for ~5 seconds). <strong>Tanking is usually solo</strong> â€” <span class="mech-badge">Fading Light</span> does <strong>not stack</strong> like a traditional swap debuff; instead it forces precise <strong>Heroic Will</strong> usage. Clicking Heroic Will <strong>drops your threat</strong> and briefly prevents regaining it, so tanks must <strong>wait for another player to pull aggro</strong> before taunting again. Thrall grants tanks <strong>Last Defender of Azeroth</strong>. Single-phase burn; <strong>6-minute enrage</strong>. <em>Server note:</em> some private realms (e.g. Whitemane) intentionally tune Heroic Ultraxion to <strong>~124M HP (10-player)</strong> instead of the classic ~78M â€” verify your combat log.
+      <strong style="color:#fff;">Ultraxion</strong> is the <strong style="color:#fff;">fifth boss</strong> of Dragon Soul. Roughly <strong>every 45 seconds</strong> he casts <span class="mech-badge">Hour of Twilight</span> — a raid-wide hit (~300k) that kills anyone who doesn't avoid it. Everyone receives <span class="mech-badge">Heroic Will</span> (extra action button): use it <strong>before Hour of Twilight</strong> to phase into safety (you cannot move or attack for ~5 seconds). <strong>Tanking is usually solo</strong> — <span class="mech-badge">Fading Light</span> does <strong>not stack</strong> like a traditional swap debuff; instead it forces precise <strong>Heroic Will</strong> usage. Clicking Heroic Will <strong>drops your threat</strong> and briefly prevents regaining it, so tanks must <strong>wait for another player to pull aggro</strong> before taunting again. Thrall grants tanks <strong>Last Defender of Azeroth</strong>. Single-phase burn; <strong>6-minute enrage</strong>. <em>Server note:</em> some private realms (e.g. Whitemane) intentionally tune Heroic Ultraxion to <strong>~124M HP (10-player)</strong> instead of the classic ~78M — verify your combat log.
     </p>
     <div class="callout danger">
       <span class="callout-icon">&#9888;</span>
       <div class="callout-text">
         <strong>Hour of Twilight</strong> <span class="pill-b">[N/H]</span><br/>
-        ~Every <strong>45 seconds</strong> Ultraxion casts <strong>Hour of Twilight</strong> (~300k damage). Use <strong>Heroic Will</strong> before it goes off to avoid the hit (you phase out for ~5s and can't move or attack). Heroic Will has a short cooldown â€” use it only when Hour of Twilight is imminent. Missing it = death.
+        ~Every <strong>45 seconds</strong> Ultraxion casts <strong>Hour of Twilight</strong> (~300k damage). Use <strong>Heroic Will</strong> before it goes off to avoid the hit (you phase out for ~5s and can't move or attack). Heroic Will has a short cooldown — use it only when Hour of Twilight is imminent. Missing it = death.
       </div>
     </div>
     <div class="phase-cards">
       <div class="phase-card">
         <div class="phase-label">Single phase</div>
-        <div class="phase-range">100% â†’ 0%</div>
-        <div class="phase-desc">Solo tank (meta). Hour of Twilight + Heroic Will on a cadence. Fading Light/HW drops threat â€” taunt only after someone else secures aggro. Everyone else pumps boss.</div>
+        <div class="phase-range">100% → 0%</div>
+        <div class="phase-desc">Solo tank (meta). Hour of Twilight + Heroic Will on a cadence. Fading Light/HW drops threat — taunt only after someone else secures aggro. Everyone else pumps boss.</div>
       </div>
     </div>
   </div>
@@ -199,6 +201,7 @@
       <div class="section-icon">&#9812;</div>
       <h2>Health &amp; Timers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.92rem;margin:0 0 16px 0;">Numeric values are <strong>approximate</strong> and vary by patch, difficulty, and server tuning. Use them for relative scale only.</p>
     <table class="guide-table">
       <thead>
         <tr>
@@ -223,7 +226,7 @@
       <div class="enrage-box-title">&#9888; Enrage</div>
       <ul class="guide-list">
         <li><strong>6-minute enrage.</strong> Ultraxion gains <span class="mech-badge">Fury</span>. This is a strict DPS check; the raid must kill him before 6 minutes.</li>
-        <li><strong>Hour of Twilight</strong> ~every 45s â€” use Heroic Will to avoid. <strong>Fading Light</strong> targets tanks (and sometimes DPS/healers on Heroic) â€” it is <strong>not a stacking debuff</strong>; swaps are driven by <strong>Fading Light + Heroic Will timing</strong>, not â€œtwo stacks.â€ Thrall gives tanks <strong>Last Defender of Azeroth</strong>.</li>
+        <li><strong>Hour of Twilight</strong> ~every 45s — use Heroic Will to avoid. <strong>Fading Light</strong> targets tanks (and sometimes DPS/healers on Heroic) — it is <strong>not a stacking debuff</strong>; swaps are driven by <strong>Fading Light + Heroic Will timing</strong>, not “two stacks.” Thrall gives tanks <strong>Last Defender of Azeroth</strong>.</li>
         <li><strong>Threat:</strong> Using Heroic Will clears threat briefly. The next tank (or a designated soaker) must let their <strong>taunt land only after</strong> someone has picked the boss, or Ultraxion will melee random players.</li>
       </ul>
     </div>
@@ -237,33 +240,33 @@
   <div class="container">
     <div class="section-header">
       <div class="section-icon">&#9812;</div>
-      <h2>Phase 1 â€” Full Fight Mechanics</h2>
+      <h2>Phase 1 — Full Fight Mechanics</h2>
     </div>
 
     <h3>Hour of Twilight &amp; Heroic Will <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li>Roughly <strong>every 45 seconds</strong> Ultraxion casts <span class="mech-badge">Hour of Twilight</span> â€” a raid-wide hit (~300k damage). Anyone not avoiding it dies.</li>
-      <li>Everyone receives <span class="mech-badge">Heroic Will</span> (extra action button). Use it <strong>before Hour of Twilight lands</strong> to phase into safety; you cannot move or attack for ~5 seconds, then you return. Heroic Will has a cooldown (~5s) â€” use it only when Hour of Twilight is imminent.</li>
-      <li>Call out "Hour of Twilight" so the raid uses Heroic Will in time. Don't wait until the last second; use it with 2â€“3s to spare to avoid lag or movement issues.</li>
+      <li>Roughly <strong>every 45 seconds</strong> Ultraxion casts <span class="mech-badge">Hour of Twilight</span> — a raid-wide hit (~300k damage). Anyone not avoiding it dies.</li>
+      <li>Everyone receives <span class="mech-badge">Heroic Will</span> (extra action button). Use it <strong>before Hour of Twilight lands</strong> to phase into safety; you cannot move or attack for ~5 seconds, then you return. Heroic Will has a cooldown (~5s) — use it only when Hour of Twilight is imminent.</li>
+      <li>Call out "Hour of Twilight" so the raid uses Heroic Will in time. Don't wait until the last second; use it with 2–3s to spare to avoid lag or movement issues.</li>
     </ul>
     <div class="callout tip">
       <span class="callout-icon">&#9888;</span>
       <div class="callout-text">
-        <strong>Timing:</strong> Use Heroic Will when Hour of Twilight is about to cast (or when the debuff/cast bar shows it). While phased you cannot DPS or heal â€” that's acceptable to avoid death.
+        <strong>Timing:</strong> Use Heroic Will when Hour of Twilight is about to cast (or when the debuff/cast bar shows it). While phased you cannot DPS or heal — that's acceptable to avoid death.
       </div>
     </div>
 
     <h3>Fading Light, threat &amp; tanking <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li><span class="mech-badge">Fading Light</span> marks players for deletion unless they use <strong>Heroic Will</strong> inside the debuff window. <strong>It does not stack</strong> for swap purposes â€” think of it as a parallel timer to Hour of Twilight, not a Sundering-style stack.</li>
-      <li><strong>Solo tanking</strong> is the default strat: one tank holds Ultraxion the entire fight while healers pump massive heals. If you run two tanks, swaps happen when Fading Light/Hour cadences require it â€” <strong>never taunt immediately after your co-tank presses Heroic Will</strong> or you will rip aggro during their immunity window and die to melee.</li>
+      <li><span class="mech-badge">Fading Light</span> marks players for deletion unless they use <strong>Heroic Will</strong> inside the debuff window. <strong>It does not stack</strong> for swap purposes — think of it as a parallel timer to Hour of Twilight, not a Sundering-style stack.</li>
+      <li><strong>Solo tanking</strong> is the default strat: one tank holds Ultraxion the entire fight while healers pump massive heals. If you run two tanks, swaps happen when Fading Light/Hour cadences require it — <strong>never taunt immediately after your co-tank presses Heroic Will</strong> or you will rip aggro during their immunity window and die to melee.</li>
       <li>Pressing <strong>Heroic Will</strong> causes a short <strong>threat suppression</strong>. Wait until another player (backup tank, pet, or misdirect target) has boss aggro before taunting back.</li>
-      <li><strong>Thrall</strong> grants tanks <strong>Last Defender of Azeroth</strong> â€” use it to help survive tank damage and Hour of Twilight timing.</li>
+      <li><strong>Thrall</strong> grants tanks <strong>Last Defender of Azeroth</strong> — use it to help survive tank damage and Hour of Twilight timing.</li>
     </ul>
 
     <h3>Raid damage &amp; burn <span class="pill-b">[N/H]</span></h3>
     <ul class="guide-list">
-      <li>Ultraxion deals moderate raid-wide damage over time. Healers keep the raid topped. There are no adds and no phase changes â€” pure single-target DPS on Ultraxion.</li>
+      <li>Ultraxion deals moderate raid-wide damage over time. Healers keep the raid topped. There are no adds and no phase changes — pure single-target DPS on Ultraxion.</li>
       <li>Use Lust/Heroism at the pull or after the first Fading Light cycle when everyone is present. All DPS and healers (when not in the portal) focus the boss until he dies.</li>
     </ul>
   </div>
@@ -278,11 +281,11 @@
       <div class="section-icon">&#9812;</div>
       <h2>Heroic-Only Mechanics <span class="pill-h">[H]</span></h2>
     </div>
-    <p style="color:var(--muted); margin-bottom:18px;">Heroic increases damage and often applies <strong>Fading Light</strong> to <strong>DPS and healers</strong> as well as tanks â€” everyone must track the debuff. HP values may be custom (see health table note). Threat suppression after Heroic Will is <strong>more punishing</strong>; assign a backup pick-up (Hunter pet, Army ghoul, etc.) if you solo tank.</p>
+    <p style="color:var(--muted); margin-bottom:18px;">Heroic increases damage and often applies <strong>Fading Light</strong> to <strong>DPS and healers</strong> as well as tanks — everyone must track the debuff. HP values may be custom (see health table note). Threat suppression after Heroic Will is <strong>more punishing</strong>; assign a backup pick-up (Hunter pet, Army ghoul, etc.) if you solo tank.</p>
     <div class="callout warn">
       <span class="callout-icon">&#9888;</span>
       <div class="callout-text">
-        <strong>Heroic tip:</strong> WeakAuras for Hour + Fading on every player. Call <strong>â€œtaunt in 2â€</strong> only after the previous Heroic Will user is phased. Save personal DPS cooldowns for windows where you are not locked in a portal.
+        <strong>Heroic tip:</strong> WeakAuras for Hour + Fading on every player. Call <strong>“taunt in 2”</strong> only after the previous Heroic Will user is phased. Save personal DPS cooldowns for windows where you are not locked in a portal.
       </div>
     </div>
   </div>
@@ -302,7 +305,7 @@
       <div class="role-card">
         <div class="role-card-title">&#128737; Tanks</div>
         <ul>
-          <li>Solo or duo â€” <strong>no stack-based swap</strong>; follow Fading/HoT cadence</li>
+          <li>Solo or duo — <strong>no stack-based swap</strong>; follow Fading/HoT cadence</li>
           <li>After Heroic Will, <strong>pause</strong> before taunting; let aggro stabilize</li>
           <li>Last Defender on CD for scary overlaps</li>
         </ul>
@@ -351,8 +354,8 @@
       </thead>
       <tbody>
         <tr><td><strong>Hour of Twilight</strong></td><td>~Every 45s, raid-wide ~300k. Use <strong>Heroic Will</strong> before it lands to avoid (you phase out ~5s).</td></tr>
-        <tr><td><strong>Heroic Will</strong></td><td>Extra action button â€” use when Hour of Twilight is imminent. Can't move/attack while phased.</td></tr>
-        <tr><td><strong>Fading Light</strong></td><td>Does not stack â€” HW before expiry; mind threat drop.</td></tr>
+        <tr><td><strong>Heroic Will</strong></td><td>Extra action button — use when Hour of Twilight is imminent. Can't move/attack while phased.</td></tr>
+        <tr><td><strong>Fading Light</strong></td><td>Does not stack — HW before expiry; mind threat drop.</td></tr>
         <tr><td><strong>Tanking</strong></td><td>Solo tank meta; verify HP tuning on your server (~124M 10H reported).</td></tr>
         <tr><td><strong>Burn</strong></td><td>Single target only. No adds. DPS race before 6-minute enrage.</td></tr>
         <tr><td><strong>Enrage</strong></td><td>6 minutes. Kill before then.</td></tr>
@@ -364,7 +367,7 @@
 
 <footer class="guide-footer">
   <div class="container">
-    <p>&#9812; <strong>Dragon Soul â€” Ultraxion</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p>&#9812; <strong>Dragon Soul — Ultraxion</strong> · Boss Guide · Normal &amp; Heroic · 10 &amp; 25 Player</p>
     <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Hagara the Stormbinder/DS-Hagara-Guide.html">Hagara &#8592;</a> &nbsp;|&nbsp; <a href="../Warmaster Blackhorn/DS-Blackhorn-Guide.html">Warmaster Blackhorn &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
     <div class="copyright-block" role="contentinfo">
       <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
