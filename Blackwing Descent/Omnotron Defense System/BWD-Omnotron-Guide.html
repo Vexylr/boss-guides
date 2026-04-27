@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omnotron Defense System â€” Blackwing Descent Boss Guide</title>
+  <meta name="description" content="Normal & Heroic guide for Omnotron. Arcanotron, Electron, Magmatron, Toxitron â€” shared HP, 50 energy shield, target priority." />
+  <meta name="theme-color" content="#1a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--ember:#ea580c;--flame:#dc2626;--void:#1a0a0a;--ash:#292524;--text:#fef3c7;--muted:#a8a29e;--gold:#fbbf24;--normal:#60a5fa;--heroic:#f472b6;--pill-n:#60a5fa;--pill-h:#f472b6;--pill-b:#a78bfa;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;} html{scroll-behavior:smooth;}
+    body{background-color:var(--void);color:var(--text);font-family:'Exo 2',sans-serif;font-size:16px;line-height:1.7;background-image:radial-gradient(ellipse at 20% 30%, rgba(220,38,38,0.08) 0%, transparent 50%);}
+    .hero{min-height:300px;display:flex;align-items:flex-end;border-bottom:3px solid var(--flame);background:linear-gradient(135deg, rgba(220,38,38,0.15) 0%, var(--void) 50%, rgba(234,88,12,0.08) 100%);}
+    .hero-content{padding:48px 60px;max-width:900px;}
+    .hero-eyebrow{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:4px;color:var(--ember);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;background:linear-gradient(135deg,#fef3c7 0%,var(--ember) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+    .hero-tagline{font-size:1rem;color:var(--muted);}
+    .tag-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;}
+    .tag{display:inline-flex;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;}
+    .tag-n{background:rgba(96,165,250,0.18);border:1px solid var(--normal);color:var(--normal);}
+    .tag-h{background:rgba(244,114,182,0.18);border:1px solid var(--heroic);color:var(--heroic);}
+    .tag-b{background:rgba(167,139,250,0.18);border:1px solid var(--pill-b);color:var(--pill-b);}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px;}
+    .section{padding:56px 0 48px;border-bottom:1px solid rgba(220,38,38,0.12);}
+    .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg, rgba(220,38,38,0.3), rgba(234,88,12,0.2));border:1px solid rgba(220,38,38,0.3);flex-shrink:0;}
+    .section h2{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold);letter-spacing:1px;}
+    .section h3{font-size:1.1rem;font-weight:700;color:var(--ember);margin:24px 0 10px;}
+    .guide-list{list-style:none;padding:0;}
+    .guide-list li{padding:7px 0 7px 22px;position:relative;font-size:0.94rem;color:var(--text);border-bottom:1px solid rgba(255,255,255,0.04);}
+    .guide-list li::before{content:'\25B6';position:absolute;left:0;color:var(--flame);}
+    .guide-list li strong{color:white;}
+    .pill-n,.pill-h,.pill-b{border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;white-space:nowrap;}
+    .pill-n{color:var(--pill-n);background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3);}
+    .pill-h{color:var(--pill-h);background:rgba(244,114,182,0.12);border:1px solid rgba(244,114,182,0.3);}
+    .pill-b{color:var(--pill-b);background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3);}
+    .callout{border-radius:12px;padding:18px 20px;margin:16px 0;display:flex;gap:14px;align-items:flex-start;font-size:0.93rem;}
+    .callout.danger{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);}
+    .callout.tip{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);}
+    .callout.warn{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);}
+    .mech-badge{display:inline-flex;font-weight:600;font-size:0.88rem;padding:2px 10px;border-radius:6px;background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.3);color:var(--ember);margin:2px;}
+    .guide-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(220,38,38,0.2);}
+    .guide-table thead tr{background:linear-gradient(90deg, rgba(127,29,29,0.5), rgba(220,38,38,0.3));}
+    .guide-table th{padding:12px 16px;text-align:left;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;text-transform:uppercase;}
+    .guide-table td{padding:11px 16px;border-bottom:1px solid rgba(220,38,38,0.08);}
+    .guide-table tbody tr:nth-child(even){background:rgba(255,255,255,0.03);}
+    .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(26,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,38,38,0.2);padding:10px 32px;display:flex;gap:24px;align-items:center;overflow-x:auto;}
+    .sticky-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;}
+    .sticky-nav a:hover{color:var(--ember);}
+    .sticky-nav-logo{font-family:'Orbitron',sans-serif;color:var(--flame);font-size:13px;font-weight:700;margin-right:8px;}
+    .guide-footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:13px;border-top:1px solid rgba(220,38,38,0.2);background:rgba(26,10,10,0.6);}
+    .guide-footer .copyright-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+    .guide-footer .discord-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--ember);}
+    .guide-footer .discord-name{font-weight:700;color:var(--ember);}
+    .breadcrumb{font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(220,38,38,0.2);}
+    .breadcrumb .container{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+    .breadcrumb a{color:var(--ember);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+    .breadcrumb [aria-current="page"]{color:var(--text);font-weight:600;}
+    .divider{height:2px;background:linear-gradient(90deg, transparent, var(--flame), var(--ember), transparent);margin:0;opacity:0.5;}
+    .skip-link{position:absolute;top:-80px;left:12px;padding:10px 18px;background:var(--flame);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px;z-index:1001;}
+    .skip-link:focus{top:12px;}
+    @media (max-width:768px){.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
+    @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#1a0a0a!important;}body{background:#1a0a0a!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#ea580c;}}
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9889; Blackwing Descent &#183; Tier 11</div>
+    <h1>Omnotron Defense System</h1>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9889; OMNOTRON</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#golems">Golems</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Blackwing Descent</a> &#8250; <span aria-current="page">Omnotron Defense System</span>
+  </div>
+</nav>
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:20px;">
+      Four golems share one health pool: <strong style="color:white;">Arcanotron</strong>, <strong style="color:white;">Electron</strong>, <strong style="color:white;">Magmatron</strong>, <strong style="color:white;">Toxitron</strong>. Only one is active at a time (random start). Each has 100 energy that drains in combat. At <strong>50 energy</strong> they shield and the next golem activates â€” you deal with <strong>two</strong> sets of mechanics until the first hits 0 and goes inactive. Then the second drains from 100 â†’ 50 â†’ 0. Never attack a golem while it has its 50-energy shield (Barrier/Power Conversion/Unstable Shield/Poison Soaked Shell) unless you're purging/Spellstealing Arcanotron stacks. Drag boss into Toxitron's Chemical Cloud for +50% damage taken. Worst combo: Electron + Magmatron (heavy raid damage) â€” rotate raid CDs.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="golems">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Golem Abilities</h2>
+    </div>
+    <h3>Magmatron</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Incineration Security Measure</span> â€” high Fire raid damage over 4s. Raid CD.</li>
+      <li><span class="mech-badge">Acquiring Target</span> â†’ <span class="mech-badge">Flamethrower</span> â€” marked player move away; raid behind boss. Personal CD on target. <span class="pill-h">[H]</span> Encasing Shadows roots target â€” Freedom or raid move away.</li>
+      <li>At 50 energy: <span class="mech-badge">Barrier</span>. Do not break (wipe). Swap to other golem.</li>
+    </ul>
+    <h3>Arcanotron</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Arcane Annihilator</span> â€” interrupt or ~80k to random player.</li>
+      <li><span class="mech-badge">Power Generator</span> â€” on random player; stand in for +50% damage and mana. Save DPS CDs for this. <span class="pill-h">[H]</span> Overcharged: +100% damage, field grows and explodes (Arcane Blowback) â€” leave before explode.</li>
+      <li>At 50 energy: <span class="mech-badge">Power Conversion</span> â€” damage gives Converted Power stacks (+Arcane dmg &amp; haste). Can cleave/DoT if you purge or Mage Spellsteal stacks.</li>
+    </ul>
+    <h3>Electron</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Electrical Discharge</span> â€” bounces between nearby players, damage increases each bounce. Melee spread; split into groups to limit bounces.</li>
+      <li><span class="mech-badge">Lightning Conductor</span> â€” random player damages nearby. Move away. <span class="pill-h">[H]</span> <span class="mech-badge">Shadow Infusion</span> on same target â€” raid-wide damage higher when target is far. Stack on target, use raid CD; after 5s becomes Shadow Conductor (damage based on distance from target â€” stack). Priest Leap of Faith can pull target in.</li>
+      <li>At 50 energy: <span class="mech-badge">Unstable Shield</span> â€” attacking causes massive AoE. Swap off, no cleave.</li>
+    </ul>
+    <h3>Toxitron</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Chemical Bomb</span> â†’ <span class="mech-badge">Chemical Cloud</span> â€” poison puddles, +50% damage taken inside. Tank drag current golem into cloud.</li>
+      <li><span class="mech-badge">Poison Protocol</span> â€” Poison Bomb oozes fixate; slow and kill (reach target = kill + puddle). <span class="pill-h">[H]</span> Grip of Death pulls raid into cloud â€” move out fast.</li>
+      <li>At 50 energy: <span class="mech-badge">Poison Soaked Shell</span> â€” attacking gives Soaked In Poison (Nature DoT, stacks). Swap to other golem; Expunge Poison by attacking other golem (deals extra). One dispel clears full stack.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Strategy Summary</h2>
+    </div>
+    <ul class="guide-list">
+      <li><strong>At 50 energy:</strong> Current golem shields â€” drag it away from raid, swap to the newly activated golem. Do not hit Barrier (Magmatron), Unstable Shield (Electron); can hit Arcanotron if purging/Spellsteal; avoid building too many Soaked In Poison on Toxitron.</li>
+      <li><strong>Toxitron cloud:</strong> Position so you can pull active golem into cloud for +50% damage.</li>
+      <li><strong>Electron + Magmatron:</strong> Hardest combo. Rotate multiple raid defensives and healer CDs.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Golem</th>
+          <th>50 energy â€” do not attack / special</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Magmatron</strong></td><td>Barrier â€” do not break</td></tr>
+        <tr><td><strong>Arcanotron</strong></td><td>Power Conversion â€” purge/Spellsteal or cleave carefully</td></tr>
+        <tr><td><strong>Electron</strong></td><td>Unstable Shield â€” swap off, no cleave</td></tr>
+        <tr><td><strong>Toxitron</strong></td><td>Poison Soaked Shell â€” swap; Expunge on other golem</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9889; <strong>Blackwing Descent â€” Omnotron Defense System</strong> Â· Boss Guide Â· Normal &amp; Heroic</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--ember);">&#8592; Back to Blackwing Descent index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--ember);">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

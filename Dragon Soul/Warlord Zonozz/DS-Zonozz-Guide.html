@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warlord Zon'ozz â€” Dragon Soul Boss Guide</title>
+  <meta name="description" content="Complete Normal & Heroic guide for Warlord Zon'ozz in Dragon Soul. Void orb bouncing, Void Diffusion zones, 25% phase, Disrupting Shadows. Health, timers, strategy." />
+  <meta name="theme-color" content="#0c1222" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #0c1222;
+      --abyss: #131c33;
+      --dragon: #1e3a5f;
+      --gold: #c9a227;
+      --amber: #e8c547;
+      --twilight: #4a6fa5;
+      --text: #e8e6e3;
+      --muted: #8b9cb8;
+      --accent: #7eb8da;
+      --normal: #60a5fa;
+      --heroic: #f472b6;
+      --both: #a78bfa;
+      --tip: #34d399;
+      --warn: #fbbf24;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--void);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(30,58,95,0.2) 0%, transparent 55%);
+    }
+    .hero {
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      border-bottom: 3px solid var(--gold);
+      background: linear-gradient(160deg, rgba(12,18,34,0.98) 0%, var(--void) 40%, rgba(30,58,95,0.15) 100%);
+    }
+    .hero-content { padding: 48px 60px; max-width: 920px; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #f5f0e6 0%, var(--amber) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .hero-tagline { font-size: 1rem; color: var(--muted); }
+    .tag-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .tag-n { background: rgba(96,165,250,0.18); border: 1px solid var(--normal); color: var(--normal); }
+    .tag-h { background: rgba(244,114,182,0.18); border: 1px solid var(--heroic); color: var(--heroic); }
+    .tag-b { background: rgba(167,139,250,0.18); border: 1px solid var(--both); color: var(--both); }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 48px 0 56px; border-bottom: 1px solid rgba(201,162,39,0.12); }
+    .section:last-of-type { border-bottom: none; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: linear-gradient(135deg, rgba(201,162,39,0.25), rgba(30,58,95,0.4)); border: 1px solid rgba(201,162,39,0.35); flex-shrink: 0; }
+    .section h2 { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: var(--amber); letter-spacing: 1px; }
+    .section h3 { font-size: 1.12rem; font-weight: 700; color: var(--accent); margin: 28px 0 12px; }
+    .guide-list { list-style: none; padding: 0; }
+    .guide-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .guide-list li::before { content: '\25B6'; position: absolute; left: 0; color: var(--gold); font-size: 0.75em; }
+    .guide-list li strong { color: #fff; }
+    .pill-n, .pill-h, .pill-b { border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .pill-n { color: var(--normal); background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.3); }
+    .pill-h { color: var(--heroic); background: rgba(244,114,182,0.12); border: 1px solid rgba(244,114,182,0.3); }
+    .pill-b { color: var(--both); background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); }
+    .callout { border-radius: 12px; padding: 18px 22px; margin: 18px 0; display: flex; gap: 14px; align-items: flex-start; font-size: 0.95rem; }
+    .callout.danger { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.35); }
+    .callout.tip { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.3); }
+    .callout.warn { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.35); }
+    .callout-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .callout-text strong { color: var(--amber); }
+    .mech-badge { display: inline-flex; font-weight: 600; font-size: 0.88rem; padding: 2px 10px; border-radius: 6px; background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.35); color: var(--amber); margin: 2px; }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,162,39,0.2); }
+    .guide-table thead tr { background: linear-gradient(90deg, rgba(19,28,51,0.9), rgba(201,162,39,0.15)); }
+    .guide-table th { padding: 12px 16px; text-align: left; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+    .guide-table td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+    .guide-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .hp-num { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--accent); }
+    .guide-footer { text-align: center; padding: 40px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid rgba(201,162,39,0.2); }
+    .guide-footer a { color: var(--amber); text-decoration: none; }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--amber); }
+    .phase-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
+    .phase-card { background: linear-gradient(145deg, rgba(19,28,51,0.8), rgba(30,58,95,0.3)); border-radius: 12px; padding: 22px; border: 1px solid rgba(201,162,39,0.2); }
+    .phase-card .phase-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .phase-card .phase-range { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .phase-card .phase-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
+    .enrage-box { background: linear-gradient(135deg, rgba(30,58,95,0.25), rgba(201,162,39,0.08)); border: 1px solid rgba(244,114,182,0.35); border-radius: 12px; padding: 20px 24px; margin-top: 20px; }
+    .enrage-box-title { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--heroic); text-transform: uppercase; margin-bottom: 10px; }
+    .sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(12,18,34,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,162,39,0.2); padding: 10px 32px; display: flex; gap: 24px; align-items: center; overflow-x: auto; }
+    .sticky-nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .sticky-nav a:hover { color: var(--amber); }
+    .sticky-nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; font-weight: 700; margin-right: 8px; }
+    .breadcrumb { font-size: 12px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(201,162,39,0.15); }
+    .breadcrumb .container { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb [aria-current="page"] { color: var(--text); font-weight: 600; }
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .role-card { background: rgba(19,28,51,0.6); border: 1px solid rgba(201,162,39,0.2); border-radius: 10px; padding: 16px; }
+    .role-card-title { font-weight: 700; color: var(--amber); margin-bottom: 10px; font-size: 0.95rem; }
+    .role-card ul { margin: 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .skip-link { position: absolute; top: -80px; left: 12px; padding: 10px 18px; background: var(--dragon); color: var(--amber); text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; z-index: 1001; transition: top 0.2s; border: 1px solid var(--gold); }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .divider { height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--twilight), var(--gold), transparent); margin: 0; opacity: 0.5; }
+    @media print {
+      .skip-link, .sticky-nav, .tag-legend, .divider, .breadcrumb { display: none !important; }
+      .hero { min-height: auto; padding: 1.5rem 0; background: #0c1222 !important; }
+      body { background: #0c1222 !important; }
+      .section { padding: 2rem 0; break-inside: avoid; }
+      a { color: #e8c547; }
+    }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9812; Dragon Soul &#183; Tier 13</div>
+    <h1>Warlord Zon'ozz</h1>
+    <p class="hero-tagline">Normal &amp; Heroic Boss Guide &#183; 10 &amp; 25 Player</p>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9812; ZON'OZZ</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#health">Health &amp; Timers</a>
+  <a href="#phases">Phases</a>
+  <a href="#heroic">Heroic</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content" aria-label="Guide content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Dragon Soul</a> &#8250; <span aria-current="page">Warlord Zon'ozz</span>
+  </div>
+</nav>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:22px;">
+      <strong style="color:#fff;">Warlord Zon'ozz</strong> is a void lord and the <strong style="color:#fff;">second boss</strong> of Dragon Soul. He summons a <strong style="color:#fff;">Void of the Unmaking</strong> (void orb) that travels toward the raid. Players must <strong>bounce the orb back and forth</strong> between assigned groups â€” if it hits the <strong>wall</strong>, the raid is launched into the air (wipe). Each time the orb <strong>collides with players</strong>, <span class="mech-badge">Void Diffusion</span> triggers: ~180,000 Shadow damage <strong>split among nearby players</strong>, the orb ricochets, and its damage increases <strong>+20% per bounce</strong>. Stack in groups to share the damage. When ready, the raid <strong>lets the orb hit Zon'ozz</strong> to trigger <strong>Phase 2</strong>: everything goes dark and adds spawn; after that, return to Phase 1. On Heroic, <span class="mech-badge">Disrupting Shadows</span> adds a dispel or cooldown requirement.
+    </p>
+    <div class="callout danger">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Do not let the orb hit the wall.</strong> <span class="pill-b">[N/H]</span> If the Void of the Unmaking hits the wall, the raid is launched into the air â€” usually a wipe. Keep bouncing it between stacked groups until you choose to let it hit the boss (to trigger Phase 2).
+      </div>
+    </div>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Phase 1 â€” Orb bouncing</div>
+        <div class="phase-range">Main phase</div>
+        <div class="phase-desc">Stack in assigned groups (e.g. melee / ranged). Orb hits a group â†’ Void Diffusion (180k shadow split), orb bounces. Bounce it back and forth; damage increases 20% per bounce. When ready, let orb hit Zon'ozz to trigger Phase 2.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 2 â€” Dark / adds</div>
+        <div class="phase-range">Triggered by orb hitting boss</div>
+        <div class="phase-desc">Room goes dark; adds spawn. Kill adds and survive. When Phase 2 ends, Phase 1 resumes (new orb). Repeat until boss dies.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEALTH & TIMERS ===== -->
+<section class="section" id="health">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Health &amp; Timers</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th><span class="pill-n">[N]</span> 10-Man</th>
+          <th><span class="pill-n">[N]</span> 25-Man</th>
+          <th><span class="pill-h">[H]</span> 10-Man</th>
+          <th><span class="pill-h">[H]</span> 25-Man</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Warlord Zon'ozz</strong></td>
+          <td class="hp-num">36.4M</td>
+          <td class="hp-num">114.2M</td>
+          <td class="hp-num">54.6M</td>
+          <td class="hp-num">171.3M</td>
+        </tr>
+        <tr>
+          <td><strong>Void Orb</strong></td>
+          <td class="hp-num">â€”</td>
+          <td class="hp-num">â€”</td>
+          <td class="hp-num">â€”</td>
+          <td class="hp-num">â€”</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="enrage-box">
+      <div class="enrage-box-title">&#9888; Enrage</div>
+      <ul class="guide-list">
+        <li><strong>6-minute enrage.</strong> Zon'ozz gains <span class="mech-badge">Fury</span> â€” +500% damage and +500% attack speed. Kill before enrage.</li>
+        <li>Void Orb bounces between stacked raid groups until you <strong>deliberately send it into Zon'ozz</strong> to trigger Phase 2. Typical Heroic ping-pong counts are <strong>7-7-5</strong> or <strong>7-5-5</strong> bounces per â€œsetâ€ (varies by DPS); the <strong>last Phase 1</strong> before a kill is often a gamble â€” either the boss dies before an unrecoverable wall ping, or the raid wipes to a wall hit.</li>
+        <li>Stay out of bad void zones if your server spawns residual pools after Diffusion.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PHASES ===== -->
+<section class="section" id="phases">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Phases &amp; Mechanics</h2>
+    </div>
+
+    <h3>Void of the Unmaking (Orb) <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Zon'ozz summons the <span class="mech-badge">Void of the Unmaking</span> â€” an orb that travels toward the raid.</li>
+      <li>When the orb <strong>hits players</strong>, <span class="mech-badge">Void Diffusion</span> occurs: ~180,000 Shadow damage <strong>split evenly among nearby players</strong>, the orb <strong>ricochets</strong> in the opposite direction, and the orb's damage <strong>increases by 20%</strong> per diffusion (it absorbs souls).</li>
+      <li><strong>Stack in assigned groups</strong> (e.g. melee stack, ranged stack) so each bounce is shared. Bounce the orb back and forth between groups. <strong>Do not let it hit the wall</strong> â€” that launches the raid into the air (wipe).</li>
+      <li>The raid leader decides <strong>when to let the orb hit Zon'ozz</strong>. When it touches the boss, <strong>Phase 2</strong> begins (dark room, adds). After Phase 2 ends, Phase 1 resumes with a new orb. Typically you bounce several times to build damage on the boss when the orb eventually hits him, then handle Phase 2.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Positioning:</strong> Two groups (e.g. melee and ranged), each stacked so Void Diffusion is split among 5â€“6 (10-man) or 12â€“13 (25-man). Alternate which group intercepts the orb so it bounces between them. Call out "orb to melee" / "orb to ranged" so the correct group is stacked when the orb arrives.
+      </div>
+    </div>
+
+    <h3>Phase 2 â€” Dark &amp; adds <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Phase 2 is triggered <strong>only when the orb touches Zon'ozz</strong> (not at a fixed HP%). The room goes dark; adds spawn.</li>
+      <li>Kill the adds and survive the phase. When it ends, you return to Phase 1 and a new orb spawns. Repeat until the boss is dead.</li>
+    </ul>
+
+    <h3>Psychic Drain <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Zon'ozz uses <span class="mech-badge">Psychic Drain</span> (Shadow leech on his target). <strong>Keep the boss faced at the tank</strong> so Drain does not clip the raid â€” random Drain targets on some private servers still require the raid to <strong>stack healing on the current target</strong> and avoid overlapping it with orb soaks.</li>
+      <li>Off-tank (if any) stands clear until a taunt swap; healers pump the tank during Drain windows.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEROIC ===== -->
+<section class="section" id="heroic">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Heroic-Only Mechanics <span class="pill-h">[H]</span></h2>
+    </div>
+    <div style="background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.3); border-radius:14px; padding:22px; margin-bottom:20px;">
+      <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:12px;">&#128301; Disrupting Shadows</div>
+      <ul class="guide-list">
+        <li>Zon'ozz applies <span class="mech-badge">Disrupting Shadows</span> to several random players: ticking Shadow damage that <strong>explodes for raid-wide damage if dispelled carelessly</strong> on some clients.</li>
+        <li><strong>Dispel cadence (loop):</strong> Assign two healers/dispellers to a fixed rotation â€” e.g. <strong>dispel only between orb impacts</strong> (never during the 180k split window) and never two debuffs at the same millisecond. Call <strong>â€œdispel 3â€¦2â€¦1â€</strong> after the soak connects so the dispel explosion happens when the raid is topped.</li>
+        <li>If your server uses the retail variant (dispel = big nuke), <strong>pair each dispel with a personal CD</strong> or healthstone. If it is purely magic DoT, still stagger dispels so healers can triage.</li>
+        <li>Never dispel right before a <strong>Psychic Drain</strong> tick on the tank â€” keep globals for the tank healer.</li>
+      </ul>
+    </div>
+    <div class="callout warn">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Heroic tip:</strong> Plan the <strong>final orb set</strong> like a mini-enrage: either kill the boss before you run out of safe bounces, or accept a risky extra bounce with every CD. Disrupting Shadows must follow the <strong>dispel rotation</strong>, not â€œwhoever feels like it.â€
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== STRATEGY ===== -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Strategy Summary</h2>
+    </div>
+    <h3>Role Assignments <span class="pill-b">[N/H]</span></h3>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-card-title">&#128737; Tanks</div>
+        <ul>
+          <li>Tank Zon'ozz away from raid; face for <span class="mech-badge">Psychic Drain</span> â€” nobody else in front</li>
+          <li>Keep boss still so orb path between groups is predictable; don't block the path</li>
+          <li><span class="pill-h">[H]</span> Can help soak in a group if assigned</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#9876; DPS</div>
+        <ul>
+          <li>Stack in assigned group; soak Void Diffusion when orb hits your group (damage split)</li>
+          <li>Bounce orb between groups; never let it hit the wall</li>
+          <li>When called, let orb hit Zon'ozz to trigger Phase 2; kill adds in Phase 2</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128137; Healers</div>
+        <ul>
+          <li>Heal groups before/after Void Diffusion (orb hit); top soakers</li>
+          <li>Dispel <span class="pill-h">[H]</span> Disrupting Shadows <strong>on rotation</strong> â€” never during orb impact</li>
+          <li>Position in assigned group for orb bounces; dispel range</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout tip" style="margin-top:24px;">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Lust / Heroism:</strong> Use when the raid is in Phase 2 (adds) for quick add burn, or when the boss is low and you have full uptime. Coordinate with orb rotation.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== QUICK REF ===== -->
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Mechanic</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Void of the Unmaking</strong></td><td>Stack in groups; orb hits group â†’ Void Diffusion (180k split), bounces. Bounce between groups; don't let it hit the wall.</td></tr>
+        <tr><td><strong>Phase 2</strong></td><td>Triggered when orb hits Zon'ozz. Room goes dark; kill adds, then Phase 1 resumes.</td></tr>
+        <tr><td><strong>Psychic Drain</strong></td><td>Shadow leech â€” tank faces boss away from raid; heal Drain target.</td></tr>
+        <tr><td><strong>Disrupting Shadows</strong> <span class="pill-h">[H]</span></td><td>Staggered dispel loop between orb soaks; CDs for explosions.</td></tr>
+        <tr><td><strong>Enrage</strong></td><td>6 minutes. Kill before then.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9812; <strong>Dragon Soul â€” Warlord Zon'ozz</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Morchok/DS-Morchok-Guide.html">Morchok &#8592;</a> &nbsp;|&nbsp; <a href="../Yorsaj the Unsleeping/DS-Yorsaj-Guide.html">Yor'sahj &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px; font-size:12px;">All mechanics tagged [N] / [H]. Timing windows are approximate and may vary by server.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

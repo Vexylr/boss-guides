@@ -1,0 +1,1050 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lord Rhyolith &#8212; Firelands Boss Guide</title>
+  <meta name="description" content="Complete Normal & Heroic guide for Lord Rhyolith in the Firelands raid. Phase breakdowns, steering mechanics, add priority, and heroic-only abilities." />
+  <meta name="theme-color" content="#1a1012" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231a1012'/><path fill='%23ff6a00' d='M16 6c-2 4-4 8-4 12 0 4 2 6 4 6s4-2 4-6c0-4-2-8-4-12z'/><path fill='%23ff9a3c' d='M16 10c1 3 2 6 2 8 0 2-1 4-2 4s-2-2-2-4c0-2 1-5 2-8z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --fire:    #ff6a00;
+      --ember:   #ff9a3c;
+      --gold:    #ffd166;
+      --lava:    #c0392b;
+      --obsidian:#1a1012;
+      --ash:     #2c1f20;
+      --smoke:   #3d2b2b;
+      --text:    #f0ddc5;
+      --muted:   #a08070;
+      --normal:  #4da6ff;
+      --heroic:  #ff4d6d;
+      --both:    #a78bfa;
+      --tip:     #22c55e;
+      --warn:    #f59e0b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--obsidian);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(255,106,0,0.10) 0%, transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.01'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ======= HERO BANNER ======= */
+    .hero {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      border-bottom: 3px solid var(--fire);
+      background: linear-gradient(135deg, rgba(192,57,43,0.2) 0%, var(--obsidian) 50%, rgba(255,106,0,0.1) 100%);
+    }
+    .hero img.hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: brightness(0.55) saturate(1.3);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--obsidian) 0%, rgba(26,16,18,0.5) 50%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px 60px;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: var(--ember);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      background: linear-gradient(135deg, #fff7e6 0%, var(--ember) 50%, var(--lava) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      margin-bottom: 16px;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .tag-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .tag-n { background: rgba(77,166,255,0.18); border: 1px solid var(--normal); color: var(--normal); }
+    .tag-h { background: rgba(255,77,109,0.18); border: 1px solid var(--heroic); color: var(--heroic); }
+    .tag-b { background: rgba(167,139,250,0.18); border: 1px solid var(--both); color: var(--both); }
+
+    /* ======= LAYOUT ======= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ======= SECTION ======= */
+    .section {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255,106,0,0.12);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      background: linear-gradient(135deg, rgba(255,106,0,0.3), rgba(192,57,43,0.3));
+      border: 1px solid rgba(255,106,0,0.3);
+      flex-shrink: 0;
+    }
+    .section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .section h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ember);
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--fire);
+      border-radius: 2px;
+    }
+
+    /* ======= IMAGE CARDS ======= */
+    .img-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,106,0,0.2);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,106,0,0.05);
+      position: relative;
+    }
+    .img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .img-card:hover img { transform: scale(1.03); }
+    .img-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,16,18,0.95), transparent);
+      padding: 24px 20px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    /* ======= 2-COL LAYOUT ======= */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .hero-content { padding: 32px 24px; }
+      .container { padding: 0 16px; }
+    }
+
+    /* ======= OVERVIEW CARDS ======= */
+    .phase-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .phase-card {
+      background: linear-gradient(135deg, rgba(44,31,32,0.8), rgba(60,40,40,0.6));
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid rgba(255,106,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .phase-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .phase-card.p1::before { background: linear-gradient(90deg, var(--fire), var(--ember)); }
+    .phase-card.p2::before { background: linear-gradient(90deg, var(--lava), var(--fire)); }
+    .phase-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 6px;
+    }
+    .phase-range {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .phase-desc { font-size: 0.9rem; color: var(--muted); }
+
+    /* ======= TABLE ======= */
+    .guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 16px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,106,0,0.15);
+    }
+    .guide-table thead tr {
+      background: linear-gradient(90deg, rgba(192,57,43,0.4), rgba(255,106,0,0.3));
+    }
+    .guide-table th {
+      padding: 12px 16px;
+      text-align: left;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .guide-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid rgba(255,106,0,0.08);
+      vertical-align: top;
+    }
+    .guide-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+    .guide-table tbody tr:hover { background: rgba(255,106,0,0.07); }
+    .guide-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ======= MECHANIC PILLS & TAGS ======= */
+    .pill-n { color: var(--normal); background: rgba(77,166,255,0.12); border: 1px solid rgba(77,166,255,0.3); border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .pill-h { color: var(--heroic); background: rgba(255,77,109,0.12); border: 1px solid rgba(255,77,109,0.3); border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .pill-b { color: var(--both); background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+
+    /* ======= CALLOUT BOXES ======= */
+    .callout {
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 16px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 0.93rem;
+    }
+    .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .callout.warn { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); }
+    .callout.danger { background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.4); }
+    .callout.tip { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); }
+    .callout.info { background: rgba(77,166,255,0.1); border: 1px solid rgba(77,166,255,0.3); }
+    .callout-text strong { color: white; }
+
+    /* ======= BULLET LISTS ======= */
+    .guide-list { list-style: none; padding: 0; }
+    .guide-list li {
+      padding: 7px 0 7px 22px;
+      position: relative;
+      font-size: 0.94rem;
+      color: var(--text);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .guide-list li:last-child { border-bottom: none; }
+    .guide-list li::before {
+      content: '\25B6';
+      position: absolute;
+      left: 0;
+      color: var(--fire);
+    }
+    .guide-list li strong { color: white; }
+
+    /* ======= ROLE CARDS ======= */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .role-card {
+      background: rgba(44,31,32,0.7);
+      border: 1px solid rgba(255,106,0,0.15);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .role-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+    .role-card ul { list-style: none; }
+    .role-card ul li {
+      font-size: 0.83rem;
+      color: var(--muted);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .role-card ul li:last-child { border-bottom: none; }
+    .role-card ul li strong { color: var(--text); }
+
+    /* ======= MECHANIC BADGE ======= */
+    .mech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 2px 10px;
+      border-radius: 6px;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.25);
+      color: var(--ember);
+      margin: 2px;
+    }
+
+    /* ======= FOOTER ======= */
+    .guide-footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,106,0,0.15);
+    }
+    .guide-footer a { color: var(--ember); text-decoration: none; }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ember); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--ember); }
+
+    /* ======= LAVA DIVIDER ======= */
+    .lava-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--fire), var(--ember), var(--fire), transparent);
+      margin: 0;
+      opacity: 0.5;
+    }
+
+    /* ======= STICKY NAV ======= */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26,16,18,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,106,0,0.2);
+      padding: 10px 32px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      overflow-x: auto;
+    }
+    .sticky-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .sticky-nav a:hover { color: var(--ember); }
+    .sticky-nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; color: var(--ember); }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .sticky-nav-logo {
+      font-family: 'Cinzel', serif;
+      color: var(--fire);
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    /* ======= BREADCRUMB ======= */
+    .breadcrumb { font-size: 12px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(255,106,0,0.12); }
+    .breadcrumb .container { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .breadcrumb a { color: var(--ember); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb [aria-current="page"] { color: var(--text); font-weight: 600; }
+
+    /* ======= HEALTH TABLE NUMBERS ======= */
+    .hp-num { font-variant-numeric: tabular-nums; font-size: 13px; }
+
+    /* ======= ENRAGE BOX ======= */
+    .enrage-box {
+      background: linear-gradient(135deg, rgba(192,57,43,0.18), rgba(255,106,0,0.1));
+      border: 1px solid rgba(220,38,38,0.4);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 20px;
+    }
+    .enrage-box-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--heroic);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ======= ANIMATIONS ======= */
+    @keyframes flicker {
+      0%,100% { opacity: 1; } 50% { opacity: 0.7; }
+    }
+    .flicker { animation: flicker 3s ease-in-out infinite; }
+
+    @keyframes pulse-glow {
+      0%,100% { box-shadow: 0 0 12px rgba(255,106,0,0.3); }
+      50% { box-shadow: 0 0 28px rgba(255,106,0,0.6); }
+    }
+    .glow-pulse { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+    .img-card { animation: pulse-glow 4s ease-in-out infinite; }
+
+    /* ======= QUICK REF TABLE ======= */
+    td .check { color: var(--tip); font-weight: 700; }
+    td .dash { color: var(--muted); }
+    td .warn-text { color: var(--warn); font-weight: 600; }
+    td .danger-text { color: var(--heroic); font-weight: 700; }
+
+    .skip-link {
+      position: absolute;
+      top: -80px;
+      left: 12px;
+      padding: 10px 18px;
+      background: var(--fire);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      z-index: 1001;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    /* ======= PRINT ======= */
+    @media print {
+      .skip-link, .sticky-nav, .tag-legend, .lava-divider, .breadcrumb { display: none !important; }
+      .hero { min-height: auto; padding: 1.5rem 0; background: #1a1012 !important; }
+      body { background: #1a1012 !important; }
+      .section { padding: 2rem 0; break-inside: avoid; }
+      a { color: #ff9a3c; }
+    }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#128293; Firelands Raid &#183; Tier 12</div>
+    <h1>Lord Rhyolith</h1>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STICKY NAV ===== -->
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#127755; RHYOLITH</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#health">Health &amp; Timers</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#heroic">Heroic</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content" aria-label="Guide content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Firelands</a> &#8250; <span aria-current="page">Lord Rhyolith</span>
+  </div>
+</nav>
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Overview</h2>
+    </div>
+
+    <div>
+      <div>
+        <p style="color:var(--muted); margin-bottom:20px;">
+          Lord Rhyolith is a <strong style="color:white;">two-phase</strong> encounter set atop a volcanic plateau in the Firelands. 
+          In Phase 1, <strong style="color:white;">no tank targets Rhyolith directly</strong> â€” instead the raid <em>steers</em> the boss 
+          by dealing unequal damage to his feet, guiding him over active volcanoes to break his armor. 
+          If he reaches the lava edge, it's a wipe.
+        </p>
+
+        <div class="callout danger">
+          <span class="callout-icon">&#9888;</span>
+          <div class="callout-text">
+            <strong>Drink Magma</strong> <span class="pill-b">[N/H]</span><br/>
+            If Rhyolith reaches the lava at the plateau edge, he gains Drink Magma â€” 
+            <strong>35,000 Fire damage per second for 4 seconds</strong>. Instant raid wipe.
+          </div>
+        </div>
+
+        <div class="phase-cards">
+          <div class="phase-card p1">
+            <div class="phase-label">Phase 1</div>
+            <div class="phase-range">100% â†’ 25%</div>
+            <div class="phase-desc">No tank on Rhyolith. Control movement, kill adds, break armor over active volcanoes.</div>
+          </div>
+          <div class="phase-card p2">
+            <div class="phase-label">Phase 2</div>
+            <div class="phase-range">25% â†’ 0%</div>
+            <div class="phase-desc">Tank him, burn fast before Immolation + Superheated overwhelm healers.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lava-divider"></div>
+
+<!-- ===== HEALTH & TIMERS ===== -->
+<section class="section" id="health">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Health &amp; Timers</h2>
+    </div>
+
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th><span class="pill-n">[N]</span> 10-Man</th>
+          <th><span class="pill-n">[N]</span> 25-Man</th>
+          <th><span class="pill-h">[H]</span> 10-Man</th>
+          <th><span class="pill-h">[H]</span> 25-Man</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lord Rhyolith</strong></td>
+          <td class="hp-num">12.7M</td>
+          <td class="hp-num">39.1M</td>
+          <td class="hp-num">19.5M</td>
+          <td class="hp-num">59.5M</td>
+        </tr>
+        <tr>
+          <td><strong>Spark of Rhyolith</strong></td>
+          <td class="hp-num">1.4M</td>
+          <td class="hp-num">4.8M</td>
+          <td class="hp-num">2.1M</td>
+          <td class="hp-num">7.1M</td>
+        </tr>
+        <tr>
+          <td><strong>Fragment of Rhyolith</strong></td>
+          <td class="hp-num">99k</td>
+          <td class="hp-num">395k</td>
+          <td class="hp-num">197k</td>
+          <td class="hp-num">652k</td>
+        </tr>
+        <tr>
+          <td><strong>Liquid Obsidian</strong> <span class="pill-h">[H]</span></td>
+          <td class="hp-num" colspan="2" style="color:var(--muted);">â€”</td>
+          <td class="hp-num">210k</td>
+          <td class="hp-num">458k</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="enrage-box">
+      <div class="enrage-box-title">&#9888; Soft Enrage â€” Superheated</div>
+      <ul class="guide-list">
+        <li><strong>No hard enrage.</strong> Phase 2 acts as a soft enrage via <span class="mech-badge">Immolation</span> + <span class="mech-badge">Superheated</span>.</li>
+        <li><strong>Superheated</strong> stacks every <strong>10 seconds</strong>, dealing <strong>+10% more damage per stack</strong>.</li>
+        <li><span class="pill-n">[N]</span> Superheated begins <strong>6 minutes</strong> into the fight.</li>
+        <li><span class="pill-h">[H]</span> Superheated begins at <strong>5 minutes</strong> â€” tighter DPS &amp; healing check.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="lava-divider"></div>
+
+<!-- ===== PHASE 1 ===== -->
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Phase 1 â€” Armor Phase (100% â†’ 25%)</h2>
+    </div>
+
+    <!-- Steering -->
+    <h3>Steering Rhyolith <span class="pill-b">[N/H]</span></h3>
+    <div>
+      <div>
+        <ul class="guide-list">
+          <li>Rhyolith has a <strong>left</strong> and <strong>right</strong> foot with separate health bars. Damage is equalized between feet over time.</li>
+          <li><strong>More damage on left foot</strong> â†’ he turns <strong>left</strong>. <strong>More on right foot</strong> â†’ turns <strong>right</strong>. Equal damage â†’ walks straight.</li>
+          <li><strong>Direction gauge</strong>: 0% = hard left, 50% = straight, 100% = hard right. Allow ~1 second for his turn to register.</li>
+          <li>Assign a dedicated <strong>Pilot</strong> (often melee DPS; ranged usually on adds) to call "left foot" or "right foot" and choose which active volcano to route toward next.</li>
+        </ul>
+        <h3 style="margin-top:22px;">Turning sensitivity <span class="pill-b">[N/H]</span></h3>
+        <ul class="guide-list">
+          <li>Clients disagree on whether steering favors <strong>damage</strong>, <strong>hit count</strong>, <strong>class</strong>, or <strong>player count</strong> on a foot. Use a vocal pilot, put <strong>multiple</strong> damage sources on the foot you need to turn, and confirm behavior on your realm instead of debating a universal formula.</li>
+        </ul>
+        <div class="callout warn">
+          <span class="callout-icon">&#9888;</span>
+          <div class="callout-text">
+            <strong>Pilot tip:</strong> Don't over-correct. Small, consistent foot assignments 
+            keep movement predictable. Avoid snaking â€” aim toward active volcanoes early.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Armor & Volcanoes -->
+    <h3>Armor &amp; Volcanoes <span class="pill-b">[N/H]</span></h3>
+    <div>
+      <ul class="guide-list">
+        <li><span class="mech-badge">Obsidian Armor</span> starts at <strong>80% damage reduction</strong>. Each active volcano he steps on reduces it by <strong>10%</strong>.</li>
+        <li><span class="mech-badge">Concussive Stomp</span> (every 20â€”25s): Creates <strong>2â€”3 new volcanoes</strong> and deals Fire damage to the raid.</li>
+        <li>Volcanoes are either <strong>Active</strong> (erupting, orange glow) or <strong>Dormant</strong> (grey). Only active ones remove armor.</li>
+        <li><strong>Walking on a dormant</strong> volcano applies <span class="mech-badge">Molten Armor</span>: <span class="pill-n">+2% dmg/stack [N]</span> / <span class="pill-h">+5% dmg/stack [H]</span>. Avoid!</li>
+        <li>When he steps on any volcano it is destroyed, leaving a <strong>crater 10 seconds later</strong>.</li>
+      </ul>
+      <div class="callout danger">
+        <span class="callout-icon">&#9888;</span>
+        <div class="callout-text">
+          <strong>Heroic:</strong> Stepping on dormant volcanoes applies +5% damage per stack of Molten Armor. 
+          This compounds quickly â€” pilot must be precise and only route over clearly active volcanoes.
+        </div>
+      </div>
+    </div>
+
+    <!-- Craters & Magma Flow -->
+    <h3>Craters &amp; Magma Flow <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Each crater triggers <span class="mech-badge">Magma Flow</span>: <strong>4â€”6 lava streams</strong> shoot outward from the crater location.</li>
+      <li>Streams deal <strong>65,000 Fire</strong> to anyone in their path. After <strong>10 seconds</strong> they <span style="color:var(--heroic);">explode for 130,000 Fire</span>.</li>
+      <li>After streams end, the crater leaves a <strong>persistent lava pool</strong> â€” avoid standing in it.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Learn the patterns!</strong> Magma Flow streams radiate in predictable directions. 
+        Positioning anticipation (moving before streams appear) dramatically reduces raid damage.
+      </div>
+    </div>
+
+    <!-- Adds -->
+    <h3>Adds â€” Thermal Ignition <span class="pill-b">[N/H]</span></h3>
+    <div>
+      <div>
+        <p style="color:var(--muted); margin-bottom:14px; font-size:0.93rem;">
+          Every 20â€”25s, Rhyolith deals <strong style="color:white;">15,000 Fire</strong> to players within 
+          7 yards (<span class="mech-badge">Thermal Ignition</span>), then spawns one of two add types:
+        </p>
+
+        <div style="background:rgba(44,31,32,0.6); border:1px solid rgba(255,106,0,0.15); border-radius:12px; padding:18px; margin-bottom:14px;">
+          <div style="font-weight:700; color:var(--ember); margin-bottom:8px;">&#128376; Fragments of Rhyolith</div>
+          <ul class="guide-list">
+            <li>Low HP; light melee damage.</li>
+            <li><span class="pill-n">[N]</span> 5 Fragments Â· <span class="pill-h">[H]</span> 10 Fragments per wave.</li>
+            <li><strong style="color:var(--heroic);">Kill within 30s!</strong> If not, they <span class="mech-badge">Meltdown</span> â€” deal 100% of remaining HP to a random player, then die.</li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(44,31,32,0.6); border:1px solid rgba(255,106,0,0.15); border-radius:12px; padding:18px;">
+          <div style="font-weight:700; color:var(--ember); margin-bottom:8px;">&#128293; Spark of Rhyolith</div>
+          <ul class="guide-list">
+            <li>1 Spark per wave. High HP, melees the tank hard.</li>
+            <li><span class="mech-badge">Immolation</span>: ~8,500 Fire/sec to everyone within <strong>12 yards</strong>.</li>
+            <li><span class="mech-badge">Infernal Rage</span>: Every 5s adds +10% damage dealt <em>and</em> taken, stacks to 20.</li>
+            <li><strong style="color:var(--warn);">Tank Spark â‰¥12 yards from the raid.</strong> Ranged DPS prioritize killing it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eruption -->
+    <h3>Active Volcano Eruption <span class="pill-b">[N/H]</span></h3>
+    <div class="callout warn">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        While a volcano is <strong>active</strong> it Erupts for <strong>20 seconds</strong>: every 2s it hits 
+        <strong>3 (10-man) / 6 (25-man)</strong> players for <strong>10,000 Fire</strong> and applies a 
+        <strong>stacking debuff (+5% Fire damage taken, 14s, max 20 stacks)</strong>. 
+        The more active volcanoes exist simultaneously, the higher the raid-wide Fire damage becomes. 
+        Break armor quickly to reach Phase 2 before debuff stacks get out of hand.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lava-divider"></div>
+
+<!-- ===== PHASE 2 ===== -->
+<section class="section" id="phase2">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Phase 2 â€” Burn Phase (25% â†’ 0%)</h2>
+    </div>
+
+    <div>
+      <div>
+        <ul class="guide-list">
+          <li>At <strong>25% HP</strong>, his armor <strong>shatters</strong>. He becomes fully tankable and melees your tank for ~<strong>25â€”30k per hit</strong>.</li>
+          <li><strong>All adds despawn</strong> â€” Fragments, Sparks, and (Heroic) Liquid Obsidian all disappear.</li>
+          <li><span class="mech-badge">Immolation</span>: ~<strong>8,000 Fire/sec</strong> to the <strong>entire raid</strong>, constantly. Heal through it fast.</li>
+          <li><span class="mech-badge">Concussive Stomp</span> still occurs every ~20â€”25s â€” still creates volcanoes, craters, and Magma Flow. <strong>Keep moving.</strong></li>
+          <li><strong>Eruption debuff resets</strong> when Phase 2 begins. (Mage Ice Block, Pally Divine Shield, Rogue Cloak can also clear Fire debuff stacks.)</li>
+          <li><span class="mech-badge">Superheated</span> stacks +10% damage every 10s once it starts â€” damage ramps <em>very</em> quickly.</li>
+        </ul>
+
+        <div class="callout tip" style="margin-top:20px;">
+          <span class="callout-icon">&#9888;</span>
+          <div class="callout-text">
+            <strong>Use Bloodlust / Heroism / Time Warp at the start of Phase 2.</strong> 
+            Healers pop all major cooldowns. Raid stacks for AoE heals and avoids lava streams. 
+            Personal defensives and healthstones are critical on Concussive Stomps after Superheated begins.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lava-divider"></div>
+
+<!-- ===== HEROIC ===== -->
+<section class="section" id="heroic">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Heroic-Only Mechanics <span class="pill-h">[H]</span></h2>
+    </div>
+
+    <div>
+      <div>
+        <div style="background:rgba(255,77,109,0.07); border:1px solid rgba(255,77,109,0.25); border-radius:14px; padding:22px; margin-bottom:20px;">
+          <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:10px;">&#128301; Liquid Obsidian</div>
+          <ul class="guide-list">
+            <li><strong>10 spawn</strong> each time Rhyolith steps on an active volcano.</li>
+            <li>Move slowly toward Rhyolith with no aggro â€” they cannot be taunted.</li>
+            <li>Each one that reaches him: <span class="mech-badge">Fuse</span> â€” restores <strong>1% damage reduction</strong> (armor regen).</li>
+            <li><strong>Slow, root, stun, and knockback</strong> them. They die to cleave AoE.</li>
+            <li>A few reaching him is acceptable â€” many is dangerous and can push your DPS past enrage.</li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,77,109,0.07); border:1px solid rgba(255,77,109,0.25); border-radius:14px; padding:22px; margin-bottom:20px;">
+          <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:10px;">&#128293; Unleashed Flame Beams</div>
+          <ul class="guide-list">
+            <li>Rhyolith periodically unleashes <strong>beams of fire</strong> that pursue random players.</li>
+            <li>On impact: <strong>10,000 Fire</strong> to everyone within <strong>5 yards</strong> of the beam impact point.</li>
+            <li><strong>Stay spread</strong> and keep running. Never let beams catch you or group with others.</li>
+            <li>Still dodge Magma Flow lava while avoiding beams â€” requires high positional awareness.</li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(255,77,109,0.07); border:1px solid rgba(255,77,109,0.25); border-radius:14px; padding:22px;">
+          <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:10px;">&#128203; Heroic Composition Notes</div>
+          <ul class="guide-list">
+            <li>Prefer <strong>1 tank, 2â€”3 (10) / 5â€”6 (25) healers</strong>, rest DPS.</li>
+            <li>More <strong>ranged DPS</strong> preferred â€” helps on Sparks, Fragments, feet, and avoids ground hazards more naturally.</li>
+            <li>Superheated at <strong>5 min</strong> (not 6) â€” Phase 2 must be very short.</li>
+            <li>Molten Armor: <strong>+5% per stack</strong> (vs +2% Normal). Pilot mistakes are severely punished.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lava-divider"></div>
+
+<!-- ===== STRATEGY ===== -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Strategy Summary</h2>
+    </div>
+
+    <h3>Phase 1 <span class="pill-b">[N/H]</span> â€” Role Assignments</h3>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-card-title">&#129517; Pilot</div>
+        <ul>
+          <li>Call <strong>"left foot" / "right foot"</strong> to steer</li>
+          <li>Plan route to <strong>active volcanoes only</strong></li>
+          <li>Keep away from lava edges at all costs</li>
+          <li><span class="pill-h">[H]</span> Be extra vocal â€” faster reactions needed</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128737; Tank</div>
+        <ul>
+          <li>Pick up <strong>Sparks and Fragments</strong></li>
+          <li>Hold Spark <strong>â‰¥12 yards from raid</strong></li>
+          <li><span class="pill-h">[H]</span> Optionally tank Fragments on top of Liquid Obsidian for cleave</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#9876; Melee DPS</div>
+        <ul>
+          <li>Focus on <strong>feet</strong> to steer Rhyolith</li>
+          <li>Help on Fragments when free</li>
+          <li><span class="pill-h">[H]</span> Cleave Liquid Obsidian when possible</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#127919; Ranged DPS</div>
+        <ul>
+          <li>Priority: <strong>Spark â†’ Fragments â†’ Rhyolith feet</strong></li>
+          <li>Kill Fragments before <strong>30 second Meltdown</strong></li>
+          <li>Don't stand near Spark (Immolation range)</li>
+          <li>Avoid Magma Flow streams</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128137; Healers</div>
+        <ul>
+          <li>Manage Eruption, Concussive Stomp damage</li>
+          <li>Keep Spark tank alive (heavy hitting)</li>
+          <li>Fire debuff stacks build high late in phase</li>
+          <li>Save major CDs for Phase 2</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;">Phase 2 <span class="pill-b">[N/H]</span> â€” Burn Checklist</h3>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-card-title">&#128737; Tank</div>
+        <ul>
+          <li>Face Rhyolith away from raid</li>
+          <li>Use defensives on <strong>Concussive Stomps</strong></li>
+          <li>Stack CDs <em>after</em> Superheated starts</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#9876;&#127919; DPS</div>
+        <ul>
+          <li>Pop <strong>Bloodlust immediately</strong></li>
+          <li>Burn â€” every second counts</li>
+          <li>Avoid lava streams &amp; <span class="pill-h">[H]</span> Unleashed Flame</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128137; Healers</div>
+        <ul>
+          <li>Use <strong>all healing CDs</strong> immediately</li>
+          <li>Raid stacks for AoE healing efficiency</li>
+          <li>Healthstones on heavy Stomps</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout danger" style="margin-top:24px;">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Kill before Superheated overwhelms healers.</strong> On Heroic, you have roughly 
+        <strong>~40 seconds</strong> after Superheated starts before damage becomes unrecoverable. 
+        If Superheated starts at 5 minutes and you're not in Phase 2 yet â€” it's likely a wipe.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lava-divider"></div>
+
+<!-- ===== QUICK REF ===== -->
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#128293;</div>
+      <h2>Quick Reference</h2>
+    </div>
+
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Mechanic</th>
+          <th><span class="pill-n">[N]</span> Normal</th>
+          <th><span class="pill-h">[H]</span> Heroic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Steer with feet</strong></td>
+          <td><span class="check">&#10003;</span></td>
+          <td><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td><strong>Step on active volcanoes only</strong></td>
+          <td><span class="check">&#10003;</span></td>
+          <td><span class="check">&#10003;</span> <span style="font-size:12px; color:var(--heroic);">(dormant = +5% dmg/stack)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Kill Fragments before 30s</strong></td>
+          <td>5 per wave</td>
+          <td><span class="warn-text">10 per wave</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tank Spark away (â‰¥12 yd)</strong></td>
+          <td><span class="check">&#10003;</span></td>
+          <td><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td><strong>Liquid Obsidian</strong></td>
+          <td><span class="dash">&#8212;</span></td>
+          <td><span class="danger-text">&#10003;</span> Slow / Root / Knockback</td>
+        </tr>
+        <tr>
+          <td><strong>Superheated begins at</strong></td>
+          <td>6 min</td>
+          <td><span class="danger-text">5 min</span></td>
+        </tr>
+        <tr>
+          <td><strong>Unleashed Flame beams</strong></td>
+          <td><span class="dash">&#8212;</span></td>
+          <td><span class="danger-text">&#10003;</span> Move out of impact (5 yd radius)</td>
+        </tr>
+        <tr>
+          <td><strong>Molten Armor (dormant volcano)</strong></td>
+          <td>+2% per stack</td>
+          <td><span class="danger-text">+5% per stack</span></td>
+        </tr>
+        <tr>
+          <td><strong>Drink Magma (lava edge wipe)</strong></td>
+          <td>35,000 Fire/sec Ã— 4s</td>
+          <td>35,000 Fire/sec Ã— 4s</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2 transition</strong></td>
+          <td>25% HP</td>
+          <td>25% HP</td>
+        </tr>
+        <tr>
+          <td><strong>Bloodlust/Heroism timing</strong></td>
+          <td>Phase 2 start</td>
+          <td>Phase 2 start (immediately)</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#128293; <strong>Firelands â€” Lord Rhyolith</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Firelands index</a> &nbsp;|&nbsp; <a href="../Beth'tilac/Firelands-Bethtilac-Guide.html">&#8592; Beth'tilac</a> &nbsp; <a href="../Alysrazor/Firelands-Alysrazor-Guide.html">Alysrazor &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px; font-size:12px;">All mechanics tagged [N] / [H]. Timing windows are approximate and may vary by server.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+
+

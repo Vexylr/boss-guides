@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boss Guides â€” Cataclysm Raids</title>
+  <meta name="description" content="Raid boss guides for Cataclysm: Firelands, Bastion of Twilight, Blackwing Descent, Throne of the Four Winds, Dragon Soul. Normal & Heroic." />
+  <meta name="theme-color" content="#0f0f14" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230f0f14'/><path fill='%239ca3af' d='M16 6l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0f0f14;
+      --card:    #18181f;
+      --border:  rgba(255,255,255,0.08);
+      --text:    #e4e4e7;
+      --muted:   #71717a;
+      --accent:  #a1a1aa;
+      --gold:    #fbbf24;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(63,63,70,0.15) 0%, transparent 60%);
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    .hero {
+      min-height: 220px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 40px;
+      border-bottom: 2px solid var(--border);
+    }
+    .hero-eyebrow { font-size: 12px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .hero-tagline { font-size: 1rem; color: var(--muted); }
+    .section { padding: 48px 0 56px; }
+    .section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier-group {
+      margin-bottom: 40px;
+    }
+    .tier-group:last-of-type { margin-bottom: 0; }
+    .tier-group-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .raid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .raid-card {
+      display: block;
+      border-radius: 14px;
+      padding: 24px 26px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .raid-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      transform: translateY(-2px);
+    }
+    /* Bastion of Twilight â€” purple / violet */
+    .raid-card-theme-bot {
+      background: linear-gradient(145deg, rgba(30,15,46,0.95) 0%, rgba(76,29,149,0.4) 50%, rgba(124,58,237,0.2) 100%);
+      border-color: rgba(124,58,237,0.25);
+    }
+    .raid-card-theme-bot:hover { border-color: rgba(167,139,250,0.45); }
+    .raid-card-theme-bot .tier { color: rgba(196,181,253,0.9); }
+    .raid-card-theme-bot .arrow { color: #c4b5fd; }
+    /* Blackwing Descent â€” red / ember */
+    .raid-card-theme-bwd {
+      background: linear-gradient(145deg, rgba(26,10,10,0.95) 0%, rgba(55,20,20,0.6) 50%, rgba(220,38,38,0.15) 100%);
+      border-color: rgba(220,38,38,0.25);
+    }
+    .raid-card-theme-bwd:hover { border-color: rgba(234,88,12,0.45); }
+    .raid-card-theme-bwd .tier { color: rgba(254,243,199,0.85); }
+    .raid-card-theme-bwd .arrow { color: #fbbf24; }
+    /* Throne of the Four Winds â€” sky blue */
+    .raid-card-theme-totfw {
+      background: linear-gradient(145deg, rgba(12,74,110,0.95) 0%, rgba(14,165,233,0.35) 50%, rgba(56,189,248,0.2) 100%);
+      border-color: rgba(56,189,248,0.25);
+    }
+    .raid-card-theme-totfw:hover { border-color: rgba(56,189,248,0.45); }
+    .raid-card-theme-totfw .tier { color: rgba(186,230,253,0.9); }
+    .raid-card-theme-totfw .arrow { color: #bae6fd; }
+    /* Firelands â€” fire / orange */
+    .raid-card-theme-firelands {
+      background: linear-gradient(145deg, rgba(26,16,18,0.95) 0%, rgba(192,57,43,0.35) 50%, rgba(255,106,0,0.2) 100%);
+      border-color: rgba(255,106,0,0.25);
+    }
+    .raid-card-theme-firelands:hover { border-color: rgba(255,154,60,0.45); }
+    .raid-card-theme-firelands .tier { color: rgba(255,217,102,0.9); }
+    .raid-card-theme-firelands .arrow { color: #ffd166; }
+    /* Dragon Soul â€” void blue / gold */
+    .raid-card-theme-ds {
+      background: linear-gradient(145deg, rgba(12,18,34,0.98) 0%, rgba(30,58,95,0.5) 50%, rgba(201,162,39,0.12) 100%);
+      border-color: rgba(201,162,39,0.2);
+    }
+    .raid-card-theme-ds:hover { border-color: rgba(232,197,71,0.4); }
+    .raid-card-theme-ds .tier { color: rgba(139,156,184,0.95); }
+    .raid-card-theme-ds .arrow { color: #e8c547; }
+    .raid-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .raid-card .tier { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .raid-card p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .guide-footer { text-align: center; padding: 40px 24px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--accent); }
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .raid-grid { grid-template-columns: 1fr; }
+    }
+    .skip-link { position: absolute; top: -80px; left: 12px; padding: 10px 18px; background: var(--accent); color: var(--bg); text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; z-index: 1001; transition: top 0.2s; }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#raids">Skip to raid list</a>
+
+<header class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Cataclysm Classic</p>
+    <h1>Boss Guides</h1>
+    <p class="hero-tagline">Raid guides for Normal &amp; Heroic Â· 10 &amp; 25 player</p>
+  </div>
+</header>
+
+<main id="raids">
+  <section class="section" aria-labelledby="raid-list-heading">
+    <div class="container">
+      <h2 id="raid-list-heading">Choose a raid</h2>
+
+      <div class="tier-group">
+        <p class="tier-group-heading">Tier 11</p>
+        <div class="raid-grid">
+          <a class="raid-card raid-card-theme-bot" href="Bastion of Twilight/index.html">
+            <h3>Bastion of Twilight</h3>
+            <p class="tier">Tier 11</p>
+            <p>5 bosses: Halfus Wyrmbreaker, Valiona &amp; Theralion, Ascendant Council, Cho'gall, Sinestra (H).</p>
+            <span class="arrow">View raid &#8594;</span>
+          </a>
+          <a class="raid-card raid-card-theme-bwd" href="Blackwing Descent/index.html">
+            <h3>Blackwing Descent</h3>
+            <p class="tier">Tier 11</p>
+            <p>6 bosses: Magmaw, Omnotron, Maloriak, Atramedes, Chimaeron, Nefarian.</p>
+            <span class="arrow">View raid &#8594;</span>
+          </a>
+          <a class="raid-card raid-card-theme-totfw" href="Throne of the Four Winds/index.html">
+            <h3>Throne of the Four Winds</h3>
+            <p class="tier">Tier 11</p>
+            <p>2 bosses: Conclave of Wind, Al'Akir.</p>
+            <span class="arrow">View raid &#8594;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="tier-group">
+        <p class="tier-group-heading">Tier 12</p>
+        <div class="raid-grid">
+          <a class="raid-card raid-card-theme-firelands" href="Firelands/index.html">
+            <h3>Firelands</h3>
+            <p class="tier">Tier 12</p>
+            <p>7 bosses: Beth'tilac, Lord Rhyolith, Alysrazor, Shannox, Baleroc, Majordomo Staghelm, Ragnaros.</p>
+            <span class="arrow">View raid &#8594;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="tier-group">
+        <p class="tier-group-heading">Tier 13 Â· Finale</p>
+        <div class="raid-grid">
+          <a class="raid-card raid-card-theme-ds" href="Dragon Soul/index.html">
+            <h3>Dragon Soul</h3>
+            <p class="tier">Tier 13 Â· Finale</p>
+            <p>8 bosses: Morchok, Zon'ozz, Yor'sahj, Hagara, Ultraxion, Blackhorn, Spine, Madness of Deathwing.</p>
+            <span class="arrow">View raid &#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p><strong>Boss Guides</strong> &#183; Cataclysm raids &#183; Normal &amp; Heroic</p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nefarian â€” Blackwing Descent Boss Guide</title>
+  <meta name="description" content="Normal & Heroic guide for Nefarian. Onyxia + Nefarian Phase 1, Electrocute, Animated Bone Warriors, Phase 2 pillars and Chromatic Prototypes, Phase 3 burn." />
+  <meta name="theme-color" content="#1a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--ember:#ea580c;--flame:#dc2626;--void:#1a0a0a;--text:#fef3c7;--muted:#a8a29e;--gold:#fbbf24;--pill-n:#60a5fa;--pill-h:#f472b6;--pill-b:#a78bfa;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;} html{scroll-behavior:smooth;}
+    body{background-color:var(--void);color:var(--text);font-family:'Exo 2',sans-serif;font-size:16px;line-height:1.7;background-image:radial-gradient(ellipse at 20% 30%, rgba(220,38,38,0.08) 0%, transparent 50%);}
+    .hero{min-height:280px;display:flex;align-items:flex-end;border-bottom:3px solid var(--flame);background:linear-gradient(135deg, rgba(220,38,38,0.15) 0%, var(--void) 50%, rgba(234,88,12,0.08) 100%);}
+    .hero-content{padding:48px 60px;max-width:900px;}
+    .hero-eyebrow{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:4px;color:var(--ember);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;background:linear-gradient(135deg,#fef3c7 0%,var(--ember) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+    .hero-tagline{font-size:1rem;color:var(--muted);}
+    .tag-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;}
+    .tag{display:inline-flex;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;}
+    .tag-n{background:rgba(96,165,250,0.18);border:1px solid #60a5fa;color:#60a5fa;}
+    .tag-h{background:rgba(244,114,182,0.18);border:1px solid var(--pill-h);color:var(--pill-h);}
+    .tag-b{background:rgba(167,139,250,0.18);border:1px solid var(--pill-b);color:var(--pill-b);}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px;}
+    .section{padding:56px 0 48px;border-bottom:1px solid rgba(220,38,38,0.12);}
+    .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg, rgba(220,38,38,0.3), rgba(234,88,12,0.2));border:1px solid rgba(220,38,38,0.3);flex-shrink:0;}
+    .section h2{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold);letter-spacing:1px;}
+    .section h3{font-size:1.1rem;font-weight:700;color:var(--ember);margin:24px 0 10px;}
+    .guide-list{list-style:none;padding:0;}
+    .guide-list li{padding:7px 0 7px 22px;position:relative;font-size:0.94rem;color:var(--text);border-bottom:1px solid rgba(255,255,255,0.04);}
+    .guide-list li::before{content:'\25B6';position:absolute;left:0;color:var(--flame);}
+    .guide-list li strong{color:white;}
+    .pill-n,.pill-h,.pill-b{border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;white-space:nowrap;}
+    .pill-n{color:var(--pill-n);background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3);}
+    .pill-h{color:var(--pill-h);background:rgba(244,114,182,0.12);border:1px solid rgba(244,114,182,0.3);}
+    .pill-b{color:var(--pill-b);background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3);}
+    .callout{border-radius:12px;padding:18px 20px;margin:16px 0;display:flex;gap:14px;align-items:flex-start;font-size:0.93rem;}
+    .callout.danger{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);}
+    .callout.tip{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);}
+    .mech-badge{display:inline-flex;font-weight:600;font-size:0.88rem;padding:2px 10px;border-radius:6px;background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.3);color:var(--ember);margin:2px;}
+    .guide-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(220,38,38,0.2);}
+    .guide-table thead tr{background:linear-gradient(90deg, rgba(127,29,29,0.5), rgba(220,38,38,0.3));}
+    .guide-table th{padding:12px 16px;text-align:left;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;text-transform:uppercase;}
+    .guide-table td{padding:11px 16px;border-bottom:1px solid rgba(220,38,38,0.08);}
+    .guide-table tbody tr:nth-child(even){background:rgba(255,255,255,0.03);}
+    .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(26,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,38,38,0.2);padding:10px 32px;display:flex;gap:24px;align-items:center;overflow-x:auto;}
+    .sticky-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;}
+    .sticky-nav a:hover{color:var(--ember);}
+    .sticky-nav-logo{font-family:'Orbitron',sans-serif;color:var(--flame);font-size:13px;font-weight:700;margin-right:8px;}
+    .guide-footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:13px;border-top:1px solid rgba(220,38,38,0.2);background:rgba(26,10,10,0.6);}
+    .guide-footer .copyright-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+    .guide-footer .discord-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--ember);}
+    .guide-footer .discord-name{font-weight:700;color:var(--ember);}
+    .breadcrumb{font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(220,38,38,0.2);}
+    .breadcrumb .container{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+    .breadcrumb a{color:var(--ember);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+    .breadcrumb [aria-current="page"]{color:var(--text);font-weight:600;}
+    .divider{height:2px;background:linear-gradient(90deg, transparent, var(--flame), var(--ember), transparent);margin:0;opacity:0.5;}
+    .phase-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;}
+    .phase-card{background:linear-gradient(135deg, rgba(41,37,36,0.8), rgba(55,48,44,0.6));border-radius:14px;padding:20px;border:1px solid rgba(220,38,38,0.2);}
+    .phase-card::before{content:'';display:block;height:3px;margin:-20px -20px 12px -20px;border-radius:14px 14px 0 0;background:linear-gradient(90deg, var(--flame), var(--ember));}
+    .phase-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--ember);margin-bottom:4px;}
+    .phase-range{font-size:1.2rem;font-weight:700;color:white;margin-bottom:6px;}
+    .phase-desc{font-size:0.85rem;color:var(--muted);}
+    .skip-link{position:absolute;top:-80px;left:12px;padding:10px 18px;background:var(--flame);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px;z-index:1001;}
+    .skip-link:focus{top:12px;}
+    @media (max-width:768px){.phase-cards{grid-template-columns:1fr;}.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
+    @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#1a0a0a!important;}body{background:#1a0a0a!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#ea580c;}}
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9889; Blackwing Descent &#183; Tier 11</div>
+    <h1>Nefarian</h1>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9889; NEFARIAN</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#phase3">Phase 3</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Blackwing Descent</a> &#8250; <span aria-current="page">Nefarian</span>
+  </div>
+</nav>
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:20px;">
+      <strong style="color:white;">Nefarian's End</strong>: Phase 1 you fight <strong>Onyxia</strong> and <strong>Nefarian</strong> together (Nefarian lands 30s in). Keep them &gt;50 yd apart or they gain <span class="mech-badge">Children of Deathwing</span> (+100% attack speed). Both use Shadowflame Breath and Tail Lash â€” face away from raid; melee on sides. Nefarian summons <span class="mech-badge">Animated Bone Warriors</span> (Hail of Bones); tank kites them until energy drains to 0. Every 10% Nefarian HP he uses <span class="mech-badge">Electrocute</span> â€” raid CD each time; Onyxia gains 25 Electrical Energy per Electrocute. Kill Onyxia before she reaches 100 Energy (Electrical Overload = wipe). Phase 2: Nefarian flies, room fills with lava; stand on three pillars. Kill <span class="mech-badge">Chromatic Prototype</span> on each (interrupt <span class="mech-badge">Blast Nova</span>). Phase 3: Nefarian only; Bone Warriors reactivate, <span class="mech-badge">Shadowblaze Spark</span> refills them and spawns fire â€” kite adds, avoid fire, raid CD every Electrocute, burn Nefarian.
+    </p>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-range">Onyxia + Nefarian</div>
+        <div class="phase-desc">Split bosses &gt;50 yd. Kite Bone Warriors. Electrocute every 10% Nefarian (raid CD). Kill Onyxia before 100 Energy. Get Nefarian as low as possible before killing Onyxia.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-range">Pillars + lava</div>
+        <div class="phase-desc">Split on 3 pillars (healer + interrupt + DPS each). Interrupt Blast Nova on Chromatic Prototypes. Shadowflame Barrage from air. [H] Explosive Cinders: jump in lava away from pillars.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-range">Nefarian only</div>
+        <div class="phase-desc">Bone Warriors at 100 energy â€” kite, CC. Shadowblaze Spark refills them and spawns moving fire. Raid CD every Electrocute. Burn Nefarian. [H] Dominion: Siphon Power then Free Your Mind before portal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Phase 1 â€” Onyxia &amp; Nefarian</h2>
+    </div>
+    <ul class="guide-list">
+      <li>Onyxia gains <span class="mech-badge">Electrical Energy</span> over time; at 100 she casts <span class="mech-badge">Electrical Overload</span> (wipe). She uses <span class="mech-badge">Lightning Discharge</span> (damage both sides; increases with her Energy). When orbs spark, turn her sideways (tail toward raid) so Overload doesn't hit everyone â€” Tail Lash is less lethal.</li>
+      <li>Nefarian: <span class="mech-badge">Hail of Bones</span> summons Animated Bone Warriors (full energy, drains to 0). They gain <span class="mech-badge">Empowering Strikes</span> as energy falls (more damage/speed). Tank grab, kite to bottom of room; don't let Shadowflame Breath or Shadowblaze Spark hit them (refills to 100).</li>
+      <li><span class="mech-badge">Electrocute</span> â€” every 10% Nefarian HP; massive Nature raid damage. Raid CD every time. Each Electrocute gives Onyxia +25 Energy â€” don't push Nefarian so much that Onyxia hits 100. Ideal: get Onyxia to ~10%, burn Nefarian (2 Electrocutes), then kill Onyxia just before she reaches 100 Energy.</li>
+      <li><span class="pill-h">[H]</span> <span class="mech-badge">Dominion</span> â€” mind control; players walk to Dominion Portal (death). Use Siphon Power for Stolen Power buff, then Free Your Mind before reaching portal. Healers break immediately.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase2">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Phase 2 â€” Pillars</h2>
+    </div>
+    <ul class="guide-list">
+      <li>Room fills with lava; only the three pillars are safe. Split raid: healer + interrupt + DPS on each.</li>
+      <li><span class="mech-badge">Chromatic Prototype</span> on each pillar casts <span class="mech-badge">Blast Nova</span> â€” interrupt or massive Fire raid damage.</li>
+      <li>Nefarian casts <span class="mech-badge">Shadowflame Barrage</span> from air on random targets; heal through. When all three Prototypes die, Phase 3 starts.</li>
+      <li><span class="pill-h">[H]</span> <span class="mech-badge">Explosive Cinders</span> â€” debuff on random player; explodes after 8s (damage + knockback). Jump into lava and swim away from pillars; return after debuff expires.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase3">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Phase 3 â€” Nefarian Burn</h2>
+    </div>
+    <ul class="guide-list">
+      <li>All Animated Bone Warriors reset to 100 energy. Tank grab, slow/CC, kite; avoid <span class="mech-badge">Shadowblaze Spark</span> (Nefarian throws at Bone Warriors â€” 50k Shadowflame to nearby, refills Warriors to 100, removes slows/CC, spawns moving fire patch). Kite in areas without fire; use Ring of Frost, Hungering Cold, etc. to CC adds.</li>
+      <li>Electrocute still every 10% â€” rotate raid and healer CDs. Tanks need defensives for Electrocute.</li>
+      <li>Position Nefarian against wall; raid on his side. Burn with all DPS cooldowns. [H] Dominion continues â€” Siphon Power then Free Your Mind, or run through fire to break.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9889;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Key</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>P1</strong></td><td>Onyxia & Nefarian &gt;50 yd apart. Kite Bone Warriors. Electrocute = raid CD. Kill Onyxia before 100 Energy.</td></tr>
+        <tr><td><strong>P2</strong></td><td>Pillars only. Interrupt Blast Nova. [H] Explosive Cinders = jump in lava away.</td></tr>
+        <tr><td><strong>P3</strong></td><td>Kite Bone Warriors; avoid Shadowblaze Spark. Raid CD every Electrocute. Burn Nefarian.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9889; <strong>Blackwing Descent â€” Nefarian</strong> Â· Boss Guide Â· Normal &amp; Heroic</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--ember);">&#8592; Back to Blackwing Descent index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--ember);">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

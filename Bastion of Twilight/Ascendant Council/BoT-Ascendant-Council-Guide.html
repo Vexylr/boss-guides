@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ascendant Council â€” Bastion of Twilight Boss Guide</title>
+  <meta name="description" content="Normal & Heroic guide for Ascendant Council. Fire/Water, Lightning/Earth, Elementium Monstrosity. Buff management, Gravity Well, Quake." />
+  <meta name="theme-color" content="#1e0f2e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231e0f2e'/><path fill='%237c3aed' d='M16 4l4 8 8 2-6 6 2 8-8-4-8 4 2-8-6-6 8-2z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --twilight: #7c3aed; --violet: #a78bfa; --shadow: #4c1d95; --void: #1e0f2e; --text: #e9d5ff; --muted: #8b7aa3; --gold: #c4b5fd; --normal: #60a5fa; --heroic: #f472b6; --pill-n: #60a5fa; --pill-h: #f472b6; --pill-b: #a78bfa; --tip: #34d399; --warn: #fbbf24; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;} html{scroll-behavior:smooth;}
+    body{background-color:var(--void);color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.7;background-image:radial-gradient(ellipse at 20% 30%, rgba(124,58,237,0.12) 0%, transparent 55%),radial-gradient(ellipse at 80% 70%, rgba(76,29,149,0.15) 0%, transparent 50%);}
+    .hero{min-height:300px;display:flex;align-items:flex-end;border-bottom:3px solid var(--twilight);background:linear-gradient(135deg, rgba(76,29,149,0.25) 0%, var(--void) 50%, rgba(124,58,237,0.1) 100%);}
+    .hero-content{padding:48px 60px;max-width:900px;}
+    .hero-eyebrow{font-family:'Crimson Pro',serif;font-size:13px;letter-spacing:4px;color:var(--violet);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;background:linear-gradient(135deg,#f5f3ff 0%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+    .hero-tagline{font-size:1rem;color:var(--muted);}
+    .tag-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;}
+    .tag-n{background:rgba(96,165,250,0.18);border:1px solid var(--normal);color:var(--normal);}
+    .tag-h{background:rgba(244,114,182,0.18);border:1px solid var(--heroic);color:var(--heroic);}
+    .tag-b{background:rgba(167,139,250,0.18);border:1px solid var(--pill-b);color:var(--pill-b);}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px;}
+    .section{padding:56px 0 48px;border-bottom:1px solid rgba(124,58,237,0.12);}
+    .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg, rgba(124,58,237,0.3), rgba(76,29,149,0.3));border:1px solid rgba(124,58,237,0.3);flex-shrink:0;}
+    .section h2{font-family:'Crimson Pro',serif;font-size:1.6rem;font-weight:700;color:var(--gold);letter-spacing:1px;}
+    .section h3{font-size:1.1rem;font-weight:700;color:var(--violet);margin:24px 0 10px;}
+    .guide-list{list-style:none;padding:0;}
+    .guide-list li{padding:7px 0 7px 22px;position:relative;font-size:0.94rem;color:var(--text);border-bottom:1px solid rgba(255,255,255,0.04);}
+    .guide-list li::before{content:'\25B6';position:absolute;left:0;color:var(--twilight);}
+    .guide-list li strong{color:white;}
+    .pill-n,.pill-h,.pill-b{border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;white-space:nowrap;}
+    .pill-n{color:var(--pill-n);background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3);}
+    .pill-h{color:var(--pill-h);background:rgba(244,114,182,0.12);border:1px solid rgba(244,114,182,0.3);}
+    .pill-b{color:var(--pill-b);background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.3);}
+    .callout{border-radius:12px;padding:18px 20px;margin:16px 0;display:flex;gap:14px;align-items:flex-start;font-size:0.93rem;}
+    .callout.danger{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);}
+    .callout.tip{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);}
+    .callout.warn{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);}
+    .mech-badge{display:inline-flex;align-items:center;font-weight:600;font-size:0.88rem;padding:2px 10px;border-radius:6px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:var(--violet);margin:2px;}
+    .guide-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(124,58,237,0.2);}
+    .guide-table thead tr{background:linear-gradient(90deg, rgba(76,29,149,0.5), rgba(124,58,237,0.3));}
+    .guide-table th{padding:12px 16px;text-align:left;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;text-transform:uppercase;}
+    .guide-table td{padding:11px 16px;border-bottom:1px solid rgba(124,58,237,0.08);}
+    .guide-table tbody tr:nth-child(even){background:rgba(255,255,255,0.03);}
+    .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(30,15,46,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(124,58,237,0.2);padding:10px 32px;display:flex;gap:24px;align-items:center;overflow-x:auto;}
+    .sticky-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;}
+    .sticky-nav a:hover{color:var(--violet);}
+    .sticky-nav-logo{font-family:'Crimson Pro',serif;color:var(--twilight);font-size:13px;font-weight:700;margin-right:8px;}
+    .guide-footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:13px;border-top:1px solid rgba(124,58,237,0.2);background:rgba(30,15,46,0.5);}
+    .guide-footer .copyright-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+    .guide-footer .discord-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--violet);}
+    .guide-footer .discord-name{font-weight:700;color:var(--violet);}
+    .breadcrumb{font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(124,58,237,0.2);}
+    .breadcrumb .container{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+    .breadcrumb a{color:var(--violet);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+    .breadcrumb [aria-current="page"]{color:var(--text);font-weight:600;}
+    .divider{height:2px;background:linear-gradient(90deg, transparent, var(--twilight), var(--violet), transparent);margin:0;opacity:0.5;}
+    .phase-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;}
+    .phase-card{background:linear-gradient(135deg, rgba(46,16,101,0.6), rgba(76,29,149,0.4));border-radius:14px;padding:20px;border:1px solid rgba(124,58,237,0.2);}
+    .phase-card::before{content:'';display:block;height:3px;margin:-20px -20px 12px -20px;border-radius:14px 14px 0 0;background:linear-gradient(90deg, var(--twilight), var(--violet));}
+    .phase-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:4px;}
+    .phase-range{font-size:1.2rem;font-weight:700;color:white;margin-bottom:6px;}
+    .phase-desc{font-size:0.85rem;color:var(--muted);}
+    .skip-link{position:absolute;top:-80px;left:12px;padding:10px 18px;background:var(--twilight);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px;z-index:1001;}
+    .skip-link:focus{top:12px;}
+    @media (max-width:768px){.phase-cards{grid-template-columns:1fr;}.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
+    @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#1e0f2e!important;}body{background:#1e0f2e!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#a78bfa;}}
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#10022; Bastion of Twilight &#183; Tier 11</div>
+    <h1>Ascendant Council</h1>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#10022; ASCENDANT COUNCIL</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#phase3">Phase 3</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Bastion of Twilight</a> &#8250; <span aria-current="page">Ascendant Council</span>
+  </div>
+</nav>
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:20px;">
+      The <strong style="color:white;">Ascendant Council</strong> is a <strong style="color:white;">three-phase</strong> encounter. Phase 1: <strong>Feludius</strong> (Water) and <strong>Ignacious</strong> (Fire). Phase 2: <strong>Arion</strong> (Lightning) and <strong>Terrastra</strong> (Earth). Phase 3: all four merge into the <strong>Elementium Monstrosity</strong>. Elemental counters apply: Fire removes Waterlogged (touch fire), Frost removes Burning Blood (Heart of Ice spread then dispel). Phase 2: you need <span class="mech-badge">Grounded</span> (from Gravity Well) to survive Thundershock, and <span class="mech-badge">Swirling Winds</span> (from Call Winds cyclone) to survive Quake â€” you cannot have both buffs at once, so alternate based on which ability is next.
+    </p>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-range">Feludius &amp; Ignacious</div>
+        <div class="phase-desc">Fire/Water. Heart of Ice â†’ spread Frost Imbued, dispel. Burning Blood â†’ spread Flame Imbued, dispel. Interrupt Hydro Lance. Break Aegis, interrupt Rising Flames. Avoid Water Bombs, run out on Glaciate.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-range">Arion &amp; Terrastra</div>
+        <div class="phase-desc">Lightning/Earth. Get Grounded (Gravity Well) for Thundershock. Get Swirling Winds (Call Winds) for Quake. Lightning Rod: spread 15 yd. Interrupt Lightning Blast, Harden Skin.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-range">Elementium Monstrosity</div>
+        <div class="phase-desc">Tank drags boss out of ice patches. Electric Instability ramps. Lava Seeds: move out. Gravity Crush: heal targets (117% HP over 6.5s). DPS race.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Phase 1 â€” Feludius &amp; Ignacious</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:14px;">Tank Feludius away; melee on Ignacious. Ranged/healers stack, focus Feludius. Damage both evenly to ~25%.</p>
+    <h3>Feludius (Water)</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Hydro Lance</span> â€” interrupt or it kills a player.</li>
+      <li><span class="mech-badge">Water Bomb</span> â€” avoid; <span class="mech-badge">Waterlogged</span> slow. Waterlogged + Glaciate = <span class="mech-badge">Frozen</span> (death). Remove Waterlogged by touching Ignacious' fire patches.</li>
+      <li><span class="mech-badge">Glaciate</span> â€” massive damage, higher when close. Everyone run away from Feludius (including tank).</li>
+      <li><span class="mech-badge">Heart of Ice</span> â€” random target. Run to melee to spread <span class="mech-badge">Frost Imbued</span> (extra damage to Ignacious), then dispel Heart of Ice.</li>
+    </ul>
+    <h3>Ignacious (Fire)</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Inferno Rush</span> â€” charges ranged, knocks back, leaves fire trail. Fire removes Waterlogged.</li>
+      <li><span class="mech-badge">Flame Torrent</span> â€” frontal; face away from raid.</li>
+      <li><span class="mech-badge">Aegis of Flame</span> â€” shield; then <span class="mech-badge">Rising Flames</span> (ramping raid damage). All DPS break shield so Rising Flames can be interrupted.</li>
+      <li><span class="mech-badge">Burning Blood</span> â€” random target. Run to ranged to spread <span class="mech-badge">Flame Imbued</span> (extra damage to Feludius), then dispel Burning Blood.</li>
+    </ul>
+    <p style="color:var(--muted); margin-top:12px;"><span class="pill-h">[H]</span> Static Overload: run away from others. Gravity Core: raid move away from debuffed player (slow aura).</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase2">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Phase 2 â€” Arion &amp; Terrastra</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:14px;">Stack bosses; raid spread around room. Damage both evenly to ~25%. You need <strong>Grounded</strong> for Thundershock and <strong>Swirling Winds</strong> for Quake; getting one removes the other.</p>
+    <h3>Arion (Lightning)</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Disperse</span> â€” blinks away; then <span class="mech-badge">Lightning Blast</span> on tank â€” must interrupt.</li>
+      <li><span class="mech-badge">Lightning Rod</span> â€” 3 players. Move &gt;15 yd from others or Chain Lightning bounces and kills.</li>
+      <li><span class="mech-badge">Call Winds</span> â€” cyclones. Touch one for <span class="mech-badge">Swirling Winds</span> (required for Quake).</li>
+      <li><span class="mech-badge">Thundershock</span> â€” huge Nature damage to all. Reduced for players with <span class="mech-badge">Grounded</span> (from Terrastra's Gravity Well).</li>
+    </ul>
+    <h3>Terrastra (Earth)</h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Eruption</span> â€” spikes; melee move out briefly.</li>
+      <li><span class="mech-badge">Harden Skin</span> â€” interrupt; or DPS through shield.</li>
+      <li><span class="mech-badge">Gravity Well</span> â€” orb pulls players; touching gives <span class="mech-badge">Grounded</span> (needed for Thundershock).</li>
+      <li><span class="mech-badge">Quake</span> â€” lethal to anyone without <span class="mech-badge">Swirling Winds</span>. Get Swirling Winds from Call Winds before Quake.</li>
+    </ul>
+    <div class="callout warn">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text"><strong>[H]</strong> Flame Strike: move out of marked area. Frozen Orb: kite into Flame Strike fire to pop it; if it reaches you, raid wipes.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase3">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Phase 3 â€” Elementium Monstrosity</h2>
+    </div>
+    <ul class="guide-list">
+      <li>Boss has combined HP of all four. <span class="mech-badge">Electric Instability</span> â€” ramping raid damage; split ranged into groups to reduce chaining.</li>
+      <li>Tank must <strong>drag boss out of ice patches</strong>. Boss spawns <span class="mech-badge">Liquid Ice</span> under itself; standing in it reduces damage taken and patch expands. One patch only = achievement "Elementary".</li>
+      <li><span class="mech-badge">Lava Seed</span> â€” move out of impact or take huge Fire damage.</li>
+      <li><span class="mech-badge">Gravity Crush</span> â€” 3 players lifted, 9% max HP per 0.5s for 6.5s (~117% total). Heal through it; minor fall damage after.</li>
+      <li>Pure DPS race; ice and Electric Instability make the room unmanageable over time.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Key mechanics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>P1</strong></td><td>Heart of Ice / Burning Blood spread then dispel. Interrupt Hydro Lance, Rising Flames. Run out Glaciate. Touch fire to clear Waterlogged.</td></tr>
+        <tr><td><strong>P2</strong></td><td>Grounded for Thundershock; Swirling Winds for Quake (can't have both). Lightning Rod spread 15 yd. Interrupt Lightning Blast, Harden Skin.</td></tr>
+        <tr><td><strong>P3</strong></td><td>Drag boss out of ice. Move from Lava Seed. Heal Gravity Crush. Electric Instability ramps â€” DPS race.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#10022; <strong>Bastion of Twilight â€” Ascendant Council</strong> Â· Boss Guide Â· Normal &amp; Heroic</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--violet);">&#8592; Back to Bastion of Twilight index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--violet);">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

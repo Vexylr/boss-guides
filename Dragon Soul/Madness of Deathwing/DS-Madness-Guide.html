@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madness of Deathwing â€” Dragon Soul Boss Guide</title>
+  <meta name="description" content="Complete Normal & Heroic guide for Madness of Deathwing in Dragon Soul. Four platforms, limb phases, Blistering Tentacles, Elementium Bolt, Aspect buffs. Health, timers, strategy." />
+  <meta name="theme-color" content="#0c1222" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #0c1222;
+      --abyss: #131c33;
+      --dragon: #1e3a5f;
+      --gold: #c9a227;
+      --amber: #e8c547;
+      --twilight: #4a6fa5;
+      --text: #e8e6e3;
+      --muted: #8b9cb8;
+      --accent: #7eb8da;
+      --normal: #60a5fa;
+      --heroic: #f472b6;
+      --both: #a78bfa;
+      --tip: #34d399;
+      --warn: #fbbf24;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--void);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(30,58,95,0.2) 0%, transparent 55%);
+    }
+    .hero {
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      border-bottom: 3px solid var(--gold);
+      background: linear-gradient(160deg, rgba(12,18,34,0.98) 0%, var(--void) 40%, rgba(30,58,95,0.15) 100%);
+    }
+    .hero-content { padding: 48px 60px; max-width: 920px; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #f5f0e6 0%, var(--amber) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .hero-tagline { font-size: 1rem; color: var(--muted); }
+    .tag-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .tag-n { background: rgba(96,165,250,0.18); border: 1px solid var(--normal); color: var(--normal); }
+    .tag-h { background: rgba(244,114,182,0.18); border: 1px solid var(--heroic); color: var(--heroic); }
+    .tag-b { background: rgba(167,139,250,0.18); border: 1px solid var(--both); color: var(--both); }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 48px 0 56px; border-bottom: 1px solid rgba(201,162,39,0.12); }
+    .section:last-of-type { border-bottom: none; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: linear-gradient(135deg, rgba(201,162,39,0.25), rgba(30,58,95,0.4)); border: 1px solid rgba(201,162,39,0.35); flex-shrink: 0; }
+    .section h2 { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: var(--amber); letter-spacing: 1px; }
+    .section h3 { font-size: 1.12rem; font-weight: 700; color: var(--accent); margin: 28px 0 12px; }
+    .guide-list { list-style: none; padding: 0; }
+    .guide-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .guide-list li::before { content: '\25B6'; position: absolute; left: 0; color: var(--gold); font-size: 0.75em; }
+    .guide-list li strong { color: #fff; }
+    .pill-n, .pill-h, .pill-b { border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .pill-n { color: var(--normal); background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.3); }
+    .pill-h { color: var(--heroic); background: rgba(244,114,182,0.12); border: 1px solid rgba(244,114,182,0.3); }
+    .pill-b { color: var(--both); background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); }
+    .callout { border-radius: 12px; padding: 18px 22px; margin: 18px 0; display: flex; gap: 14px; align-items: flex-start; font-size: 0.95rem; }
+    .callout.danger { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.35); }
+    .callout.tip { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.3); }
+    .callout.warn { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.35); }
+    .callout-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .callout-text strong { color: var(--amber); }
+    .mech-badge { display: inline-flex; font-weight: 600; font-size: 0.88rem; padding: 2px 10px; border-radius: 6px; background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.35); color: var(--amber); margin: 2px; }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,162,39,0.2); }
+    .guide-table thead tr { background: linear-gradient(90deg, rgba(19,28,51,0.9), rgba(201,162,39,0.15)); }
+    .guide-table th { padding: 12px 16px; text-align: left; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+    .guide-table td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+    .guide-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .hp-num { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--accent); }
+    .guide-footer { text-align: center; padding: 40px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid rgba(201,162,39,0.2); }
+    .guide-footer a { color: var(--amber); text-decoration: none; }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--amber); }
+    .phase-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
+    .phase-card { background: linear-gradient(145deg, rgba(19,28,51,0.8), rgba(30,58,95,0.3)); border-radius: 12px; padding: 22px; border: 1px solid rgba(201,162,39,0.2); }
+    .phase-card .phase-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .phase-card .phase-range { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .phase-card .phase-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
+    .enrage-box { background: linear-gradient(135deg, rgba(30,58,95,0.25), rgba(201,162,39,0.08)); border: 1px solid rgba(244,114,182,0.35); border-radius: 12px; padding: 20px 24px; margin-top: 20px; }
+    .enrage-box-title { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--heroic); text-transform: uppercase; margin-bottom: 10px; }
+    .sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(12,18,34,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,162,39,0.2); padding: 10px 32px; display: flex; gap: 24px; align-items: center; overflow-x: auto; }
+    .sticky-nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .sticky-nav a:hover { color: var(--amber); }
+    .sticky-nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; font-weight: 700; margin-right: 8px; }
+    .breadcrumb { font-size: 12px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(201,162,39,0.15); }
+    .breadcrumb .container { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb [aria-current="page"] { color: var(--text); font-weight: 600; }
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .role-card { background: rgba(19,28,51,0.6); border: 1px solid rgba(201,162,39,0.2); border-radius: 10px; padding: 16px; }
+    .role-card-title { font-weight: 700; color: var(--amber); margin-bottom: 10px; font-size: 0.95rem; }
+    .role-card ul { margin: 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .skip-link { position: absolute; top: -80px; left: 12px; padding: 10px 18px; background: var(--dragon); color: var(--amber); text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; z-index: 1001; transition: top 0.2s; border: 1px solid var(--gold); }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .divider { height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--twilight), var(--gold), transparent); margin: 0; opacity: 0.5; }
+    @media print {
+      .skip-link, .sticky-nav, .tag-legend, .divider, .breadcrumb { display: none !important; }
+      .hero { min-height: auto; padding: 1.5rem 0; background: #0c1222 !important; }
+      body { background: #0c1222 !important; }
+      .section { padding: 2rem 0; break-inside: avoid; }
+      a { color: #e8c547; }
+    }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9812; Dragon Soul &#183; Tier 13</div>
+    <h1>Madness of Deathwing</h1>
+    <p class="hero-tagline">Normal &amp; Heroic Boss Guide &#183; 10 &amp; 25 Player</p>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9812; MADNESS</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#health">Health &amp; Timers</a>
+  <a href="#phases">Phases</a>
+  <a href="#heroic">Heroic</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content" aria-label="Guide content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Dragon Soul</a> &#8250; <span aria-current="page">Madness of Deathwing</span>
+  </div>
+</nav>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:22px;">
+      <strong style="color:#fff;">Madness of Deathwing</strong> is the <strong style="color:#fff;">final boss</strong> of Dragon Soul. The fight takes place on <strong style="color:#fff;">four platforms</strong>. On each platform, damage Deathwing's <strong>limb</strong> (mutated corruption); at <strong>70% and 40%</strong> of the limb's HP, <span class="mech-badge">Blistering Tentacles</span> spawn and must be killed. On the <strong>Alexstrasza (red / left)</strong> platform after her buff is active, Blisterings must be killed with <strong>direct single-target damage</strong> â€” spreading DoTs and passive multidot/cleave no longer works on them. Survive <span class="mech-badge">Elementium Bolt</span> with cooldowns. After four limbs are dealt with, the <strong>final phase</strong> targets Deathwing's <strong>head</strong>: Aspects grant <strong>Aspect buffs</strong> for the burn. <span class="pill-h">[H]</span> adds <span class="mech-badge">Corrupting Parasite</span> and other changes (see Heroic section).
+    </p>
+    <div class="callout danger">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Blistering Tentacles &amp; Elementium Bolt</strong> <span class="pill-b">[N/H]</span><br/>
+        <strong>Blisterings</strong> spawn at <strong>70% and 40%</strong> limb HP â€” kill them immediately. <strong>Elementium Bolt</strong> is massive damage; use cooldowns and coordinated raid defensives. (There is <strong>no</strong> â€œhide behind spikes from Earth's Vengeanceâ€ mechanic on this encounter â€” focus on limb adds, bolts, and platform buffs.)
+      </div>
+    </div>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Platform 1â€“4 (limb phases)</div>
+        <div class="phase-range">Per platform</div>
+        <div class="phase-desc">Kill Blistering Tentacles at 70%/40%; damage the limb; survive Elementium Bolt and adds. Red platform: single-target Blisterings. Move to next platform when done.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Final phase</div>
+        <div class="phase-range">Aspect buffs â†’ kill</div>
+        <div class="phase-desc">Burn Deathwing's head with Aspect buffs. <span class="pill-h">[H]</span> Head HP thresholds spawn bloods â€” cleave them down before they reach the head.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEALTH & TIMERS ===== -->
+<section class="section" id="health">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Health &amp; Timers</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th><span class="pill-n">[N]</span> 10-Man</th>
+          <th><span class="pill-n">[N]</span> 25-Man</th>
+          <th><span class="pill-h">[H]</span> 10-Man</th>
+          <th><span class="pill-h">[H]</span> 25-Man</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Deathwing (total / head)</strong></td>
+          <td class="hp-num">~60M+</td>
+          <td class="hp-num">~190M+</td>
+          <td class="hp-num">~90M+</td>
+          <td class="hp-num">~285M+</td>
+        </tr>
+        <tr>
+          <td><strong>Limb (per platform)</strong></td>
+          <td class="hp-num">~10â€“15M</td>
+          <td class="hp-num">~30â€“45M</td>
+          <td class="hp-num">~15â€“22M</td>
+          <td class="hp-num">~45â€“65M</td>
+        </tr>
+        <tr>
+          <td><strong>Blistering Tentacle</strong></td>
+          <td class="hp-num">~1.5M</td>
+          <td class="hp-num">~4M</td>
+          <td class="hp-num">~2.2M</td>
+          <td class="hp-num">~6M</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="enrage-box">
+      <div class="enrage-box-title">&#9888; Enrage</div>
+      <ul class="guide-list">
+        <li>Typically an <strong>8â€“10 minute</strong> enrage or a cataclysm event that wipes the raid if Deathwing is not killed in time.</li>
+        <li>Four platforms must be completed (limb damage or destruction per platform), then the final burn phase with Aspect buffs. Manage Elementium Bolt and add damage on each platform so the raid survives to the end.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PHASES ===== -->
+<section class="section" id="phases">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Phases &amp; Mechanics</h2>
+    </div>
+
+    <h3>Four platforms &amp; limb phases <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>The raid is on one of <strong>four platforms</strong>. Each platform has a <strong>mutated corruption (limb)</strong> that must be damaged. At <strong>70% and 40%</strong> of the limb's HP, <span class="mech-badge">Blistering Tentacles</span> spawn â€” kill them or they overwhelm the raid with AoE.</li>
+      <li><strong>Alexstrasza's platform (red / full left):</strong> once her buff is active, Blistering Tentacles only take meaningful damage from <strong>direct single-target</strong> attacks â€” DoT spreading, cleave, and multidot tricks <strong>do not work</strong>. Assign focused ST on each tentacle.</li>
+      <li>Alexstrasza's <strong>Cauterize</strong> and other Aspect buffs per platform â€” use them as intended for healing or damage on that wing. When the limb is destroyed, move to the next platform. Repeat for all four; then the final phase.</li>
+    </ul>
+
+    <h3>Elementium Bolt <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Elementium Bolt</span> is a major ability: Deathwing fires a bolt that deals very high damage to the raid or a single target. It can be lethal if not mitigated.</li>
+      <li>Use <strong>raid cooldowns</strong> (e.g. Barrier, Rallying Cry, Spirit Link) and <strong>personal defensives</strong> when Elementium Bolt is cast. Healers should top the raid before each bolt.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Bolt timing:</strong> Assign a caller to announce "Elementium Bolt â€” CDs" so tanks and healers use cooldowns together. One missed CD rotation can cause multiple deaths.
+      </div>
+    </div>
+
+    <h3>Final phase &amp; Aspect buffs <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>After the four limb phases, Deathwing's <strong>head</strong> becomes the target. The <strong>Dragon Aspects</strong> grant <strong>Aspect buffs</strong>: increased damage, healing, or damage reduction.</li>
+      <li><span class="pill-n">[N]</span> The head phase begins around <strong>20%</strong> of Deathwing's remaining health. <span class="pill-h">[H]</span> The head phase begins at <strong>25%</strong> instead of 20% â€” slightly longer burn.</li>
+      <li>The raid burns Deathwing with these buffs active. Use Lust/Heroism and all cooldowns here. <span class="pill-h">[H]</span> Every <strong>5%</strong> of the head's health, <strong>Elementium Fragments</strong> (bloods) spawn at random spots on the platform â€” they must be killed with <strong>AoE/cleave</strong> before they reach the head or they empower Deathwing.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEROIC ===== -->
+<section class="section" id="heroic">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Heroic-Only Mechanics <span class="pill-h">[H]</span></h2>
+    </div>
+    <div style="background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.3); border-radius:14px; padding:22px; margin-bottom:20px;">
+      <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:12px;">Corrupting Parasite <span class="pill-h">[H]</span></div>
+      <ul class="guide-list">
+        <li>Twice per platform, a player gets <span class="mech-badge">Corrupting Parasite</span> (debuff with a countdown). When it expires, it <strong>explodes</strong> â€” players must <strong>move away</strong> from that player. A <strong>Parasite</strong> add then spawns on the ground; it begins casting again â€” <strong>kill it</strong> before that cast finishes or it wipes the raid.</li>
+        <li><strong>Until Nozdormu's platform is cleared:</strong> the parasitized player should enter <strong>Nozdormu's yellow bubble</strong> (Time Zone) so the parasite add spawns inside â€” the bubble <strong>slows its cast</strong>, buying time to kill it.</li>
+        <li><strong>On the last platform (before the head):</strong> the whole raid <strong>stacks on the parasite</strong> when it spawns, uses <strong>defensive cooldowns</strong>, and <strong>bursts</strong> it down ASAP. Parasite is the main heroic wipe mechanic â€” prioritize it over padding boss DPS.</li>
+      </ul>
+    </div>
+    <p style="color:var(--muted); margin-bottom:18px;">Heroic increases limb, tentacle, and boss HP; Elementium Bolt and add damage are higher. <strong>Head phase at 25%</strong> with <strong>bloods every 5%</strong>. Execution on each platform must be clean so the raid reaches the head with cooldowns and lives.</p>
+    <div class="callout warn">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Heroic tip:</strong> Plan CD rotation for Elementium Bolt on each platform. Save Lust for the final head burn if your timing allows. <strong>Parasite</strong> &gt; Blisterings &gt; limb DPS when in doubt. On the head, assign AoE/stuns for every blood wave.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== STRATEGY ===== -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Strategy Summary</h2>
+    </div>
+    <h3>Role Assignments <span class="pill-b">[N/H]</span></h3>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-card-title">&#128737; Tanks</div>
+        <ul>
+          <li>Tank Blistering Tentacles or adds on each platform</li>
+          <li>Help position for Elementium Bolt (soak or mitigate)</li>
+          <li>Final phase: tank any remaining adds; face away from raid</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#9876; DPS</div>
+        <ul>
+          <li>Kill <strong>Blistering Tentacles</strong> at 70%/40% limb HP; red platform: direct ST only</li>
+          <li><span class="pill-h">[H]</span> Kill <strong>Corrupting Parasite</strong> adds immediately; use Time Zone until Nozdormu wing is done</li>
+          <li>DPS the <strong>limb</strong>; final phase: burn head, AoE <strong>bloods</strong> every 5% <span class="pill-h">[H]</span></li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128137; Healers</div>
+        <ul>
+          <li>Heal through Elementium Bolt; use raid CDs when called</li>
+          <li>Top raid before each bolt; dispel if needed</li>
+          <li>Final phase: maximize healing with Aspect buffs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout tip" style="margin-top:24px;">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Lust / Heroism:</strong> Use in the <strong>final phase</strong> when Aspect buffs are active and the raid is burning Deathwing's head. This gives the maximum benefit. Avoid using on an early platform unless the raid is behind and needs to catch up.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== QUICK REF ===== -->
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Mechanic</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Four platforms</strong></td><td>Each wing: Blisterings at 70%/40% limb HP, bolt CDs, limb damage. No spike-hiding mechanic.</td></tr>
+        <tr><td><strong>Blistering Tentacles</strong></td><td>Kill immediately. Red platform: <strong>single-target only</strong> after Alexstrasza's buff.</td></tr>
+        <tr><td><strong>Elementium Bolt</strong></td><td>Heavy damage â€” raid/personal CDs; top raid before cast.</td></tr>
+        <tr><td><strong>Limb</strong></td><td>DPS mutated corruption; transition when wing objective is met.</td></tr>
+        <tr><td><strong>Corrupting Parasite</strong> <span class="pill-h">[H]</span></td><td>Spread from debuff â†’ kill add; bubble until Noz done; stack+CDs+burst on last platform.</td></tr>
+        <tr><td><strong>Head / bloods</strong> <span class="pill-h">[H]</span></td><td>Head at 25%; every 5% spawns bloods â€” AoE before they reach head.</td></tr>
+        <tr><td><strong>Aspect buffs</strong></td><td>Final phase: burn head with Lust and CDs.</td></tr>
+        <tr><td><strong>Enrage</strong></td><td>8â€“10 min (approx). Kill before cataclysm.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9812; <strong>Dragon Soul â€” Madness of Deathwing</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Spine of Deathwing/DS-Spine-Guide.html">Spine of Deathwing &#8592;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px; font-size:12px;">All mechanics tagged [N] / [H]. Timing windows are approximate and may vary by server.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

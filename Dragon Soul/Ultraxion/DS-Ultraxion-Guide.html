@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultraxion â€” Dragon Soul Boss Guide</title>
+  <meta name="description" content="Complete Normal & Heroic guide for Ultraxion in Dragon Soul. Fading Light, Hour of Twilight portal, Heroic Will, tank swap, burn. Health, timers, strategy." />
+  <meta name="theme-color" content="#0c1222" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #0c1222;
+      --abyss: #131c33;
+      --dragon: #1e3a5f;
+      --gold: #c9a227;
+      --amber: #e8c547;
+      --twilight: #4a6fa5;
+      --text: #e8e6e3;
+      --muted: #8b9cb8;
+      --accent: #7eb8da;
+      --normal: #60a5fa;
+      --heroic: #f472b6;
+      --both: #a78bfa;
+      --tip: #34d399;
+      --warn: #fbbf24;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--void);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(30,58,95,0.2) 0%, transparent 55%);
+    }
+    .hero {
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      border-bottom: 3px solid var(--gold);
+      background: linear-gradient(160deg, rgba(12,18,34,0.98) 0%, var(--void) 40%, rgba(30,58,95,0.15) 100%);
+    }
+    .hero-content { padding: 48px 60px; max-width: 920px; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #f5f0e6 0%, var(--amber) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .hero-tagline { font-size: 1rem; color: var(--muted); }
+    .tag-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .tag-n { background: rgba(96,165,250,0.18); border: 1px solid var(--normal); color: var(--normal); }
+    .tag-h { background: rgba(244,114,182,0.18); border: 1px solid var(--heroic); color: var(--heroic); }
+    .tag-b { background: rgba(167,139,250,0.18); border: 1px solid var(--both); color: var(--both); }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 48px 0 56px; border-bottom: 1px solid rgba(201,162,39,0.12); }
+    .section:last-of-type { border-bottom: none; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: linear-gradient(135deg, rgba(201,162,39,0.25), rgba(30,58,95,0.4)); border: 1px solid rgba(201,162,39,0.35); flex-shrink: 0; }
+    .section h2 { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: var(--amber); letter-spacing: 1px; }
+    .section h3 { font-size: 1.12rem; font-weight: 700; color: var(--accent); margin: 28px 0 12px; }
+    .guide-list { list-style: none; padding: 0; }
+    .guide-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .guide-list li::before { content: '\25B6'; position: absolute; left: 0; color: var(--gold); font-size: 0.75em; }
+    .guide-list li strong { color: #fff; }
+    .pill-n, .pill-h, .pill-b { border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .pill-n { color: var(--normal); background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.3); }
+    .pill-h { color: var(--heroic); background: rgba(244,114,182,0.12); border: 1px solid rgba(244,114,182,0.3); }
+    .pill-b { color: var(--both); background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); }
+    .callout { border-radius: 12px; padding: 18px 22px; margin: 18px 0; display: flex; gap: 14px; align-items: flex-start; font-size: 0.95rem; }
+    .callout.danger { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.35); }
+    .callout.tip { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.3); }
+    .callout.warn { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.35); }
+    .callout-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .callout-text strong { color: var(--amber); }
+    .mech-badge { display: inline-flex; font-weight: 600; font-size: 0.88rem; padding: 2px 10px; border-radius: 6px; background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.35); color: var(--amber); margin: 2px; }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,162,39,0.2); }
+    .guide-table thead tr { background: linear-gradient(90deg, rgba(19,28,51,0.9), rgba(201,162,39,0.15)); }
+    .guide-table th { padding: 12px 16px; text-align: left; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+    .guide-table td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+    .guide-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .hp-num { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--accent); }
+    .guide-footer { text-align: center; padding: 40px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid rgba(201,162,39,0.2); }
+    .guide-footer a { color: var(--amber); text-decoration: none; }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--amber); }
+    .phase-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
+    .phase-card { background: linear-gradient(145deg, rgba(19,28,51,0.8), rgba(30,58,95,0.3)); border-radius: 12px; padding: 22px; border: 1px solid rgba(201,162,39,0.2); }
+    .phase-card .phase-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .phase-card .phase-range { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .phase-card .phase-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
+    .enrage-box { background: linear-gradient(135deg, rgba(30,58,95,0.25), rgba(201,162,39,0.08)); border: 1px solid rgba(244,114,182,0.35); border-radius: 12px; padding: 20px 24px; margin-top: 20px; }
+    .enrage-box-title { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--heroic); text-transform: uppercase; margin-bottom: 10px; }
+    .sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(12,18,34,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,162,39,0.2); padding: 10px 32px; display: flex; gap: 24px; align-items: center; overflow-x: auto; }
+    .sticky-nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .sticky-nav a:hover { color: var(--amber); }
+    .sticky-nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; font-weight: 700; margin-right: 8px; }
+    .breadcrumb { font-size: 12px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(201,162,39,0.15); }
+    .breadcrumb .container { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb [aria-current="page"] { color: var(--text); font-weight: 600; }
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .role-card { background: rgba(19,28,51,0.6); border: 1px solid rgba(201,162,39,0.2); border-radius: 10px; padding: 16px; }
+    .role-card-title { font-weight: 700; color: var(--amber); margin-bottom: 10px; font-size: 0.95rem; }
+    .role-card ul { margin: 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .skip-link { position: absolute; top: -80px; left: 12px; padding: 10px 18px; background: var(--dragon); color: var(--amber); text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; z-index: 1001; transition: top 0.2s; border: 1px solid var(--gold); }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .divider { height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--twilight), var(--gold), transparent); margin: 0; opacity: 0.5; }
+    @media print {
+      .skip-link, .sticky-nav, .tag-legend, .divider, .breadcrumb { display: none !important; }
+      .hero { min-height: auto; padding: 1.5rem 0; background: #0c1222 !important; }
+      body { background: #0c1222 !important; }
+      .section { padding: 2rem 0; break-inside: avoid; }
+      a { color: #e8c547; }
+    }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9812; Dragon Soul &#183; Tier 13</div>
+    <h1>Ultraxion</h1>
+    <p class="hero-tagline">Normal &amp; Heroic Boss Guide &#183; 10 &amp; 25 Player</p>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9812; ULTRAXION</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#health">Health &amp; Timers</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#heroic">Heroic</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content" aria-label="Guide content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Dragon Soul</a> &#8250; <span aria-current="page">Ultraxion</span>
+  </div>
+</nav>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:22px;">
+      <strong style="color:#fff;">Ultraxion</strong> is the <strong style="color:#fff;">fifth boss</strong> of Dragon Soul. Roughly <strong>every 45 seconds</strong> he casts <span class="mech-badge">Hour of Twilight</span> â€” a raid-wide hit (~300k) that kills anyone who doesn't avoid it. Everyone receives <span class="mech-badge">Heroic Will</span> (extra action button): use it <strong>before Hour of Twilight</strong> to phase into safety (you cannot move or attack for ~5 seconds). <strong>Tanking is usually solo</strong> â€” <span class="mech-badge">Fading Light</span> does <strong>not stack</strong> like a traditional swap debuff; instead it forces precise <strong>Heroic Will</strong> usage. Clicking Heroic Will <strong>drops your threat</strong> and briefly prevents regaining it, so tanks must <strong>wait for another player to pull aggro</strong> before taunting again. Thrall grants tanks <strong>Last Defender of Azeroth</strong>. Single-phase burn; <strong>6-minute enrage</strong>. <em>Server note:</em> some private realms (e.g. Whitemane) intentionally tune Heroic Ultraxion to <strong>~124M HP (10-player)</strong> instead of the classic ~78M â€” verify your combat log.
+    </p>
+    <div class="callout danger">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Hour of Twilight</strong> <span class="pill-b">[N/H]</span><br/>
+        ~Every <strong>45 seconds</strong> Ultraxion casts <strong>Hour of Twilight</strong> (~300k damage). Use <strong>Heroic Will</strong> before it goes off to avoid the hit (you phase out for ~5s and can't move or attack). Heroic Will has a short cooldown â€” use it only when Hour of Twilight is imminent. Missing it = death.
+      </div>
+    </div>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Single phase</div>
+        <div class="phase-range">100% â†’ 0%</div>
+        <div class="phase-desc">Solo tank (meta). Hour of Twilight + Heroic Will on a cadence. Fading Light/HW drops threat â€” taunt only after someone else secures aggro. Everyone else pumps boss.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEALTH & TIMERS ===== -->
+<section class="section" id="health">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Health &amp; Timers</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th><span class="pill-n">[N]</span> 10-Man</th>
+          <th><span class="pill-n">[N]</span> 25-Man</th>
+          <th><span class="pill-h">[H]</span> 10-Man</th>
+          <th><span class="pill-h">[H]</span> 25-Man</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ultraxion</strong></td>
+          <td class="hp-num">52M</td>
+          <td class="hp-num">163M</td>
+          <td class="hp-num">78M <span style="color:var(--muted); font-size:12px;">(retail ref.) / ~124M some pservers</span></td>
+          <td class="hp-num">244.5M</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="enrage-box">
+      <div class="enrage-box-title">&#9888; Enrage</div>
+      <ul class="guide-list">
+        <li><strong>6-minute enrage.</strong> Ultraxion gains <span class="mech-badge">Fury</span>. This is a strict DPS check; the raid must kill him before 6 minutes.</li>
+        <li><strong>Hour of Twilight</strong> ~every 45s â€” use Heroic Will to avoid. <strong>Fading Light</strong> targets tanks (and sometimes DPS/healers on Heroic) â€” it is <strong>not a stacking debuff</strong>; swaps are driven by <strong>Fading Light + Heroic Will timing</strong>, not â€œtwo stacks.â€ Thrall gives tanks <strong>Last Defender of Azeroth</strong>.</li>
+        <li><strong>Threat:</strong> Using Heroic Will clears threat briefly. The next tank (or a designated soaker) must let their <strong>taunt land only after</strong> someone has picked the boss, or Ultraxion will melee random players.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PHASE 1 ===== -->
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Phase 1 â€” Full Fight Mechanics</h2>
+    </div>
+
+    <h3>Hour of Twilight &amp; Heroic Will <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Roughly <strong>every 45 seconds</strong> Ultraxion casts <span class="mech-badge">Hour of Twilight</span> â€” a raid-wide hit (~300k damage). Anyone not avoiding it dies.</li>
+      <li>Everyone receives <span class="mech-badge">Heroic Will</span> (extra action button). Use it <strong>before Hour of Twilight lands</strong> to phase into safety; you cannot move or attack for ~5 seconds, then you return. Heroic Will has a cooldown (~5s) â€” use it only when Hour of Twilight is imminent.</li>
+      <li>Call out "Hour of Twilight" so the raid uses Heroic Will in time. Don't wait until the last second; use it with 2â€“3s to spare to avoid lag or movement issues.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Timing:</strong> Use Heroic Will when Hour of Twilight is about to cast (or when the debuff/cast bar shows it). While phased you cannot DPS or heal â€” that's acceptable to avoid death.
+      </div>
+    </div>
+
+    <h3>Fading Light, threat &amp; tanking <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Fading Light</span> marks players for deletion unless they use <strong>Heroic Will</strong> inside the debuff window. <strong>It does not stack</strong> for swap purposes â€” think of it as a parallel timer to Hour of Twilight, not a Sundering-style stack.</li>
+      <li><strong>Solo tanking</strong> is the default strat: one tank holds Ultraxion the entire fight while healers pump massive heals. If you run two tanks, swaps happen when Fading Light/Hour cadences require it â€” <strong>never taunt immediately after your co-tank presses Heroic Will</strong> or you will rip aggro during their immunity window and die to melee.</li>
+      <li>Pressing <strong>Heroic Will</strong> causes a short <strong>threat suppression</strong>. Wait until another player (backup tank, pet, or misdirect target) has boss aggro before taunting back.</li>
+      <li><strong>Thrall</strong> grants tanks <strong>Last Defender of Azeroth</strong> â€” use it to help survive tank damage and Hour of Twilight timing.</li>
+    </ul>
+
+    <h3>Raid damage &amp; burn <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Ultraxion deals moderate raid-wide damage over time. Healers keep the raid topped. There are no adds and no phase changes â€” pure single-target DPS on Ultraxion.</li>
+      <li>Use Lust/Heroism at the pull or after the first Fading Light cycle when everyone is present. All DPS and healers (when not in the portal) focus the boss until he dies.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEROIC ===== -->
+<section class="section" id="heroic">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Heroic-Only Mechanics <span class="pill-h">[H]</span></h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:18px;">Heroic increases damage and often applies <strong>Fading Light</strong> to <strong>DPS and healers</strong> as well as tanks â€” everyone must track the debuff. HP values may be custom (see health table note). Threat suppression after Heroic Will is <strong>more punishing</strong>; assign a backup pick-up (Hunter pet, Army ghoul, etc.) if you solo tank.</p>
+    <div class="callout warn">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Heroic tip:</strong> WeakAuras for Hour + Fading on every player. Call <strong>â€œtaunt in 2â€</strong> only after the previous Heroic Will user is phased. Save personal DPS cooldowns for windows where you are not locked in a portal.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== STRATEGY ===== -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Strategy Summary</h2>
+    </div>
+    <h3>Role Assignments <span class="pill-b">[N/H]</span></h3>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-card-title">&#128737; Tanks</div>
+        <ul>
+          <li>Solo or duo â€” <strong>no stack-based swap</strong>; follow Fading/HoT cadence</li>
+          <li>After Heroic Will, <strong>pause</strong> before taunting; let aggro stabilize</li>
+          <li>Last Defender on CD for scary overlaps</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#9876; DPS</div>
+        <ul>
+          <li>Full burn on Ultraxion at all times</li>
+          <li>When you get Fading Light, use <strong>Heroic Will</strong> before it expires</li>
+          <li>Return from portal and resume DPS immediately</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128137; Healers</div>
+        <ul>
+          <li>Heal raid and tank through constant damage</li>
+          <li>When you get Fading Light, use Heroic Will before it expires</li>
+          <li>Top raid before Fading Light expires in case someone is slow</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout tip" style="margin-top:24px;">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Lust / Heroism:</strong> Use at the pull for maximum uptime. Everyone is present and no one is in the portal yet. This maximizes the burn before enrage.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== QUICK REF ===== -->
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Mechanic</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Hour of Twilight</strong></td><td>~Every 45s, raid-wide ~300k. Use <strong>Heroic Will</strong> before it lands to avoid (you phase out ~5s).</td></tr>
+        <tr><td><strong>Heroic Will</strong></td><td>Extra action button â€” use when Hour of Twilight is imminent. Can't move/attack while phased.</td></tr>
+        <tr><td><strong>Fading Light</strong></td><td>Does not stack â€” HW before expiry; mind threat drop.</td></tr>
+        <tr><td><strong>Tanking</strong></td><td>Solo tank meta; verify HP tuning on your server (~124M 10H reported).</td></tr>
+        <tr><td><strong>Burn</strong></td><td>Single target only. No adds. DPS race before 6-minute enrage.</td></tr>
+        <tr><td><strong>Enrage</strong></td><td>6 minutes. Kill before then.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9812; <strong>Dragon Soul â€” Ultraxion</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Hagara the Stormbinder/DS-Hagara-Guide.html">Hagara &#8592;</a> &nbsp;|&nbsp; <a href="../Warmaster Blackhorn/DS-Blackhorn-Guide.html">Warmaster Blackhorn &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px; font-size:12px;">All mechanics tagged [N] / [H]. Timing windows are approximate and may vary by server.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

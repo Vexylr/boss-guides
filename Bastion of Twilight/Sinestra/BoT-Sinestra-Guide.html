@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinestra â€” Bastion of Twilight Boss Guide (Heroic)</title>
+  <meta name="description" content="Heroic-only Sinestra guide. Wrack dispel chain, Twilight Slicer, Phase 2 Calen and eggs, Phase 3 burn with Essence of the Red." />
+  <meta name="theme-color" content="#1e0f2e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231e0f2e'/><path fill='%237c3aed' d='M16 4l4 8 8 2-6 6 2 8-8-4-8 4 2-8-6-6 8-2z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --twilight: #7c3aed; --violet: #a78bfa; --void: #1e0f2e; --text: #e9d5ff; --muted: #8b7aa3; --gold: #c4b5fd; --heroic: #f472b6; --pill-h: #f472b6; --tip: #34d399; --warn: #fbbf24; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;} html{scroll-behavior:smooth;}
+    body{background-color:var(--void);color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.7;background-image:radial-gradient(ellipse at 20% 30%, rgba(124,58,237,0.12) 0%, transparent 55%),radial-gradient(ellipse at 80% 70%, rgba(76,29,149,0.15) 0%, transparent 50%);}
+    .hero{min-height:300px;display:flex;align-items:flex-end;border-bottom:3px solid var(--twilight);background:linear-gradient(135deg, rgba(76,29,149,0.25) 0%, var(--void) 50%, rgba(124,58,237,0.1) 100%);}
+    .hero-content{padding:48px 60px;max-width:900px;}
+    .hero-eyebrow{font-family:'Crimson Pro',serif;font-size:13px;letter-spacing:4px;color:var(--violet);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;background:linear-gradient(135deg,#f5f3ff 0%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+    .hero-tagline{font-size:1rem;color:var(--muted);}
+    .tag-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;}
+    .tag-h{display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;background:rgba(244,114,182,0.18);border:1px solid var(--heroic);color:var(--heroic);}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px;}
+    .section{padding:56px 0 48px;border-bottom:1px solid rgba(124,58,237,0.12);}
+    .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg, rgba(124,58,237,0.3), rgba(76,29,149,0.3));border:1px solid rgba(124,58,237,0.3);flex-shrink:0;}
+    .section h2{font-family:'Crimson Pro',serif;font-size:1.6rem;font-weight:700;color:var(--gold);letter-spacing:1px;}
+    .section h3{font-size:1.1rem;font-weight:700;color:var(--violet);margin:24px 0 10px;}
+    .guide-list{list-style:none;padding:0;}
+    .guide-list li{padding:7px 0 7px 22px;position:relative;font-size:0.94rem;color:var(--text);border-bottom:1px solid rgba(255,255,255,0.04);}
+    .guide-list li::before{content:'\25B6';position:absolute;left:0;color:var(--twilight);}
+    .guide-list li strong{color:white;}
+    .pill-h{border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;white-space:nowrap;color:var(--pill-h);background:rgba(244,114,182,0.12);border:1px solid rgba(244,114,182,0.3);}
+    .callout{border-radius:12px;padding:18px 20px;margin:16px 0;display:flex;gap:14px;align-items:flex-start;font-size:0.93rem;}
+    .callout.danger{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);}
+    .callout.tip{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);}
+    .callout.warn{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);}
+    .mech-badge{display:inline-flex;align-items:center;font-weight:600;font-size:0.88rem;padding:2px 10px;border-radius:6px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:var(--violet);margin:2px;}
+    .guide-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(124,58,237,0.2);}
+    .guide-table thead tr{background:linear-gradient(90deg, rgba(76,29,149,0.5), rgba(124,58,237,0.3));}
+    .guide-table th{padding:12px 16px;text-align:left;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;text-transform:uppercase;}
+    .guide-table td{padding:11px 16px;border-bottom:1px solid rgba(124,58,237,0.08);}
+    .guide-table tbody tr:nth-child(even){background:rgba(255,255,255,0.03);}
+    .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(30,15,46,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(124,58,237,0.2);padding:10px 32px;display:flex;gap:24px;align-items:center;overflow-x:auto;}
+    .sticky-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;}
+    .sticky-nav a:hover{color:var(--violet);}
+    .sticky-nav-logo{font-family:'Crimson Pro',serif;color:var(--twilight);font-size:13px;font-weight:700;margin-right:8px;}
+    .guide-footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:13px;border-top:1px solid rgba(124,58,237,0.2);background:rgba(30,15,46,0.5);}
+    .guide-footer .copyright-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+    .guide-footer .discord-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--violet);}
+    .guide-footer .discord-name{font-weight:700;color:var(--violet);}
+    .breadcrumb{font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(124,58,237,0.2);}
+    .breadcrumb .container{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+    .breadcrumb a{color:var(--violet);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+    .breadcrumb [aria-current="page"]{color:var(--text);font-weight:600;}
+    .divider{height:2px;background:linear-gradient(90deg, transparent, var(--twilight), var(--violet), transparent);margin:0;opacity:0.5;}
+    .phase-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;}
+    .phase-card{background:linear-gradient(135deg, rgba(46,16,101,0.6), rgba(76,29,149,0.4));border-radius:14px;padding:20px;border:1px solid rgba(124,58,237,0.2);}
+    .phase-card::before{content:'';display:block;height:3px;margin:-20px -20px 12px -20px;border-radius:14px 14px 0 0;background:linear-gradient(90deg, var(--twilight), var(--violet));}
+    .phase-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:4px;}
+    .phase-range{font-size:1.2rem;font-weight:700;color:white;margin-bottom:6px;}
+    .phase-desc{font-size:0.85rem;color:var(--muted);}
+    .skip-link{position:absolute;top:-80px;left:12px;padding:10px 18px;background:var(--twilight);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px;z-index:1001;}
+    .skip-link:focus{top:12px;}
+    @media (max-width:768px){.phase-cards{grid-template-columns:1fr;}.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
+    @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#1e0f2e!important;}body{background:#1e0f2e!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#a78bfa;}}
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#10022; Bastion of Twilight &#183; Tier 11</div>
+    <h1>Sinestra</h1>
+    <div class="hero-tagline">Heroic Only Â· 10 &amp; 25 Player</div>
+    <div class="tag-legend"><span class="tag-h">[H] Heroic Only</span></div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#10022; SINESTRA</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#phase3">Phase 3</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Bastion of Twilight</a> &#8250; <span aria-current="page">Sinestra</span>
+  </div>
+</nav>
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:20px;">
+      <strong style="color:white;">Sinestra</strong> is a <strong style="color:white;">Heroic-only</strong> boss. She starts at 60% HP and is <span class="mech-badge">Drained</span> (40% reduced damage). Phase 1: manage <span class="mech-badge">Wrack</span> (dispel chain â€” first target soaks as long as possible with personals so later bounces have shorter duration), <span class="mech-badge">Twilight Slicer</span> (two players kite orbs to the back), and <span class="mech-badge">Twilight Whelps</span> (tank them, don't kill yet). Goal: reach 30% before third Whelp wave and before a second Wrack. Phase 2: Calen shields raid from Twilight Extinction; kill Whelps in shield, then burn Sinestra's Mana Barrier and destroy both Pulsing Twilight Eggs when carapace drops. Phase 3: full-HP Sinestra, no Drained; burn with <span class="mech-badge">Essence of the Red</span>. Manage Whelps (kill one at a time at the back to delay revives), tank swap Twilight Spit, CDs for Flame Breath.
+    </p>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-range">60% â†’ 30%</div>
+        <div class="phase-desc">Wrack dispel chain; Twilight Slicer kite; tank Whelps, don't kill. Flame Breath (minor while Drained). Reach 30% before 3rd Whelps + 2nd Wrack.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-range">Calen &amp; Eggs</div>
+        <div class="phase-desc">Stack in Calen's shield for Twilight Extinction. AoE Whelps in shield (same spot); kill again when revived (no new pools). Heal Calen (Pyrrhic Focus). Burn Sinestra's Mana Barrier; when low she drops egg carapace â€” kill both eggs in one window. Kill Twilight Spitecallers (disorient/knockback/incap only, no stun). Tank Twilight Drake away.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-range">100% â†’ 0%</div>
+        <div class="phase-desc">Full damage. Wrack, Slicer, Whelps return. Essence of the Red buff â€” burn. Kill Whelps one-by-one at back (tank moves after each). Tank swap for Twilight Spit. Raid/healer CDs for Flame Breath.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Phase 1 (60% â†’ 30%)</h2>
+    </div>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Wrack</span> â€” ramping Shadow DoT. Dispelling bounces to 2 nearby; each bounce resets ramp but same duration. First target: use all personals, soak as long as possible, then dispel so subsequent Wracks are shorter. Then dispel every 10â€“15s to limit bounces.</li>
+      <li><span class="mech-badge">Twilight Slicer</span> â€” 2 players fixated by orbs connected by a beam (high damage in beam and near orbs). Kite to the back, U-turn along wall, return. Raid stay clear of orbs and beam.</li>
+      <li><span class="mech-badge">Twilight Whelps</span> â€” 5 per wave. Second tank picks up, bring near Sinestra for cleave. Do not kill; they drop Twilight Essence pools that grow and revive dead Whelps. You'll kill them in Phase 2 inside Calen's shield.</li>
+      <li><span class="mech-badge">Flame Breath</span> â€” every ~20s; manageable while Drained. Use personals if needed.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">Benchmark: reach 30% before the third set of Whelps and before a second Wrack. That keeps Phase 2 manageable.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase2">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Phase 2 (Calen &amp; Eggs)</h2>
+    </div>
+    <ul class="guide-list">
+      <li>Calen appears, places shield at back. Entire raid stack in shield for <span class="mech-badge">Twilight Extinction</span> or wipe.</li>
+      <li>Tank with Whelps brings them to back of shield. Raid AoE Whelps in one spot â†’ all pools in one place. Whelps revive; drag out of pools, AoE again â€” they die without dropping new pools and despawn.</li>
+      <li>Sinestra has <span class="mech-badge">Mana Barrier</span> (takes mana instead of HP). Heal <span class="mech-badge">Calen</span> â€” he uses <span class="mech-badge">Pyrrhic Focus</span> (burns his HP for mana). Most healers on Calen.</li>
+      <li>Ranged DPS burn Sinestra to drain mana. When low, she removes <span class="mech-badge">Twilight Carapace</span> from both <span class="mech-badge">Pulsing Twilight Eggs</span> for 30s. Split ranged evenly, kill both eggs in that window. If you don't, drain her mana again for another carapace drop.</li>
+      <li><span class="mech-badge">Twilight Spitecaller</span> â€” spawns; casts <span class="mech-badge">Unleash Essence</span> (10% max HP/s). Do NOT stun or normal interrupt â€” they get <span class="mech-badge">Indomitable</span> and wipe. Use disorients, knockbacks, incapacitates (Death Grip, Gouge, Repentance, etc.).</li>
+      <li><span class="mech-badge">Twilight Drake</span> â€” tank it, face away (Twilight Breath cone).</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase3">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Phase 3 (100% â†’ 0%)</h2>
+    </div>
+    <ul class="guide-list">
+      <li>Sinestra at full HP, no Drained. Calen dies but gives raid <span class="mech-badge">Essence of the Red</span>. Wrack, Twilight Slicer, Twilight Whelps all return at full damage.</li>
+      <li>Kill remaining Drakes/Spitecallers, return to P1 positions. Pop all DPS cooldowns with Essence of the Red and burn.</li>
+      <li>Twilight Whelps: AoE to low HP, tank drags to back. Kill <strong>one at a time</strong>; tank moves away after each so pool doesn't revive others immediately. Delays room coverage by Twilight Essence.</li>
+      <li>Tank swap for <span class="mech-badge">Twilight Spit</span> (from Whelps); or Paladin Divine Protection to reset.</li>
+      <li>Flame Breath hits hard. Rotate raid and healer CDs. Single-target CDs on Whelp tank.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#10022;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Mechanic</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Wrack</strong></td><td>First target soak with personals, then dispel. Then dispel every 10â€“15s.</td></tr>
+        <tr><td><strong>Twilight Slicer</strong></td><td>2 players kite orbs to back, U-turn, return; raid avoid beam and orbs.</td></tr>
+        <tr><td><strong>P1 Whelps</strong></td><td>Tank, don't kill. Kill in P2 in Calen's shield.</td></tr>
+        <tr><td><strong>P2 Eggs</strong></td><td>Burn Mana Barrier; when carapace drops, kill both eggs in one go.</td></tr>
+        <tr><td><strong>Spitecaller</strong></td><td>Disorient/knockback/incap only â€” no stun/interrupt (Indomitable).</td></tr>
+        <tr><td><strong>P3 Whelps</strong></td><td>Kill one at a time at back; tank moves from pool to delay revives.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#10022; <strong>Bastion of Twilight â€” Sinestra</strong> Â· Heroic Only</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--violet);">&#8592; Back to Bastion of Twilight index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--violet);">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

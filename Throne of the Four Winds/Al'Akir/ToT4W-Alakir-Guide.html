@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al'Akir â€” Throne of the Four Winds Boss Guide</title>
+  <meta name="description" content="Normal & Heroic guide for Al'Akir. Phase 1 spread, Squall Line, Wind Burst. Phase 2 Acid Rain, Stormlings, Feedback. Phase 3 fly, Lightning Cloud." />
+  <meta name="theme-color" content="#0c4a6e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--sky:#0ea5e9;--wind:#38bdf8;--cloud:#e0f2fe;--storm:#0c4a6e;--text:#f0f9ff;--muted:#7dd3fc;--gold:#bae6fd;--pill-n:#60a5fa;--pill-h:#f472b6;--pill-b:#a78bfa;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;} html{scroll-behavior:smooth;}
+    body{background-color:var(--storm);color:var(--text);font-family:'Nunito',sans-serif;font-size:16px;line-height:1.7;background-image:radial-gradient(ellipse at 50% 0%, rgba(14,165,233,0.2) 0%, transparent 50%);}
+    .hero{min-height:280px;display:flex;align-items:flex-end;border-bottom:3px solid var(--sky);background:linear-gradient(135deg, rgba(14,165,233,0.15) 0%, var(--storm) 40%, rgba(56,189,248,0.1) 100%);}
+    .hero-content{padding:48px 60px;max-width:900px;}
+    .hero-eyebrow{font-family:'Quicksand',sans-serif;font-size:12px;letter-spacing:4px;color:var(--wind);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:'Quicksand',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;background:linear-gradient(135deg,#f0f9ff 0%,var(--wind) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+    .hero-tagline{font-size:1rem;color:var(--muted);}
+    .tag-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;}
+    .tag{display:inline-flex;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;}
+    .tag-n{background:rgba(96,165,250,0.18);border:1px solid var(--pill-n);color:var(--pill-n);}
+    .tag-h{background:rgba(244,114,182,0.18);border:1px solid var(--pill-h);color:var(--pill-h);}
+    .tag-b{background:rgba(167,139,250,0.18);border:1px solid var(--pill-b);color:var(--pill-b);}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px;}
+    .section{padding:56px 0 48px;border-bottom:1px solid rgba(56,189,248,0.12);}
+    .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg, rgba(14,165,233,0.3), rgba(56,189,248,0.2));border:1px solid rgba(56,189,248,0.3);flex-shrink:0;}
+    .section h2{font-family:'Quicksand',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold);letter-spacing:1px;}
+    .section h3{font-size:1.1rem;font-weight:700;color:var(--wind);margin:24px 0 10px;}
+    .guide-list{list-style:none;padding:0;}
+    .guide-list li{padding:7px 0 7px 22px;position:relative;font-size:0.94rem;color:var(--text);border-bottom:1px solid rgba(255,255,255,0.04);}
+    .guide-list li::before{content:'\25B6';position:absolute;left:0;color:var(--sky);}
+    .guide-list li strong{color:white;}
+    .pill-n,.pill-h,.pill-b{border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;white-space:nowrap;}
+    .mech-badge{display:inline-flex;font-weight:600;font-size:0.88rem;padding:2px 10px;border-radius:6px;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.3);color:var(--wind);margin:2px;}
+    .guide-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(56,189,248,0.2);}
+    .guide-table thead tr{background:linear-gradient(90deg, rgba(12,74,110,0.6), rgba(14,165,233,0.3));}
+    .guide-table th{padding:12px 16px;text-align:left;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;text-transform:uppercase;}
+    .guide-table td{padding:11px 16px;border-bottom:1px solid rgba(56,189,248,0.08);}
+    .guide-table tbody tr:nth-child(even){background:rgba(255,255,255,0.03);}
+    .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(12,74,110,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(56,189,248,0.2);padding:10px 32px;display:flex;gap:24px;align-items:center;overflow-x:auto;}
+    .sticky-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;}
+    .sticky-nav a:hover{color:var(--wind);}
+    .sticky-nav-logo{font-family:'Quicksand',sans-serif;color:var(--sky);font-size:13px;font-weight:700;margin-right:8px;}
+    .guide-footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:13px;border-top:1px solid rgba(56,189,248,0.2);background:rgba(12,74,110,0.5);}
+    .guide-footer .copyright-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+    .guide-footer .discord-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--wind);}
+    .guide-footer .discord-name{font-weight:700;color:var(--wind);}
+    .breadcrumb{font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid rgba(14,165,233,0.2);}
+    .breadcrumb .container{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+    .breadcrumb a{color:var(--wind);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+    .breadcrumb [aria-current="page"]{color:var(--text);font-weight:600;}
+    .divider{height:2px;background:linear-gradient(90deg, transparent, var(--sky), var(--wind), transparent);margin:0;opacity:0.5;}
+    .phase-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;}
+    .phase-card{background:linear-gradient(135deg, rgba(12,74,110,0.6), rgba(14,165,233,0.2));border-radius:14px;padding:20px;border:1px solid rgba(56,189,248,0.2);}
+    .phase-card::before{content:'';display:block;height:3px;margin:-20px -20px 12px -20px;border-radius:14px 14px 0 0;background:linear-gradient(90deg, var(--sky), var(--wind));}
+    .phase-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--wind);margin-bottom:4px;}
+    .phase-range{font-size:1.2rem;font-weight:700;color:white;margin-bottom:6px;}
+    .phase-desc{font-size:0.85rem;color:var(--muted);}
+    .skip-link{position:absolute;top:-80px;left:12px;padding:10px 18px;background:var(--sky);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px;z-index:1001;}
+    .skip-link:focus{top:12px;}
+    @media (max-width:768px){.phase-cards{grid-template-columns:1fr;}.hero-content{padding:32px 24px;}.container{padding:0 16px;}}
+    @media print{.skip-link,.sticky-nav,.tag-legend,.divider,.breadcrumb{display:none!important;}.hero{min-height:auto;padding:1.5rem 0;background:#0c4a6e!important;}body{background:#0c4a6e!important;}.section{padding:2rem 0;break-inside:avoid;}a{color:#38bdf8;}}
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9729; Throne of the Four Winds &#183; Tier 11</div>
+    <h1>Al'Akir</h1>
+    <div class="hero-tagline">Normal &amp; Heroic Boss Guide Â· 10 &amp; 25 Player</div>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9729; AL'AKIR</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#phase3">Phase 3</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Throne of the Four Winds</a> &#8250; <span aria-current="page">Al'Akir</span>
+  </div>
+</nav>
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9729;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:20px;">
+      <strong style="color:white;">Al'Akir</strong> has three phases. <strong>Phase 1 (100â€“80%):</strong> Spread in small groups so <span class="mech-badge">Lightning Strike</span> doesn't chain (bounces for full damage). Dodge <span class="mech-badge">Squall Line</span> (wall of cyclones â€” move through gaps). Avoid <span class="mech-badge">Ice Storm</span> and ice patches. <span class="mech-badge">Wind Burst</span> (4s cast) â€” stack close to boss so you're not knocked off. <span class="mech-badge">Static Shock</span> interrupts casters in melee (red zone); casters stay at range (green). <strong>Phase 2 (80â€“25%):</strong> Stack; <span class="mech-badge">Acid Rain</span> ramps. <span class="mech-badge">Stormlings</span> â€” tank away; killing one gives Al'Akir <span class="mech-badge">Feedback</span> (+10% damage taken). Keep Stormlings low, kill to refresh/stack Feedback; burn boss. <strong>Phase 3 (25â€“0%):</strong> Platform breaks; raid flies. Stack high; <span class="mech-badge">Lightning Cloud</span> spawns on random player â€” move down together; <span class="mech-badge">Lightning Rod</span> move out horizontally. Wind Burst still â€” stay close to boss.
+    </p>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-range">100% â†’ 80%</div>
+        <div class="phase-desc">Spread (8 groups of 3). Dodge Squall Line gaps, Ice Storm. Wind Burst: stack close. Static Shock: casters at range.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-range">80% â†’ 25%</div>
+        <div class="phase-desc">Stack. Acid Rain ramps. Stormlings: tank away; kill to apply/refresh Feedback. Burn with Feedback stacks.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-range">25% â†’ 0%</div>
+        <div class="phase-desc">Fly; stack high. Lightning Cloud: move down together. Lightning Rod: move out horizontally. Stay close for Wind Burst.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9729;</div>
+      <h2>Phase 1 (100% â†’ 80%)</h2>
+    </div>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Lightning Strike</span> â€” targets random player, bounces to others for full damage. Split into 8 groups of ~3 so only 1â€“2 get hit. <span class="pill-h">[H]</span> Strike stays in area â€” briefly move to another group then return.</li>
+      <li><span class="mech-badge">Squall Line</span> â€” wall of cyclones moves around platform (clockwise or counter). Find gaps and move through. Hit = 5s loss of control + Nature DoT.</li>
+      <li><span class="mech-badge">Ice Storm</span> â€” moves along path, leaves ice patches (slow). Avoid.</li>
+      <li><span class="mech-badge">Wind Burst</span> â€” 4s cast; knocks back + Nature damage. Move close to boss before it finishes to avoid being knocked off. (Falling = wind carries you back but you take damage.)</li>
+      <li><span class="mech-badge">Static Shock</span> â€” interrupts casters in melee range. Ranged/casters stay in "green" zone; tank in "red."</li>
+      <li>Tank: stay in melee or Al'Akir uses <span class="mech-badge">Electrocute</span> (ramping damage).</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase2">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9729;</div>
+      <h2>Phase 2 (80% â†’ 25%)</h2>
+    </div>
+    <ul class="guide-list">
+      <li>No Ice Storm or Lightning Strike â€” raid can stack. Static Shock and Squall Line continue.</li>
+      <li><span class="mech-badge">Acid Rain</span> â€” raid-wide damage that increases over time. DPS race to reach 25% before it overwhelms healers.</li>
+      <li><span class="mech-badge">Stormling</span> â€” spawns every 20s. Off-tank pick up, tank away (AoE to nearby). When a Stormling dies, Al'Akir gets <span class="mech-badge">Feedback</span> (+10% damage taken, duration). Get first 2 Stormlings low; when 3rd spawns kill first to apply Feedback. Refresh by killing next Stormling when Feedback has ~5s left; repeat to build stacks. With several Feedback stacks, pop DPS cooldowns and burn.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="phase3">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9729;</div>
+      <h2>Phase 3 (25% â†’ 0%)</h2>
+    </div>
+    <ul class="guide-list">
+      <li>Platform breaks; <span class="mech-badge">Eye of the Storm</span> â€” raid flies with increased speed. Lightning around outskirts â€” stay in center, stack high.</li>
+      <li><span class="mech-badge">Lightning Cloud</span> â€” spawns at random player's location. Entire raid move <strong>down</strong> together out of cloud, then stay as high as possible without being in it. Repeat every ~30s. Low DPS: do 2 clouds at top, fly to bottom; 3rd cloud at bottom, move up for 4th, then fly back up and repeat.</li>
+      <li><span class="mech-badge">Lightning Rod</span> â€” random player; after 5s deals Lightning damage to nearby. Move <strong>horizontally</strong> out of group (not up/down).</li>
+      <li><span class="mech-badge">Wind Burst</span> â€” still used; stay close to Al'Akir to avoid knockback into Lightning.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9729;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Key</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>P1</strong></td><td>Spread (8Ã—3). Squall Line gaps. Ice Storm avoid. Wind Burst stack close. Static Shock: casters at range.</td></tr>
+        <tr><td><strong>P2</strong></td><td>Stack. Acid Rain ramps. Stormlings â†’ Feedback; kill to refresh/stack, then burn.</td></tr>
+        <tr><td><strong>P3</strong></td><td>Fly, stack high. Lightning Cloud: move down together. Lightning Rod: move out horizontally. Stay close for Wind Burst.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9729; <strong>Throne of the Four Winds â€” Al'Akir</strong> Â· Boss Guide Â· Normal &amp; Heroic</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--wind);">&#8592; Back to Throne of the Four Winds index</a> &nbsp;|&nbsp; <a href="../../index.html" style="color:var(--wind);">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

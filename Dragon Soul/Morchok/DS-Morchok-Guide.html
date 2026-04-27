@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morchok â€” Dragon Soul Boss Guide</title>
+  <meta name="description" content="Complete Normal & Heroic guide for Morchok in Dragon Soul. Stomp, Resonating Crystal, Crush Armor, Black Blood of the Earth. Health, timers, strategy." />
+  <meta name="theme-color" content="#0c1222" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230c1222'/><path fill='%23c9a227' d='M16 4l2 6 6 1-4 4 2 6-6-3-6 3 2-6-4-4 6-1z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #0c1222;
+      --abyss: #131c33;
+      --dragon: #1e3a5f;
+      --gold: #c9a227;
+      --amber: #e8c547;
+      --twilight: #4a6fa5;
+      --text: #e8e6e3;
+      --muted: #8b9cb8;
+      --accent: #7eb8da;
+      --normal: #60a5fa;
+      --heroic: #f472b6;
+      --both: #a78bfa;
+      --tip: #34d399;
+      --warn: #fbbf24;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--void);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(30,58,95,0.2) 0%, transparent 55%);
+    }
+    .hero {
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      border-bottom: 3px solid var(--gold);
+      background: linear-gradient(160deg, rgba(12,18,34,0.98) 0%, var(--void) 40%, rgba(30,58,95,0.15) 100%);
+    }
+    .hero-content { padding: 48px 60px; max-width: 920px; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #f5f0e6 0%, var(--amber) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .hero-tagline { font-size: 1rem; color: var(--muted); }
+    .tag-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .tag-n { background: rgba(96,165,250,0.18); border: 1px solid var(--normal); color: var(--normal); }
+    .tag-h { background: rgba(244,114,182,0.18); border: 1px solid var(--heroic); color: var(--heroic); }
+    .tag-b { background: rgba(167,139,250,0.18); border: 1px solid var(--both); color: var(--both); }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 48px 0 56px; border-bottom: 1px solid rgba(201,162,39,0.12); }
+    .section:last-of-type { border-bottom: none; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: linear-gradient(135deg, rgba(201,162,39,0.25), rgba(30,58,95,0.4)); border: 1px solid rgba(201,162,39,0.35); flex-shrink: 0; }
+    .section h2 { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: var(--amber); letter-spacing: 1px; }
+    .section h3 { font-size: 1.12rem; font-weight: 700; color: var(--accent); margin: 28px 0 12px; }
+    .guide-list { list-style: none; padding: 0; }
+    .guide-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .guide-list li::before { content: '\25B6'; position: absolute; left: 0; color: var(--gold); font-size: 0.75em; }
+    .guide-list li strong { color: #fff; }
+    .pill-n, .pill-h, .pill-b { border-radius: 4px; padding: 1px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .pill-n { color: var(--normal); background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.3); }
+    .pill-h { color: var(--heroic); background: rgba(244,114,182,0.12); border: 1px solid rgba(244,114,182,0.3); }
+    .pill-b { color: var(--both); background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); }
+    .callout { border-radius: 12px; padding: 18px 22px; margin: 18px 0; display: flex; gap: 14px; align-items: flex-start; font-size: 0.95rem; }
+    .callout.danger { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.35); }
+    .callout.tip { background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.3); }
+    .callout.warn { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.35); }
+    .callout-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .callout-text strong { color: var(--amber); }
+    .mech-badge { display: inline-flex; font-weight: 600; font-size: 0.88rem; padding: 2px 10px; border-radius: 6px; background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.35); color: var(--amber); margin: 2px; }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,162,39,0.2); }
+    .guide-table thead tr { background: linear-gradient(90deg, rgba(19,28,51,0.9), rgba(201,162,39,0.15)); }
+    .guide-table th { padding: 12px 16px; text-align: left; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+    .guide-table td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+    .guide-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .hp-num { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--accent); }
+    .guide-footer { text-align: center; padding: 40px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid rgba(201,162,39,0.2); }
+    .guide-footer a { color: var(--amber); text-decoration: none; }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--amber); }
+    .phase-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
+    .phase-card { background: linear-gradient(145deg, rgba(19,28,51,0.8), rgba(30,58,95,0.3)); border-radius: 12px; padding: 22px; border: 1px solid rgba(201,162,39,0.2); }
+    .phase-card .phase-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .phase-card .phase-range { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .phase-card .phase-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
+    .enrage-box { background: linear-gradient(135deg, rgba(30,58,95,0.25), rgba(201,162,39,0.08)); border: 1px solid rgba(244,114,182,0.35); border-radius: 12px; padding: 20px 24px; margin-top: 20px; }
+    .enrage-box-title { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--heroic); text-transform: uppercase; margin-bottom: 10px; }
+    .sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(12,18,34,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,162,39,0.2); padding: 10px 32px; display: flex; gap: 24px; align-items: center; overflow-x: auto; }
+    .sticky-nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .sticky-nav a:hover { color: var(--amber); }
+    .sticky-nav-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 13px; font-weight: 700; margin-right: 8px; }
+    .breadcrumb { font-size: 12px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid rgba(201,162,39,0.15); }
+    .breadcrumb .container { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb [aria-current="page"] { color: var(--text); font-weight: 600; }
+    .role-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .role-card { background: rgba(19,28,51,0.6); border: 1px solid rgba(201,162,39,0.2); border-radius: 10px; padding: 16px; }
+    .role-card-title { font-weight: 700; color: var(--amber); margin-bottom: 10px; font-size: 0.95rem; }
+    .role-card ul { margin: 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .skip-link { position: absolute; top: -80px; left: 12px; padding: 10px 18px; background: var(--dragon); color: var(--amber); text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; z-index: 1001; transition: top 0.2s; border: 1px solid var(--gold); }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .divider { height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--twilight), var(--gold), transparent); margin: 0; opacity: 0.5; }
+    @media print {
+      .skip-link, .sticky-nav, .tag-legend, .divider, .breadcrumb { display: none !important; }
+      .hero { min-height: auto; padding: 1.5rem 0; background: #0c1222 !important; }
+      body { background: #0c1222 !important; }
+      .section { padding: 2rem 0; break-inside: avoid; }
+      a { color: #e8c547; }
+    }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9812; Dragon Soul &#183; Tier 13</div>
+    <h1>Morchok</h1>
+    <p class="hero-tagline">Normal &amp; Heroic Boss Guide &#183; 10 &amp; 25 Player</p>
+    <div class="tag-legend">
+      <span class="tag tag-n">[N] Normal Only</span>
+      <span class="tag tag-h">[H] Heroic Only</span>
+      <span class="tag tag-b">[N/H] Both Modes</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav" aria-label="Boss guide navigation">
+  <span class="sticky-nav-logo">&#9812; MORCHOK</span>
+  <a href="../index.html">All bosses</a>
+  <a href="#overview">Overview</a>
+  <a href="#health">Health &amp; Timers</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#heroic">Heroic</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<main id="main-content" aria-label="Guide content">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="../../index.html">All raids</a> &#8250; <a href="../index.html">Dragon Soul</a> &#8250; <span aria-current="page">Morchok</span>
+  </div>
+</nav>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Overview</h2>
+    </div>
+    <p style="color:var(--muted); margin-bottom:22px;">
+      <strong style="color:#fff;">Morchok</strong> is a massive stone giant and the <strong style="color:#fff;">first boss</strong> of Dragon Soul. The fight alternates between a <strong style="color:#fff;">normal phase</strong> and a <strong style="color:#fff;">Black Blood phase</strong>. In normal: <strong>Stomp</strong> deals heavy Physical damage â€” the raid must <strong>stack near the boss</strong> (within ~25 yards) so damage is spread; the <strong>two closest</strong> players (tanks) take <strong>double</strong> Stomp damage. <span class="mech-badge">Resonating Crystal</span> spawns periodically: <strong>three players</strong> run to the crystal and stand there until it explodes (90k Shadow split among them); the beam turns <strong>blue</strong> when close enough. Tank swap <span class="mech-badge">Crush Armor</span>. After <strong>two</strong> crystals explode, Morchok enters Black Blood: he pulls the raid, stuns, drops <strong>earth spikes</strong> (Earth's Vengeance); run behind a spike and avoid the black blood, then wait for his Stomp before running back in. At <strong>20%</strong> he enrages. <span class="pill-h">[H]</span> At <strong>90%</strong> he splits into <strong>two</strong> bosses (Morchok + Kohcrom); split the raid and handle each separately.
+    </p>
+    <div class="callout danger">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Stomp</strong> <span class="pill-b">[N/H]</span><br/>
+        Everyone must be <strong>close to the boss</strong> (within 25 yards) so Stomp damage is spread. The <strong>two closest</strong> (tanks) take double damage â€” that's intentional. Do <strong>not</strong> hide behind the crystal for Stomp; the crystal is for a separate soak (see Resonating Crystal).
+      </div>
+    </div>
+    <div class="phase-cards">
+      <div class="phase-card">
+        <div class="phase-label">Normal rotation</div>
+        <div class="phase-range">Stomp â†’ Crystal â†’ Stomp â†’ Crystal â†’ Black Blood</div>
+        <div class="phase-desc">Stack on boss for Stomp. Three players soak each Resonating Crystal (run to it; beam turns blue when close). After 2 crystals, Black Blood phase: hide behind spikes, avoid blood, wait for Stomp then run back in.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">20%</div>
+        <div class="phase-range">Enrage</div>
+        <div class="phase-desc">Morchok deals significantly more damage. Save major cooldowns for this phase.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEALTH & TIMERS ===== -->
+<section class="section" id="health">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Health &amp; Timers</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th><span class="pill-n">[N]</span> 10-Man</th>
+          <th><span class="pill-n">[N]</span> 25-Man</th>
+          <th><span class="pill-h">[H]</span> 10-Man</th>
+          <th><span class="pill-h">[H]</span> 25-Man</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Morchok</strong></td>
+          <td class="hp-num">31.2M</td>
+          <td class="hp-num">97.8M</td>
+          <td class="hp-num">46.8M</td>
+          <td class="hp-num">146.7M</td>
+        </tr>
+        <tr>
+          <td><strong>Resonating Crystal</strong></td>
+          <td class="hp-num" colspan="2">N/A (object)</td>
+          <td class="hp-num" colspan="2">N/A (object)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="enrage-box">
+      <div class="enrage-box-title">&#9888; Enrage &amp; Timers</div>
+      <ul class="guide-list">
+        <li><strong>7-minute hard enrage.</strong> Morchok gains <span class="mech-badge">Fury</span> â€” wipe if he reaches it.</li>
+        <li><strong>20% HP:</strong> Soft enrage â€” he deals much more damage. Save cooldowns for this.</li>
+        <li>Pattern: <strong>Stomp â†’ Summon Crystal â†’ Stomp â†’ Crystal explodes (3 soak) â†’ new Crystal â†’ Stomp â†’ Crystal explodes â†’ Black Blood phase â†’ Stomp â†’ repeat.</strong></li>
+        <li>Crush Armor: ~10% armor reduction per stack. Tank swap when debuff fades or at ~4 stacks.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PHASE 1 ===== -->
+<section class="section" id="phase1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Phase 1 â€” Full Fight Mechanics</h2>
+    </div>
+
+    <h3>Stomp <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li><span class="mech-badge">Stomp</span> deals heavy Physical damage. Damage is <strong>split among all players within 25 yards</strong> of Morchok.</li>
+      <li><strong>Everyone must stack close to the boss</strong> (within 25 yards) so the damage is shared. The <strong>two closest</strong> players (the tanks) take <strong>double</strong> the per-player share â€” that is intentional; keep tanks closest.</li>
+      <li>If the raid is spread, Stomp can one-shot. Always regroup on the boss for each Stomp.</li>
+    </ul>
+
+    <h3>Resonating Crystal <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Morchok summons a <span class="mech-badge">Resonating Crystal</span> roughly 35â€“40 yards away. After ~12 seconds it <strong>explodes</strong>, dealing ~90,000 Shadow damage <strong>split among the three closest players</strong>.</li>
+      <li><strong>Assign three players</strong> to run to the crystal and stand there until it explodes. The beam linking player to crystal turns <strong>blue</strong> when the player is close enough.</li>
+      <li>Keep the crystal <strong>close enough to the boss</strong> so the rest of the raid can still be in 25 yards of Morchok for Stomp (tank may need to position boss near the crystal so melee are in range for both).</li>
+    </ul>
+
+    <h3>Crush Armor <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>Morchok applies <span class="mech-badge">Crush Armor</span> to the current tank: stacking debuff <strong>âˆ’10% armor per stack</strong> (up to 10 stacks, ~20s duration).</li>
+      <li><strong>Tank swap</strong> when the debuff fades off the other tank, or around 4 stacks. Off-tank taunts; main tank steps out to drop stacks.</li>
+    </ul>
+
+    <h3>Black Blood Phase (after 2 crystals) <span class="pill-b">[N/H]</span></h3>
+    <ul class="guide-list">
+      <li>After the <strong>second</strong> Resonating Crystal explodes, Morchok uses <strong>The Earth Consumes You!</strong>: pulls all players to him, 5% max HP as Physical damage per second for 5 seconds, and summons <span class="mech-badge">Earth's Vengeance</span> â€” shards erupt from the ground (15k Physical to anyone within 2 yards) and leave behind <strong>obstacles (spikes)</strong>.</li>
+      <li>When the stun wears off, <strong>run to a spike and hide behind it</strong>. <span class="mech-badge">Black Blood of the Earth</span> erupts outward â€” 5,000 Nature damage per second and +100% Nature damage taken per second while standing in the blood (stacks to 20). Stay out of the blood.</li>
+      <li>When he finishes channeling the blood, he will <strong>immediately Stomp</strong>. Do <strong>not</strong> run back to the boss until after that Stomp or you will die. Then hug the boss again and repeat the normal rotation.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== HEROIC ===== -->
+<section class="section" id="heroic">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Heroic-Only Mechanics <span class="pill-h">[H]</span></h2>
+    </div>
+    <div style="background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.3); border-radius:14px; padding:22px; margin-bottom:20px;">
+      <div style="font-weight:700; color:var(--heroic); font-size:1rem; margin-bottom:12px;">&#128301; Kohcrom â€” Two Bosses</div>
+      <ul class="guide-list">
+        <li>At <strong>90%</strong> health, Morchok <strong>splits into two bosses</strong>: Morchok and <strong>Kohcrom</strong>. Kohcrom casts the same abilities as Morchok but a few seconds later.</li>
+        <li><strong>Split the raid</strong> â€” typically two 5-man teams (10-man) or two ~12â€“13 (25-man), one per boss. Each side needs a tank, heals, and DPS. Separate the bosses (clear trash on the sides of the lane if needed for space).</li>
+        <li><strong>First Resonating Crystal</strong> belongs to the Morchok team. The Kohcrom tank drags Kohcrom <strong>out of range</strong> of that crystal while the Morchok team soaks it.</li>
+        <li>On each side, <strong>one non-tank</strong> should stack on the tank to take the <strong>double Stomp damage</strong> (so it's predictable and one person soaks it with the tank). The other three players stack on the Resonating Crystal when it's their turn. Assign a player with good survivability for the double-Stomp soak.</li>
+        <li>The tank should <strong>run toward the Resonating Crystal</strong> when it spawns so melee are in range of both the boss and the crystal.</li>
+        <li>Use the <strong>Black Blood phase</strong> to retreat to the center and reset boss positions so the fight doesn't creep into adds.</li>
+      </ul>
+    </div>
+    <div class="callout warn">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Heroic tip:</strong> Crush Armor still applies per boss â€” each tank swaps with their off-tank or when debuff fades. Some groups use 3 or 4 healers for safety.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== STRATEGY ===== -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Strategy Summary</h2>
+    </div>
+    <h3>Role Assignments <span class="pill-b">[N/H]</span></h3>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-card-title">&#128737; Tanks</div>
+        <ul>
+          <li>Be the <strong>two closest</strong> to boss for Stomp (you take double share)</li>
+          <li>Swap <strong>Crush Armor</strong> when debuff fades or ~4 stacks</li>
+          <li><span class="pill-h">[H]</span> One tank per boss; drag your boss to crystal when it's your team's turn</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#9876; DPS / Soaks</div>
+        <ul>
+          <li><strong>Stack on boss</strong> (within 25y) for every Stomp</li>
+          <li>Assigned <strong>3</strong> run to each Resonating Crystal; beam turns blue when close</li>
+          <li>Black Blood: hide behind spike, avoid blood, don't run in until after his Stomp</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <div class="role-card-title">&#128137; Healers</div>
+        <ul>
+          <li>Heal through shared Stomp and Crystal soak damage</li>
+          <li>Crush Armor tank damage; save CDs for 20% enrage</li>
+          <li><span class="pill-h">[H]</span> Split heals between the two boss groups</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout tip" style="margin-top:24px;">
+      <span class="callout-icon">&#9888;</span>
+      <div class="callout-text">
+        <strong>Lust / Heroism:</strong> Save for the <strong>20% enrage</strong> phase when damage spikes, or use early if your DPS is comfortable. Black Blood phase is a good time to regroup.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== QUICK REF ===== -->
+<section class="section" id="quickref">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">&#9812;</div>
+      <h2>Quick Reference</h2>
+    </div>
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>Mechanic</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Stomp</strong></td><td>Stack within 25y of boss; damage split. Tanks (closest) take double.</td></tr>
+        <tr><td><strong>Resonating Crystal</strong></td><td>3 players run to crystal; soak explosion (beam turns blue when close).</td></tr>
+        <tr><td><strong>Crush Armor</strong></td><td>Tank swap when debuff fades or ~4 stacks.</td></tr>
+        <tr><td><strong>Black Blood phase</strong></td><td>After 2 crystals: pull, stun, spikes. Hide behind spike, avoid blood; wait for Stomp before running back in.</td></tr>
+        <tr><td><strong>Heroic: Kohcrom</strong> <span class="pill-h">[H]</span></td><td>At 90%, two bosses. Split raid; first crystal = Morchok side. One non-tank soaks double Stomp per side.</td></tr>
+        <tr><td><strong>Enrage</strong></td><td>7 min hard enrage; 20% = soft enrage (save CDs).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#9812; <strong>Dragon Soul â€” Morchok</strong> Â· Boss Guide Â· Normal &amp; Heroic Â· 10 &amp; 25 Player</p>
+    <p style="margin-top:6px;"><a href="../index.html">&#8592; Back to Dragon Soul index</a> &nbsp;|&nbsp; <a href="../Warlord Zonozz/DS-Zonozz-Guide.html">Warlord Zon'ozz &#8594;</a> &nbsp;|&nbsp; <a href="../../index.html">All raids</a></p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px; font-size:12px;">All mechanics tagged [N] / [H]. Timing windows are approximate and may vary by server.</p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

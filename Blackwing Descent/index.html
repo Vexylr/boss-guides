@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackwing Descent â€” Boss Guides</title>
+  <meta name="description" content="Blackwing Descent raid boss guides. Normal & Heroic for all 6 bosses. Tier 11." />
+  <meta name="theme-color" content="#1a0a0a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231a0a0a'/><path fill='%23dc2626' d='M16 6L8 14h6v8h4v-8h6z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ember: #ea580c;
+      --flame: #dc2626;
+      --metal: #78716c;
+      --void: #1a0a0a;
+      --ash: #292524;
+      --text: #fef3c7;
+      --muted: #a8a29e;
+      --gold: #fbbf24;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;} html{scroll-behavior:smooth;}
+    body{
+      background-color:var(--void);
+      color:var(--text);
+      font-family:'Exo 2',sans-serif;
+      font-size:16px;
+      line-height:1.7;
+      background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(220,38,38,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(234,88,12,0.06) 0%, transparent 50%);
+    }
+    .hero{
+      min-height:280px;
+      display:flex;
+      align-items:flex-end;
+      border-bottom:3px solid var(--flame);
+      background:linear-gradient(135deg, rgba(220,38,38,0.15) 0%, var(--void) 50%, rgba(234,88,12,0.08) 100%);
+    }
+    .hero-content{padding:48px 60px;max-width:900px;}
+    .hero-eyebrow{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:4px;color:var(--ember);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(2.2rem,5vw,3.5rem);
+      font-weight:700;
+      background:linear-gradient(135deg, #fef3c7 0%, var(--ember) 50%, var(--flame) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      margin-bottom:12px;
+    }
+    .hero-tagline{font-size:1rem;color:var(--muted);letter-spacing:1px;}
+    .container{max-width:900px;margin:0 auto;padding:0 32px;}
+    .section{padding:48px 0 56px;}
+    .section h2{
+      font-family:'Orbitron',sans-serif;
+      font-size:1.25rem;
+      font-weight:700;
+      color:var(--gold);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:24px;
+      padding-bottom:12px;
+      border-bottom:1px solid rgba(220,38,38,0.25);
+    }
+    .boss-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:16px;}
+    .boss-card{
+      display:block;
+      background:linear-gradient(135deg, rgba(41,37,36,0.9), rgba(55,48,44,0.7));
+      border:1px solid rgba(220,38,38,0.25);
+      border-radius:14px;
+      padding:20px 24px;
+      text-decoration:none;
+      color:var(--text);
+      transition:border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .boss-card:hover{
+      border-color:rgba(234,88,12,0.5);
+      box-shadow:0 8px 32px rgba(220,38,38,0.15);
+      transform:translateY(-2px);
+    }
+    .boss-card h3{font-family:'Orbitron',sans-serif;font-size:1.05rem;font-weight:700;color:var(--ember);margin-bottom:6px;}
+    .boss-card p{font-size:0.85rem;color:var(--muted);margin:0;line-height:1.5;}
+    .boss-card .arrow{color:var(--flame);font-size:12px;margin-top:10px;display:inline-block;}
+    a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+    .guide-footer{text-align:center;padding:40px 24px 32px;color:var(--muted);font-size:12px;border-top:1px solid rgba(220,38,38,0.2);background:rgba(26,10,10,0.6);}
+    .guide-footer .copyright-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+    .guide-footer .discord-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--ember);}
+    .guide-footer .discord-name{font-weight:700;color:var(--ember);}
+    .skip-link{position:absolute;top:-80px;left:12px;padding:10px 18px;background:var(--flame);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;font-size:14px;z-index:1001;}
+    .skip-link:focus{top:12px;}
+    @media (max-width:768px){.hero-content{padding:32px 24px;}.container{padding:0 16px;}.boss-grid{grid-template-columns:1fr;}}
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#boss-guides">Skip to boss list</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#9889; Tier 11 Raid</div>
+    <h1>Blackwing Descent</h1>
+    <div class="hero-tagline">Boss guides &#183; Normal &amp; Heroic &#183; 10 &amp; 25 Player</div>
+    <p style="margin-top:14px; font-size:13px;"><a href="../index.html" style="color:var(--flame); text-decoration:none;">&#8592; Back to all raids</a></p>
+  </div>
+</div>
+
+<main id="boss-guides" aria-label="Boss list">
+<section class="section">
+  <div class="container">
+    <h2>Boss guides (encounter order)</h2>
+    <div class="boss-grid">
+      <a class="boss-card" href="Magmaw/BWD-Magmaw-Guide.html">
+        <h3>1. Magmaw</h3>
+        <p>Lava worm. Pillar of Flame, Lava Parasites, Mangle + chain to pillar for Exposed Head. Blazing Bone Construct [H].</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Omnotron Defense System/BWD-Omnotron-Guide.html">
+        <h3>2. Omnotron Defense System</h3>
+        <p>Four golems, shared HP. Arcanotron, Electron, Magmatron, Toxitron â€” rotate at 50 energy. Target priority &amp; shields.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Maloriak/BWD-Maloriak-Guide.html">
+        <h3>3. Maloriak</h3>
+        <p>Vials: red/blue/green. Aberrations, Flash Freeze, Scorching Blast. Burn phase when all vials used.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Atramedes/BWD-Atramedes-Guide.html">
+        <h3>4. Atramedes</h3>
+        <p>Sound meter to 100 = death. Use Ancient Dwarven Shields to stun and reset. Avoid Sonar Pulse, Roaring Flame.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Chimaeron/BWD-Chimaeron-Guide.html">
+        <h3>5. Chimaeron</h3>
+        <p>Two heads. Feud phase: split for Massacre. Tank swap, Low HP / Finkle's mixture. Double Attack.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Nefarian/BWD-Nefarian-Guide.html">
+        <h3>6. Nefarian</h3>
+        <p>Final boss. Onyxia-style phases, Shadowflame Barrage, Electrocute, adds. Phase 3 burn.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p><strong>Blackwing Descent</strong> &#183; All bosses &#183; Normal &amp; Heroic &#183; Tier 11</p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--ember); text-decoration:none;">&#8592; Back to all raids</a></p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+

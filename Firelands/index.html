@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firelands &#8212; Boss Guides</title>
+  <meta name="description" content="Firelands raid boss guides. Normal & Heroic for all 7 bosses. Tier 12." />
+  <meta name="theme-color" content="#1a1012" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231a1012'/><path fill='%23ff6a00' d='M16 6c-2 4-4 8-4 12 0 4 2 6 4 6s4-2 4-6c0-4-2-8-4-12z'/><path fill='%23ff9a3c' d='M16 10c1 3 2 6 2 8 0 2-1 4-2 4s-2-2-2-4c0-2 1-5 2-8z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --fire: #ff6a00; --ember: #ff9a3c; --gold: #ffd166; --lava: #c0392b; --obsidian: #1a1012; --text: #f0ddc5; --muted: #a08070; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--obsidian);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(255,106,0,0.10) 0%, transparent 55%);
+    }
+    .hero {
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      border-bottom: 3px solid var(--fire);
+      background: linear-gradient(135deg, rgba(192,57,43,0.25) 0%, var(--obsidian) 40%, rgba(255,106,0,0.15) 100%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--obsidian) 0%, rgba(26,16,18,0.7) 50%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 2; padding: 48px 60px; max-width: 900px; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 4px; color: var(--ember); text-transform: uppercase; margin-bottom: 12px; }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff7e6 0%, var(--ember) 50%, var(--lava) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .hero-tagline { font-size: 1rem; color: var(--muted); letter-spacing: 1px; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 48px 0 56px; }
+    .section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,106,0,0.25);
+    }
+    .boss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .boss-card {
+      display: block;
+      background: linear-gradient(135deg, rgba(44,31,32,0.9), rgba(60,40,40,0.7));
+      border: 1px solid rgba(255,106,0,0.2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .boss-card:hover {
+      border-color: rgba(255,106,0,0.5);
+      box-shadow: 0 8px 32px rgba(255,106,0,0.15);
+      transform: translateY(-2px);
+    }
+    .boss-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ember);
+      margin-bottom: 6px;
+    }
+    .boss-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .boss-card .arrow { color: var(--fire); font-size: 12px; margin-top: 10px; display: inline-block; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .guide-footer { text-align: center; padding: 40px 24px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid rgba(255,106,0,0.15); }
+    .guide-footer .copyright-block { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+    .guide-footer .discord-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ember); }
+    .guide-footer .discord-name { font-weight: 700; color: var(--ember); }
+    @media (max-width: 768px) { .hero-content { padding: 32px 24px; } .container { padding: 0 16px; } .boss-grid { grid-template-columns: 1fr; } }
+    .skip-link { position: absolute; top: -80px; left: 12px; padding: 10px 18px; background: var(--fire); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; z-index: 1001; transition: top 0.2s; }
+    .skip-link:focus { top: 12px; outline: 2px solid var(--gold); outline-offset: 2px; }
+    @media print {
+      .skip-link { display: none !important; }
+      .hero { min-height: auto; padding: 1.5rem 0; background: #1a1012 !important; }
+      body { background: #1a1012 !important; }
+      .boss-card { break-inside: avoid; }
+      a { color: #ff9a3c; }
+    }
+  </style>
+  <meta name="copyright-hidden" content="Copyright (c) Boss guides. All rights reserved. Contact: Hollow (karma2234)." />
+</head>
+<body>
+<a class="skip-link" href="#boss-guides">Skip to boss list</a>
+
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">&#128293; Tier 12 Raid</div>
+    <h1>Firelands</h1>
+    <div class="hero-tagline">Boss guides &#183; Normal &amp; Heroic &#183; 10 &amp; 25 Player</div>
+    <p style="margin-top:14px; font-size:13px;"><a href="../index.html" style="color:var(--ember); text-decoration:none;">&#8592; Back to all raids</a> &nbsp;Â·&nbsp; <a href="quickref.html" style="color:var(--ember); text-decoration:none;">&#128196; Quick reference (cheat sheet)</a></p>
+  </div>
+</div>
+
+<main id="boss-guides" aria-label="Boss list">
+<section class="section">
+  <div class="container">
+    <h2>Boss guides (encounter order)</h2>
+    <div class="boss-grid">
+      <a class="boss-card" href="Beth'tilac/Firelands-Bethtilac-Guide.html">
+        <h3>1. Beth'tilac</h3>
+        <p>10m: max 4 upstairs. Web/Ground, Smoldering jump. [H] Broodlings + cocoon taunts; P2 healing debuff cleave.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Lord Rhyolith/Firelands-Lord-Rhyolith-Guide.html">
+        <h3>2. Lord Rhyolith</h3>
+        <p>Steer via feet on volcanoes (community tuning varies). Phase 2 burn. Spark, Fragments, Liquid Obsidian [H].</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Alysrazor/Firelands-Alysrazor-Guide.html">
+        <h3>3. Alysrazor</h3>
+        <p>Closest at hatch = imprint (tank). 3 feathers to fly; two worm waves. [H] Firestorm LOS behind meteor rock.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Shannox/Firelands-Shannox-Guide.html">
+        <h3>4. Shannox</h3>
+        <p>[N] Dogs before boss 30%. [H] Trap dogs, 40k Face Rage crits, Immolation on both modes. Spear/traps.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Baleroc/Firelands-Baleroc-Guide.html">
+        <h3>5. Baleroc</h3>
+        <p>Shard soaks + Vital Spark. Solo-tank Inferno/Decimation cadence. 6 min enrage. [H] Countdown.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Majordomo Staghelm/Firelands-Majordomo-Staghelm-Guide.html">
+        <h3>6. Majordomo Staghelm</h3>
+        <p>Cat/Scorpion/Human. Scorpion: whole raid soaks Scythe. Seeds 3s run-out; orb soakers. [H] Concentration trio behind boss.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+      <a class="boss-card" href="Ragnaros/Firelands-Ragnaros-Guide.html">
+        <h3>7. Ragnaros</h3>
+        <p>Smash, traps, Wrath, Sons. [H] Lava Waves + legs/platform phase at ~10% + 50% re-burn.</p>
+        <span class="arrow">View guide &#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="guide-footer">
+  <div class="container">
+    <p>&#128293; <strong>Firelands</strong> &#183; All bosses &#183; Normal &amp; Heroic &#183; 10 &amp; 25 Player</p>
+    <div class="copyright-block" role="contentinfo">
+      <img src="../assets/discord-hollow.png" alt="Discord profile: Hollow" class="discord-img" />
+      <div>
+        <p class="discord-name">Hollow</p>
+        <p>karma2234</p>
+        <p style="font-size:11px; margin-top:4px;">Contact via Discord</p>
+      </div>
+    </div>
+    <p style="margin-top:12px;">&copy; Boss guides. All rights reserved.</p>
+    <p style="margin-top:8px;"><a href="../index.html" style="color:var(--ember); text-decoration:none;">&#8592; Back to all raids</a></p>
+  </div>
+</footer>
+
+  <div id="copyright-hidden-marker" style="display:none !important; visibility:hidden !important;" aria-hidden="true">Copyright (c) Boss guides. All rights reserved. Hollow (karma2234).</div>
+</body>
+</html>
+
