@@ -41,7 +41,7 @@ There's also a **Firelands quick reference** one-pager if you want everything on
 |------|--------|
 | [`index.html`](index.html) | Main hub: all raids |
 | [`assets/`](assets/) | Shared stylesheet (`cataclysm-guides.css`), images, [`guide-standards.txt`](assets/guide-standards.txt) (editor notes: sources + QA checklist) |
-| [`scripts/`](scripts/) | Small Python helpers used when wiring theme or fixing bulk text—optional if you're only reading |
+| `scripts/` (local only) | Optional Python helpers for bulk edits; **not in the repo**—ignored by git so clones stay site-only |
 | [`Bastion of Twilight/`](Bastion%20of%20Twilight/) | 5 boss HTML guides + raid index |
 | [`Blackwing Descent/`](Blackwing%20Descent/) | 6 bosses + index |
 | [`Throne of the Four Winds/`](Throne%20of%20the%20Four%20Winds/) | 2 bosses + index |
