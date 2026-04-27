@@ -11,7 +11,10 @@ body.guide-page {
   --font-display: "Cinzel", "Palatino Linotype", "Book Antiqua", Palatino, serif;
   --font-body: "Cormorant Garamond", "Palatino Linotype", Georgia, "Times New Roman", serif;
   --guide-text: #f4f4f5;
-  --guide-muted: #b4b4bc;
+  /* Chrome (nav, crumbs, footer): readable but softer than body copy */
+  --guide-muted: #c8c8d3;
+  /* Card blurbs, phase intros, role lists — feedback: slightly brighter than old muted */
+  --guide-description: #e6e6ef;
   --guide-surface: rgba(24, 24, 32, 0.92);
   --guide-border: rgba(255, 255, 255, 0.12);
   --guide-accent: #e8c547;
@@ -61,13 +64,32 @@ body.guide-page th {
   font-family: var(--font-body), Georgia, serif !important;
 }
 
-body.guide-page .hero-tagline,
+/* UI chrome: slightly softer than main prose */
 body.guide-page .breadcrumb,
 body.guide-page .guide-footer,
+body.guide-page .footer,
+body.guide-page .sticky-nav a {
+  color: var(--guide-muted) !important;
+}
+
+/* Secondary prose: taglines, disclaimers, inline muted paragraphs */
+body.guide-page .hero-tagline,
 body.guide-page .muted,
 body.guide-page [style*="color:var(--muted)"],
 body.guide-page [style*="color: var(--muted)"] {
-  color: var(--guide-muted) !important;
+  color: var(--guide-description) !important;
+}
+
+/* Descriptions: phase text, index cards, role bullets (inline styles still use --guide-muted above) */
+body.guide-page .phase-desc,
+body.guide-page .phase-card .phase-desc,
+body.guide-page .boss-card p,
+body.guide-page .raid-card p,
+body.guide-page .role-card ul,
+body.guide-page .role-card ul li,
+body.guide-page .role-card p,
+body.guide-page .hero p {
+  color: var(--guide-description) !important;
 }
 
 /* ----- Per-raid accent (set data-raid on body) ----- */
