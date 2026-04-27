@@ -23,6 +23,16 @@ CONTENT TEMPLATE (each *Guide.html)
 
 Preserve existing section IDs used by sticky nav (#overview, #phases, #heroic, etc.) unless intentionally migrating anchors.
 
+SPELL COMPANION PAGES (*-Spells.html)
+--------------------------------------
+Each *Guide.html may pair with a same-folder companion: replace the "-Guide" suffix with "-Spells" (e.g. BoT-Valiona-Theralion-Spells.html next to BoT-Valiona-Theralion-Guide.html).
+
+- Boss guides: every distinct mech-badge label becomes a same-styled link to the companion file plus hash anchor, with the same visible text. Anchors are lowercase slugs: letters, digits, hyphens; apostrophes stripped (Finkle's mixture becomes finkles-mixture).
+- Spell page: one spell-block article per ability with a short curated summary (paraphrase from Dungeon Journal / Wowhead Cata — do not paste full tooltips). Optional Wowhead link: https://www.wowhead.com/cata/spell={id}
+- Editor metadata (optional wowheadSpellId + custom blurb): assets/spell-manifest.json keyed as "{posix path to *Guide.html}|{anchor}" e.g. "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|blackout"
+- Generated index of companions: assets/spell-pages-manifest.json (regenerate with: python tools/generate_spell_companions.py)
+- Bosses with no mech-badge markup get a minimal spell page stub only; no "Spells" sticky link until badges exist.
+
 QA RUBRIC (before marking a guide done)
 ---------------------------------------
 [ ] Capitalized mechanics match journal / Wowhead Cata or are labeled colloquial.
@@ -33,3 +43,4 @@ QA RUBRIC (before marking a guide done)
 [ ] Quick ref matches overview and phases.
 [ ] Nav anchors and prev/next links still valid.
 [ ] After UI rollout: contrast readable on tables/callouts; prefers-reduced-motion respected; :focus-visible visible.
+[ ] mech-badge links resolve to *-Spells.html#anchor; spell page blurbs match journal/Wowhead Cata for that encounter.

@@ -261,6 +261,96 @@ body.guide-page .phase-card .phase-range {
   color: var(--guide-text) !important;
 }
 
+/* ----- mech-badge as link (same look as span; opens spell companion or external) ----- */
+body.guide-page a.mech-badge {
+  text-decoration: none !important;
+  cursor: pointer;
+  color: inherit !important;
+}
+body.guide-page a.mech-badge:hover {
+  text-decoration: underline !important;
+  filter: brightness(1.08);
+}
+
+/* ----- Spell companion pages (*-Spells.html) ----- */
+body.guide-page .spell-toc {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--guide-border);
+  background: var(--guide-surface);
+}
+body.guide-page .spell-toc h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem !important;
+}
+body.guide-page .spell-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 2rem;
+}
+body.guide-page .spell-toc li {
+  break-inside: avoid;
+  margin: 0.35rem 0;
+}
+body.guide-page .spell-toc a {
+  color: var(--guide-accent) !important;
+  text-decoration: none;
+}
+body.guide-page .spell-toc a:hover {
+  text-decoration: underline;
+}
+body.guide-page .spell-block {
+  scroll-margin-top: 88px;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--guide-border);
+}
+body.guide-page .spell-block:last-of-type {
+  border-bottom: none;
+}
+body.guide-page .spell-block h2 {
+  font-size: 1.35rem !important;
+  margin-bottom: 0.75rem;
+}
+body.guide-page .spell-block .spell-summary {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+body.guide-page .spell-block .spell-ref {
+  font-size: 0.92rem;
+  margin: 0;
+}
+body.guide-page .spell-block .spell-ref a {
+  color: var(--guide-accent) !important;
+  text-decoration: none;
+}
+body.guide-page .spell-block .spell-ref a:hover {
+  text-decoration: underline;
+}
+body.guide-page .spell-disclaimer {
+  font-size: 0.9rem;
+  color: var(--guide-description) !important;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--guide-border);
+}
+
+@media (max-width: 640px) {
+  body.guide-page .spell-toc ul {
+    columns: 1;
+  }
+}
+
+/* Spell companion pages use <main class="container section"> without per-guide CSS */
+body.guide-page main.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 32px 3rem;
+  box-sizing: border-box;
+}
+
 /* ----- Cards (hub + indices) ----- */
 body.guide-page a.raid-card,
 body.guide-page a.boss-card {

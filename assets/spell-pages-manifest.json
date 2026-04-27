@@ -1,0 +1,144 @@
+{
+  "generated": [
+    {
+      "guide": "Bastion of Twilight/Ascendant Council/BoT-Ascendant-Council-Guide.html",
+      "companion": "Bastion of Twilight/Ascendant Council/BoT-Ascendant-Council-Spells.html",
+      "abilityCount": 28
+    },
+    {
+      "guide": "Bastion of Twilight/Chogall/BoT-Chogall-Guide.html",
+      "companion": "Bastion of Twilight/Chogall/BoT-Chogall-Spells.html",
+      "abilityCount": 19
+    },
+    {
+      "guide": "Bastion of Twilight/Halfus Wyrmbreaker/BoT-Halfus-Wyrmbreaker-Guide.html",
+      "companion": "Bastion of Twilight/Halfus Wyrmbreaker/BoT-Halfus-Wyrmbreaker-Spells.html",
+      "abilityCount": 12
+    },
+    {
+      "guide": "Bastion of Twilight/Sinestra/BoT-Sinestra-Guide.html",
+      "companion": "Bastion of Twilight/Sinestra/BoT-Sinestra-Spells.html",
+      "abilityCount": 17
+    },
+    {
+      "guide": "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html",
+      "companion": "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Spells.html",
+      "abilityCount": 10
+    },
+    {
+      "guide": "Blackwing Descent/Atramedes/BWD-Atramedes-Guide.html",
+      "companion": "Blackwing Descent/Atramedes/BWD-Atramedes-Spells.html",
+      "abilityCount": 10
+    },
+    {
+      "guide": "Blackwing Descent/Chimaeron/BWD-Chimaeron-Guide.html",
+      "companion": "Blackwing Descent/Chimaeron/BWD-Chimaeron-Spells.html",
+      "abilityCount": 4
+    },
+    {
+      "guide": "Blackwing Descent/Magmaw/BWD-Magmaw-Guide.html",
+      "companion": "Blackwing Descent/Magmaw/BWD-Magmaw-Spells.html",
+      "abilityCount": 15
+    },
+    {
+      "guide": "Blackwing Descent/Maloriak/BWD-Maloriak-Guide.html",
+      "companion": "Blackwing Descent/Maloriak/BWD-Maloriak-Spells.html",
+      "abilityCount": 19
+    },
+    {
+      "guide": "Blackwing Descent/Nefarian/BWD-Nefarian-Guide.html",
+      "companion": "Blackwing Descent/Nefarian/BWD-Nefarian-Spells.html",
+      "abilityCount": 14
+    },
+    {
+      "guide": "Blackwing Descent/Omnotron Defense System/BWD-Omnotron-Guide.html",
+      "companion": "Blackwing Descent/Omnotron Defense System/BWD-Omnotron-Spells.html",
+      "abilityCount": 15
+    },
+    {
+      "guide": "Dragon Soul/Hagara the Stormbinder/DS-Hagara-Guide.html",
+      "companion": "Dragon Soul/Hagara the Stormbinder/DS-Hagara-Spells.html",
+      "abilityCount": 6
+    },
+    {
+      "guide": "Dragon Soul/Madness of Deathwing/DS-Madness-Guide.html",
+      "companion": "Dragon Soul/Madness of Deathwing/DS-Madness-Spells.html",
+      "abilityCount": 3
+    },
+    {
+      "guide": "Dragon Soul/Morchok/DS-Morchok-Guide.html",
+      "companion": "Dragon Soul/Morchok/DS-Morchok-Spells.html",
+      "abilityCount": 6
+    },
+    {
+      "guide": "Dragon Soul/Spine of Deathwing/DS-Spine-Guide.html",
+      "companion": "Dragon Soul/Spine of Deathwing/DS-Spine-Spells.html",
+      "abilityCount": 10
+    },
+    {
+      "guide": "Dragon Soul/Ultraxion/DS-Ultraxion-Guide.html",
+      "companion": "Dragon Soul/Ultraxion/DS-Ultraxion-Spells.html",
+      "abilityCount": 4
+    },
+    {
+      "guide": "Dragon Soul/Warlord Zonozz/DS-Zonozz-Guide.html",
+      "companion": "Dragon Soul/Warlord Zonozz/DS-Zonozz-Spells.html",
+      "abilityCount": 5
+    },
+    {
+      "guide": "Dragon Soul/Warmaster Blackhorn/DS-Blackhorn-Guide.html",
+      "companion": "Dragon Soul/Warmaster Blackhorn/DS-Blackhorn-Spells.html",
+      "abilityCount": 2
+    },
+    {
+      "guide": "Dragon Soul/Yorsaj the Unsleeping/DS-Yorsaj-Guide.html",
+      "companion": "Dragon Soul/Yorsaj the Unsleeping/DS-Yorsaj-Spells.html",
+      "abilityCount": 3
+    },
+    {
+      "guide": "Firelands/Alysrazor/Firelands-Alysrazor-Guide.html",
+      "companion": "Firelands/Alysrazor/Firelands-Alysrazor-Spells.html",
+      "abilityCount": 0
+    },
+    {
+      "guide": "Firelands/Baleroc/Firelands-Baleroc-Guide.html",
+      "companion": "Firelands/Baleroc/Firelands-Baleroc-Spells.html",
+      "abilityCount": 2
+    },
+    {
+      "guide": "Firelands/Beth'tilac/Firelands-Bethtilac-Guide.html",
+      "companion": "Firelands/Beth'tilac/Firelands-Bethtilac-Spells.html",
+      "abilityCount": 3
+    },
+    {
+      "guide": "Firelands/Lord Rhyolith/Firelands-Lord-Rhyolith-Guide.html",
+      "companion": "Firelands/Lord Rhyolith/Firelands-Lord-Rhyolith-Spells.html",
+      "abilityCount": 10
+    },
+    {
+      "guide": "Firelands/Majordomo Staghelm/Firelands-Majordomo-Staghelm-Guide.html",
+      "companion": "Firelands/Majordomo Staghelm/Firelands-Majordomo-Staghelm-Spells.html",
+      "abilityCount": 0
+    },
+    {
+      "guide": "Firelands/Ragnaros/Firelands-Ragnaros-Guide.html",
+      "companion": "Firelands/Ragnaros/Firelands-Ragnaros-Spells.html",
+      "abilityCount": 0
+    },
+    {
+      "guide": "Firelands/Shannox/Firelands-Shannox-Guide.html",
+      "companion": "Firelands/Shannox/Firelands-Shannox-Spells.html",
+      "abilityCount": 3
+    },
+    {
+      "guide": "Throne of the Four Winds/Al'Akir/ToT4W-Alakir-Guide.html",
+      "companion": "Throne of the Four Winds/Al'Akir/ToT4W-Alakir-Spells.html",
+      "abilityCount": 13
+    },
+    {
+      "guide": "Throne of the Four Winds/Conclave of Wind/ToT4W-Conclave-of-Wind-Guide.html",
+      "companion": "Throne of the Four Winds/Conclave of Wind/ToT4W-Conclave-of-Wind-Spells.html",
+      "abilityCount": 13
+    }
+  ]
+}

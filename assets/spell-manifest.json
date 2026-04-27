@@ -1,0 +1,44 @@
+{
+  "entries": {
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|blackout": {
+      "wowheadSpellId": 86788,
+      "blurb": "<strong>Blackout</strong> (Valiona, ground): hits a random player with a healing absorb. When it expires or is dispelled, it explodes for heavy Shadow damage <strong>split among everyone within a few yards</strong>. Stack the raid on the target (usually behind the boss), then dispel. Immunities (Cloak, Ice Block, etc.) can remove it safely alone."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|devouring-flames": {
+      "wowheadSpellId": 86840,
+      "blurb": "<strong>Devouring Flames</strong> (Valiona, ground): channeled ~180&deg; cone toward a random direction. Damage ticks every second and falls off with distance. If you are close, run <strong>through/behind</strong> Valiona; if you are ranged and she turns on you, sprint to <strong>maximum range</strong>."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|dazzling-destruction": {
+      "wowheadSpellId": 86408,
+      "blurb": "<strong>Dazzling Destruction</strong> (Theralion, air): purple swirls on the ground after a short cast. Standing in the impact sends you to the <strong>Twilight Realm</strong>. Avoid the zones; players already in Twilight die if hit."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|deep-breath": {
+      "wowheadSpellId": 86014,
+      "blurb": "<strong>Deep Breath</strong> (Valiona, air before landing): covers a large wedge of the room with Twilight flame. Getting hit ports you to the Twilight Realm (or kills if you were already there). Watch her facing and sidestep the breath."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|twilight-shift": {
+      "wowheadSpellId": 93057,
+      "blurb": "<strong>Twilight Shift</strong> [H]: stacking tank debuff from melee. At five stacks it triggers <strong>Shifting Reality</strong> on nearby players—keep the tank away from the raid unless you intentionally send people in."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|shifting-reality": {
+      "wowheadSpellId": 93055,
+      "blurb": "<strong>Shifting Reality</strong> [H]: detonation around the tank when Twilight Shift stacks expire; damages nearby allies and sends them to the Twilight Realm. Used to send a controlled group to kill Twilight Sentries."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|twilight-zone": {
+      "wowheadSpellId": 86628,
+      "blurb": "<strong>Twilight Zone</strong>: Shadow DoT that stacks while you are in the Twilight Realm (+Shadow damage taken per stack). Leave quickly via the portal; Rogues/Mages can clear stacks with Cloak or Ice Block."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|twilight-meteorite": {
+      "wowheadSpellId": 86013,
+      "blurb": "<strong>Twilight Meteorite</strong> (Valiona, air): marks a player; after a few seconds it deals split Shadow damage to the target and anyone stacked nearby. Run to melee (or a pre-planned clump) so the raid shares the hit."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|engulfing-magic": {
+      "wowheadSpellId": 86631,
+      "blurb": "<strong>Engulfing Magic</strong> (Theralion, ground): debuff that makes you pulse AoE damage to allies. Run <strong>more than ~10 yards</strong> from the raid until it expires."
+    },
+    "Bastion of Twilight/Valiona and Theralion/BoT-Valiona-Theralion-Guide.html|fabulous-flames": {
+      "wowheadSpellId": 86506,
+      "blurb": "<strong>Fabulous Flames</strong> (Theralion, ground): large fire pool on a random ranged spot. Move as a group to stack pools and save space. Standing in fire too long pulls you to the Twilight Realm."
+    }
+  }
+}
